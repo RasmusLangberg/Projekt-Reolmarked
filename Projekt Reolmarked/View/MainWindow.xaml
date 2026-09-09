@@ -12,7 +12,7 @@
 
 
 
-        <Image gif:ImageBehavior.AnimatedSource="/Gifs/happy-cat.gif" Margin="468,11,28,231" RenderTransformOrigin="0.5,0.5" >
+        <Image gif:ImageBehavior.AnimatedSource="/Gifs/happy-cat.gif" Margin="440,-13,-100,67" RenderTransformOrigin="0.5,0.5" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -22,6 +22,18 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
+
+        <Image gif:ImageBehavior.AnimatedSource="/Gifs/cat-ai-pufferfish-cat.gif" Margin="-6,72,502,170" RenderTransformOrigin="0.5,0.5" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.239"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
         <TextBlock HorizontalAlignment="Center" Margin="0,29,0,0" TextWrapping="Wrap" Text="Projekt Reolmarked" FontSize="24" FontWeight="Bold" VerticalAlignment="Top"/>
 
 
