@@ -19,6 +19,8 @@ namespace Projekt_Reolmarked
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = new ViewModel.MainViewModel();
         }
     }
 }
