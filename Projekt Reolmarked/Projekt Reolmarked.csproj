@@ -10,8 +10,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Gifs\happy-cat.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Gifs\happy-cat.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="Repository\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
 </Project>
