@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Projekt_Reolmarked.ViewModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,7 +21,9 @@ namespace Projekt_Reolmarked
         {
             InitializeComponent();
 
-            DataContext = new ViewModel.MainViewModel();
+            ShelfViewModel Shelf = new ShelfViewModel();
+
+            DataContext = new ViewModel.MainViewModel(Shelf);
         }
     }
 }

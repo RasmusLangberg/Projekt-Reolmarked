@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Projekt_Reolmarked.Model
 {
-    class Reol
+    public enum ShelfType
     {
+        Hylder,
+        HylderMedBøjleStang
     }
+    
+    
 }
