@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Printing;
 using System.Text;
 
@@ -7,15 +8,15 @@ namespace Projekt_Reolmarked.ViewModel
 {
     public class MainViewModel 
     {
-        private readonly ShelfViewModel _shelfViewModel;
+        public ShelfViewModel ShelfViewModel { get; }
 
-        private readonly UserViewModel _userViewModel;
+        public UserViewModel UserViewModel { get; }
 
 
         public MainViewModel(ShelfViewModel shelfViewModel, UserViewModel userViewModel)
         {
-            _shelfViewModel = shelfViewModel;
-            _userViewModel = userViewModel;
+            ShelfViewModel = shelfViewModel;
+            UserViewModel = userViewModel;
         }
 
     }

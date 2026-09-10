@@ -20,16 +20,18 @@ namespace Projekt_Reolmarked.ViewModel
             Shelves = new ObservableCollection<Shelf>();
 
 
-            for(int i = 1; i < 80; i++)
+            for(int i = 1; i <= 80; i++)
             {
                 if(i % 3 == 0)
                 {
-                    new Shelf(i, EnumShelfType.HylderMedBøjleStang, 0, EnumShelfStatus.Available);
+                    var shelf = new Shelf(i, EnumShelfType.HylderMedBøjleStang, 0, EnumShelfStatus.Available);
+                    Shelves.Add(shelf);
                 }
                 else
                 {
-                    new Shelf(i,EnumShelfType.Hylder,0, EnumShelfStatus.Available);
-                } 
+                    var shelf = new Shelf(i, EnumShelfType.Hylder, 0, EnumShelfStatus.Available);
+                    Shelves.Add(shelf);
+                }
 
             }
 

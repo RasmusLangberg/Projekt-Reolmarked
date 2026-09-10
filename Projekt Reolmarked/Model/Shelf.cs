@@ -28,7 +28,10 @@ namespace Projekt_Reolmarked.Model
             ShelfStatus = shelfStatus;
         }
 
-
+        public override string ToString()
+        {
+            return $"Shelf ID: {Id}, Type: {ShelfType}, Price: {ShelfPrice}, Status: {ShelfStatus}";
+        }
 
 
 

@@ -22,7 +22,7 @@
         </Grid.Resources>
 
 
-        <Image gif:ImageBehavior.AnimatedSource="/Gifs/happy-cat.gif" Margin="576,-46,61,620" RenderTransformOrigin="0.5,0.5" >
+        <Image gif:ImageBehavior.AnimatedSource="/Gifs/happy-cat.gif" Margin="494,-29,28,553" RenderTransformOrigin="0.5,0.5" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -36,7 +36,7 @@
 
         <TextBlock HorizontalAlignment="Center" Margin="0,29,0,0" TextWrapping="Wrap" Text="Projekt Reolmarked" FontSize="24" FontWeight="Bold" VerticalAlignment="Top"/>
         
-        <Button Content="1" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,626,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="1"  Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,626,0,0" VerticalAlignment="Top" Width="20"/>
         <Button Content="2" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,586,0,0" VerticalAlignment="Top" Width="20"/>
         <Button Content="3" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,544,0,0" VerticalAlignment="Top" Width="20"/>
         <Button Content="4" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,504,0,0" VerticalAlignment="Top" Width="20"/>
@@ -126,7 +126,9 @@
         <Button Content="78" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="132,565,0,0" VerticalAlignment="Top" Width="20"/>
         <Button Content="79" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="180,565,0,0" VerticalAlignment="Top" Width="20"/>
         <Button Content="80" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="200,565,0,0" VerticalAlignment="Top" Width="20"/>
-        <ListBox HorizontalAlignment="Left" Height="521" Margin="447,147,0,0" VerticalAlignment="Top" Width="313" ItemsSource="{Binding test}"/>
+
+
+        <ListBox HorizontalAlignment="Left" Height="521" Margin="447,147,0,0" VerticalAlignment="Top" Width="313" ItemsSource="{Binding ShelfViewModel.Shelves }"/>
 
 
 
