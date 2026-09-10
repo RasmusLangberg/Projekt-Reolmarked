@@ -9,7 +9,17 @@
         Title="MainWindow" Height="800" Width="800">
     <Grid>
 
+        <Grid.Resources>
+            <Style x:Key="ParkingButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="Green"/>
 
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding ShelfStatus}" Value="Occupied">
+                        <Setter Property="Background" Value="Red"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
 
 
         <Image gif:ImageBehavior.AnimatedSource="/Gifs/happy-cat.gif" Margin="576,-46,61,620" RenderTransformOrigin="0.5,0.5" >
@@ -23,98 +33,100 @@
             </Image.RenderTransform>
         </Image>
 
+
         <TextBlock HorizontalAlignment="Center" Margin="0,29,0,0" TextWrapping="Wrap" Text="Projekt Reolmarked" FontSize="24" FontWeight="Bold" VerticalAlignment="Top"/>
-        <Button Content="1" HorizontalAlignment="Left" Height="42" Margin="57,626,0,0" VerticalAlignment="Top" Width="20"/>
-        <Button Content="2" HorizontalAlignment="Left" Height="42" Margin="57,586,0,0" VerticalAlignment="Top" Width="20"/>
-        <Button Content="3" HorizontalAlignment="Left" Height="42" Margin="57,544,0,0" VerticalAlignment="Top" Width="20"/>
-        <Button Content="4" HorizontalAlignment="Left" Height="42" Margin="57,504,0,0" VerticalAlignment="Top" Width="20"/>
-        <Button Content="5" HorizontalAlignment="Left" Height="42" Margin="57,462,0,0" VerticalAlignment="Top" Width="20"/>
-        <Button Content="6" HorizontalAlignment="Left" Height="42" Margin="57,420,0,0" VerticalAlignment="Top" Width="20"/>
-        <Button Content="7" HorizontalAlignment="Left" Height="42" Margin="57,378,0,0" VerticalAlignment="Top" Width="20"/>
-        <Button Content="8" HorizontalAlignment="Left" Height="42" Margin="57,336,0,0" VerticalAlignment="Top" Width="20"/>
-        <Button Content="9" HorizontalAlignment="Left" Height="42" Margin="57,294,0,0" VerticalAlignment="Top" Width="20"/>
-        <Button Content="10" HorizontalAlignment="Left" Height="42" Margin="57,252,0,0" VerticalAlignment="Top" Width="20"/>
-        <Button Content="11" HorizontalAlignment="Left" Height="42" Margin="57,210,0,0" VerticalAlignment="Top" Width="20"/>
-        <Button Content="12" HorizontalAlignment="Left" Height="42" Margin="57,168,0,0" VerticalAlignment="Top" Width="20"/>
-        <Button Content="13" HorizontalAlignment="Left" Height="42" Margin="57,126,0,0" VerticalAlignment="Top" Width="20"/>
+        
+        <Button Content="1" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,626,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="2" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,586,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="3" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,544,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="4" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,504,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="5" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,462,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="6" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,420,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="7" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,378,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="8" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,336,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="9" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,294,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="10" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,252,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="11" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,210,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="12" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,168,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="13" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,126,0,0" VerticalAlignment="Top" Width="20"/>
 
-        <Button Content="14" HorizontalAlignment="Left" Height="22" Margin="112,94,0,0" VerticalAlignment="Top" Width="41"/>
-        <Button Content="15" HorizontalAlignment="Left" Height="22" Margin="71,94,0,0" VerticalAlignment="Top" Width="41"/>
-        <Button Content="16" HorizontalAlignment="Left" Height="22" Margin="153,94,0,0" VerticalAlignment="Top" Width="41"/>
-        <Button Content="17" HorizontalAlignment="Left" Height="22" Margin="194,94,0,0" VerticalAlignment="Top" Width="41"/>
-        <Button Content="18" HorizontalAlignment="Left" Height="22" Margin="235,94,0,0" VerticalAlignment="Top" Width="41"/>
+        <Button Content="14" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="71,94,0,0" VerticalAlignment="Top" Width="41"/>
+        <Button Content="15" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="112,94,0,0" VerticalAlignment="Top" Width="41"/>
+        <Button Content="16" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="153,94,0,0" VerticalAlignment="Top" Width="41"/>
+        <Button Content="17" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="194,94,0,0" VerticalAlignment="Top" Width="41"/>
+        <Button Content="18" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="235,94,0,0" VerticalAlignment="Top" Width="41"/>
 
-        <Button Content="19" HorizontalAlignment="Left" Height="21" Margin="110,158,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="20" HorizontalAlignment="Left" Height="21" Margin="148,158,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button Content="21" HorizontalAlignment="Left" Height="21" Margin="188,158,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="22" HorizontalAlignment="Left" Height="22" Margin="110,178,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="23" HorizontalAlignment="Left" Height="22" Margin="148,178,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button Content="24" HorizontalAlignment="Left" Height="22" Margin="188,178,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="19" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="110,158,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="20" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="148,158,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="21" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="188,158,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="22" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="110,178,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="23" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="148,178,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="24" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="188,178,0,0" VerticalAlignment="Top" Width="38"/>
 
-        <Button Content="25" HorizontalAlignment="Left" Height="21" Margin="111,229,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="26" HorizontalAlignment="Left" Height="21" Margin="149,229,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button Content="27" HorizontalAlignment="Left" Height="21" Margin="189,229,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="28" HorizontalAlignment="Left" Height="21" Margin="227,229,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="29" HorizontalAlignment="Left" Height="21" Margin="265,229,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button Content="30" HorizontalAlignment="Left" Height="21" Margin="305,229,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="31" HorizontalAlignment="Left" Height="21" Margin="343,229,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="25" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="111,229,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="26" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="149,229,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="27" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="189,229,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="28" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="227,229,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="29" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="265,229,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="30" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="305,229,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="31" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="343,229,0,0" VerticalAlignment="Top" Width="38"/>
 
-        <Button Content="32" HorizontalAlignment="Left" Height="22" Margin="111,249,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="33" HorizontalAlignment="Left" Height="22" Margin="149,249,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button Content="34" HorizontalAlignment="Left" Height="22" Margin="189,249,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="35" HorizontalAlignment="Left" Height="22" Margin="227,249,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="36" HorizontalAlignment="Left" Height="22" Margin="265,249,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button Content="37" HorizontalAlignment="Left" Height="22" Margin="305,249,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="38" HorizontalAlignment="Left" Height="22" Margin="343,249,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="32" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="111,249,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="33" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="149,249,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="34" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="189,249,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="35" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="227,249,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="36" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="265,249,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="37" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="305,249,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="38" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="343,249,0,0" VerticalAlignment="Top" Width="38"/>
 
-        <Button Content="39" HorizontalAlignment="Left" Height="21" Margin="111,307,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="40" HorizontalAlignment="Left" Height="21" Margin="149,307,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button Content="41" HorizontalAlignment="Left" Height="21" Margin="189,307,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="42" HorizontalAlignment="Left" Height="21" Margin="227,307,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="43" HorizontalAlignment="Left" Height="21" Margin="265,307,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button Content="44" HorizontalAlignment="Left" Height="21" Margin="305,307,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="45" HorizontalAlignment="Left" Height="21" Margin="343,307,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="39" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="111,307,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="40" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="149,307,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="41" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="189,307,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="42" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="227,307,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="43" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="265,307,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="44" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="305,307,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="45" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="343,307,0,0" VerticalAlignment="Top" Width="38"/>
 
-        <Button Content="46" HorizontalAlignment="Left" Height="22" Margin="111,327,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="47" HorizontalAlignment="Left" Height="22" Margin="149,327,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button Content="48" HorizontalAlignment="Left" Height="22" Margin="189,327,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="49" HorizontalAlignment="Left" Height="22" Margin="227,327,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="50" HorizontalAlignment="Left" Height="22" Margin="265,327,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button Content="51" HorizontalAlignment="Left" Height="22" Margin="305,327,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="52" HorizontalAlignment="Left" Height="22" Margin="343,327,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="46" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="111,327,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="47" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="149,327,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="48" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="189,327,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="49" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="227,327,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="50" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="265,327,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="51" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="305,327,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="52" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="343,327,0,0" VerticalAlignment="Top" Width="38"/>
 
-        <Button Content="53" HorizontalAlignment="Left" Height="21" Margin="110,396,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="54" HorizontalAlignment="Left" Height="21" Margin="148,396,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button Content="55" HorizontalAlignment="Left" Height="21" Margin="188,396,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="56" HorizontalAlignment="Left" Height="21" Margin="226,396,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="57" HorizontalAlignment="Left" Height="21" Margin="264,396,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button Content="58" HorizontalAlignment="Left" Height="21" Margin="304,396,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="59" HorizontalAlignment="Left" Height="21" Margin="341,396,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="53" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="110,396,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="54" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="148,396,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="55" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="188,396,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="56" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="226,396,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="57" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="264,396,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="58" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="304,396,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="59" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="341,396,0,0" VerticalAlignment="Top" Width="38"/>
 
-        <Button Content="60" HorizontalAlignment="Left" Height="22" Margin="110,416,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="61" HorizontalAlignment="Left" Height="22" Margin="148,416,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button Content="62" HorizontalAlignment="Left" Height="22" Margin="188,416,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="63" HorizontalAlignment="Left" Height="22" Margin="226,416,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="64" HorizontalAlignment="Left" Height="22" Margin="264,416,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button Content="65" HorizontalAlignment="Left" Height="22" Margin="304,416,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="66" HorizontalAlignment="Left" Height="22" Margin="341,416,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="60" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="110,416,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="61" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="148,416,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="62" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="188,416,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="63" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="226,416,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="64" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="264,416,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="65" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="304,416,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="66" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="341,416,0,0" VerticalAlignment="Top" Width="38"/>
 
-        <Button Content="67" HorizontalAlignment="Left" Height="20" Margin="111,479,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="68" HorizontalAlignment="Left" Height="20" Margin="149,479,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button Content="69" HorizontalAlignment="Left" Height="20" Margin="189,479,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="70" HorizontalAlignment="Left" Height="20" Margin="227,479,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="71" HorizontalAlignment="Left" Height="20" Margin="265,479,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="72" HorizontalAlignment="Left" Height="20" Margin="111,499,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="73" HorizontalAlignment="Left" Height="20" Margin="149,499,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button Content="74" HorizontalAlignment="Left" Height="20" Margin="189,499,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="75" HorizontalAlignment="Left" Height="20" Margin="227,499,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="76" HorizontalAlignment="Left" Height="20" Margin="265,499,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="67" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="20" Margin="111,479,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="68" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="20" Margin="149,479,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="69" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="20" Margin="189,479,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="70" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="20" Margin="227,479,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="71" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="20" Margin="265,479,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="72" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="20" Margin="111,499,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="73" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="20" Margin="149,499,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="74" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="20" Margin="189,499,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="75" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="20" Margin="227,499,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="76" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="20" Margin="265,499,0,0" VerticalAlignment="Top" Width="38"/>
 
-        <Button Content="77" HorizontalAlignment="Left" Height="42" Margin="112,565,0,0" VerticalAlignment="Top" Width="20"/>
-        <Button Content="78" HorizontalAlignment="Left" Height="42" Margin="132,565,0,0" VerticalAlignment="Top" Width="20"/>
-        <Button Content="79" HorizontalAlignment="Left" Height="42" Margin="180,565,0,0" VerticalAlignment="Top" Width="20"/>
-        <Button Content="80" HorizontalAlignment="Left" Height="42" Margin="200,565,0,0" VerticalAlignment="Top" Width="20"/>
-        <ListBox HorizontalAlignment="Left" Height="273" Margin="447,147,0,0" VerticalAlignment="Top" Width="313" ItemsSource="{Binding test}"/>
+        <Button Content="77" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="112,565,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="78" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="132,565,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="79" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="180,565,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="80" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="200,565,0,0" VerticalAlignment="Top" Width="20"/>
+        <ListBox HorizontalAlignment="Left" Height="521" Margin="447,147,0,0" VerticalAlignment="Top" Width="313" ItemsSource="{Binding test}"/>
 
 
 

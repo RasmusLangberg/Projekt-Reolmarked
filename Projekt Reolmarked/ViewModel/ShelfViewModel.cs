@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace Projekt_Reolmarked.ViewModel
@@ -10,20 +11,28 @@ namespace Projekt_Reolmarked.ViewModel
     {
 
     
-        public ObservableCollection<Shelf> Shelves { get; } = new ObservableCollection<Shelf>();
+        public ObservableCollection<Shelf> Shelves { get; } 
 
 
 
-        private EnumShelfStatus _status;
-
-        public EnumShelfStatus Status
+        public ShelfViewModel()
         {
-            get { return _status ; }
-            set 
-            { 
-                _status= value; 
-                OnPropertyChanged(nameof(Status));
+            Shelves = new ObservableCollection<Shelf>();
+
+
+            for(int i = 1; i < 80; i++)
+            {
+                if(i % 3 == 0)
+                {
+                    new Shelf(i, EnumShelfType.HylderMedBøjleStang, 0, EnumShelfStatus.Available);
+                }
+                else
+                {
+                    new Shelf(i,EnumShelfType.Hylder,0, EnumShelfStatus.Available);
+                } 
+
             }
+
         }
 
 
@@ -48,7 +57,10 @@ namespace Projekt_Reolmarked.ViewModel
 
         }
     
-        
+        public void AddShelves()
+        {
+
+        }
     
     
     }

@@ -10,7 +10,7 @@ namespace Projekt_Reolmarked.Model
        
         public int Id { get; set; }
 
-        public string Description { get; set; }
+       
 
         public EnumShelfType ShelfType { get; set; }
 
@@ -20,10 +20,9 @@ namespace Projekt_Reolmarked.Model
 
 
 
-        public Shelf(int id, string description, EnumShelfType shelfType, int shelfPrice, EnumShelfStatus shelfStatus)
+        public Shelf(int id,  EnumShelfType shelfType, int shelfPrice, EnumShelfStatus shelfStatus)
         {
             Id = id;
-            Description = description;
             ShelfType = shelfType;
             ShelfPrice = shelfPrice;
             ShelfStatus = shelfStatus;
