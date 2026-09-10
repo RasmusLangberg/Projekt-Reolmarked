@@ -12,7 +12,28 @@ namespace Projekt_Reolmarked.ViewModel
         public ObservableCollection<Shelf> Shelves { get; } = new ObservableCollection<Shelf>();
 
 
-        Shelf shelf = new Shelf();
+        
 
+
+
+
+
+        public int Bergnpris(int antal)
+        {
+
+            if(antal == 1)
+            {
+                return 850;
+            }
+            else if(antal == 2 || antal == 3)
+            {
+                return 825*antal;
+            }
+            else
+            {
+                return 800*antal;
+            }
+
+        }
     }
 }

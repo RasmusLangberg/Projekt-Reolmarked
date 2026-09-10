@@ -14,13 +14,13 @@ namespace Projekt_Reolmarked.Model
 
         public ShelfType ShelfType { get; set; }
 
-        public ShelfPrice ShelfPrice { get; set; }
+        public int ShelfPrice { get; set; } = 150;
 
         public ShelfStatus ShelfStatus { get; set; }
 
 
 
-        public Shelf(int id, string description, ShelfType shelfType, ShelfPrice shelfPrice, ShelfStatus shelfStatus)
+        public Shelf(int id, string description, ShelfType shelfType, int shelfPrice, ShelfStatus shelfStatus)
         {
             Id = id;
             Description = description;

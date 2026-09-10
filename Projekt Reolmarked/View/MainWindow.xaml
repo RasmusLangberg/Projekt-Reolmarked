@@ -114,7 +114,7 @@
         <Button Content="78" HorizontalAlignment="Left" Height="42" Margin="132,565,0,0" VerticalAlignment="Top" Width="20"/>
         <Button Content="79" HorizontalAlignment="Left" Height="42" Margin="180,565,0,0" VerticalAlignment="Top" Width="20"/>
         <Button Content="80" HorizontalAlignment="Left" Height="42" Margin="200,565,0,0" VerticalAlignment="Top" Width="20"/>
-        <ListBox HorizontalAlignment="Left" Height="521" Margin="447,147,0,0" VerticalAlignment="Top" Width="313" ItemsSource="{Binding test}"/>
+        <ListBox HorizontalAlignment="Left" Height="273" Margin="447,147,0,0" VerticalAlignment="Top" Width="313" ItemsSource="{Binding test}"/>
 
 
 
