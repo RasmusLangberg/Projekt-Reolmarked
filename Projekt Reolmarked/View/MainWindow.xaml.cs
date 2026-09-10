@@ -23,7 +23,9 @@ namespace Projekt_Reolmarked
 
             ShelfViewModel Shelf = new ShelfViewModel();
 
-            DataContext = new ViewModel.MainViewModel(Shelf);
+            UserViewModel User = new UserViewModel();
+
+            DataContext = new MainViewModel(Shelf, User);
         }
     }
 }

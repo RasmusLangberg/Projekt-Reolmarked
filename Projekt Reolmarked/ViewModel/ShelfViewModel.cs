@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Projekt_Reolmarked.ViewModel
 {
-   public class ShelfViewModel
+   public class ShelfViewModel : INotifyBase
     {
 
         public ObservableCollection<Shelf> Shelves { get; } = new ObservableCollection<Shelf>();
