@@ -9,10 +9,22 @@ namespace Projekt_Reolmarked.ViewModel
    public class ShelfViewModel : INotifyBase
     {
 
+    
         public ObservableCollection<Shelf> Shelves { get; } = new ObservableCollection<Shelf>();
 
 
-        
+
+        private EnumShelfStatus _status;
+
+        public EnumShelfStatus Status
+        {
+            get { return _status ; }
+            set 
+            { 
+                _status= value; 
+                OnPropertyChanged(nameof(Status));
+            }
+        }
 
 
 
@@ -35,5 +47,9 @@ namespace Projekt_Reolmarked.ViewModel
             }
 
         }
+    
+        
+    
+    
     }
 }

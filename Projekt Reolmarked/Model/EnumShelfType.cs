@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Projekt_Reolmarked.Model
 {
-    public enum ShelfType
+    public enum EnumShelfType
     {
         Hylder,
         HylderMedBøjleStang

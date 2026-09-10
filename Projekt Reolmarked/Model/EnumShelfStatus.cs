@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Projekt_Reolmarked.Model
 {
-    public enum ShelfStatus
+    public enum EnumShelfStatus
     {
         Available,
         Occupied,

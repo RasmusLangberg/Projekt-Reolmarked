@@ -12,15 +12,15 @@ namespace Projekt_Reolmarked.Model
 
         public string Description { get; set; }
 
-        public ShelfType ShelfType { get; set; }
+        public EnumShelfType ShelfType { get; set; }
 
-        public int ShelfPrice { get; set; } = 150;
+        public int ShelfPrice { get; set; }
 
-        public ShelfStatus ShelfStatus { get; set; }
+        public EnumShelfStatus ShelfStatus { get; set; }
 
 
 
-        public Shelf(int id, string description, ShelfType shelfType, int shelfPrice, ShelfStatus shelfStatus)
+        public Shelf(int id, string description, EnumShelfType shelfType, int shelfPrice, EnumShelfStatus shelfStatus)
         {
             Id = id;
             Description = description;
