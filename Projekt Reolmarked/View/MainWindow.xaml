@@ -35,8 +35,8 @@
 
 
         <TextBlock HorizontalAlignment="Center" Margin="0,29,0,0" TextWrapping="Wrap" Text="Projekt Reolmarked" FontSize="24" FontWeight="Bold" VerticalAlignment="Top"/>
-        
-        <Button Content="1"  Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,626,0,0" VerticalAlignment="Top" Width="20"/>
+
+        <Button Content="1"  DataContext="{Binding ShelfViewModel.Shelves[1]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,626,0,0" VerticalAlignment="Top" Width="20"/>
         <Button Content="2" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,586,0,0" VerticalAlignment="Top" Width="20"/>
         <Button Content="3" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,544,0,0" VerticalAlignment="Top" Width="20"/>
         <Button Content="4" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,504,0,0" VerticalAlignment="Top" Width="20"/>
