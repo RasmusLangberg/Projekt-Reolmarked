@@ -10,7 +10,7 @@ namespace Projekt_Reolmarked.Model
        
         public int Id { get; set; }
 
-       
+        public User? Owner { get; set; }
 
         public EnumShelfType ShelfType { get; set; }
 
@@ -20,9 +20,10 @@ namespace Projekt_Reolmarked.Model
 
 
 
-        public Shelf(int id,  EnumShelfType shelfType, int shelfPrice, EnumShelfStatus shelfStatus)
+        public Shelf(int id, User? owner, EnumShelfType shelfType, int shelfPrice, EnumShelfStatus shelfStatus)
         {
             Id = id;
+            Owner = new User(owner?.Id ?? 0, owner?.FirstName ?? "Ingen ejer", owner?.LastName ?? "", owner?.Email ?? "", owner?.PhoneNumber ?? 0);
             ShelfType = shelfType;
             ShelfPrice = shelfPrice;
             ShelfStatus = shelfStatus;

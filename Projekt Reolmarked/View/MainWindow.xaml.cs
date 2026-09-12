@@ -27,5 +27,7 @@ namespace Projekt_Reolmarked
 
             DataContext = new MainViewModel(Shelf, User);
         }
+
+       
     }
 }

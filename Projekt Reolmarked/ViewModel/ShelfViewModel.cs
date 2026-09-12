@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Reflection.Metadata;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Windows.Input;
 
 namespace Projekt_Reolmarked.ViewModel
 {
@@ -13,33 +15,62 @@ namespace Projekt_Reolmarked.ViewModel
     
         public ObservableCollection<Shelf> Shelves { get; } 
 
+        public ICommand ShowShelfInfoCommand { get; }
+
+
+        private Shelf _selectedShelf;
+
+        public Shelf SelectedShelf
+        {
+            get { return _selectedShelf; }
+            set 
+            { 
+                _selectedShelf = value; 
+                OnPropertyChanged(nameof(SelectedShelf));
+            }
+        }
+
+
+
 
 
         public ShelfViewModel()
         {
             Shelves = new ObservableCollection<Shelf>();
 
+            ShowShelfInfoCommand = new RelayCommand(ShowShelfInfo);
 
-            for(int i = 1; i <= 80; i++)
+            GenerateShelfs();
+    
+
+        }
+
+        public void ShowShelfInfo(object parameter)
+        {
+            if (parameter is Shelf shelf)
             {
-                if(i % 3 == 0)
-                {
-                    var shelf = new Shelf(i, EnumShelfType.HylderMedBøjleStang, 0, EnumShelfStatus.Available);
-                    Shelves.Add(shelf);
-                }
-                else
-                {
-                    var shelf = new Shelf(i, EnumShelfType.Hylder, 0, EnumShelfStatus.Available);
-                    Shelves.Add(shelf);
-                }
-
+                SelectedShelf = shelf;
             }
-
         }
 
 
 
-
+        public void GenerateShelfs()
+        {
+            for (int i = 1; i <= 80; i++)
+            {
+                if (i % 3 == 0) // hver 3. hylde har en bøjle stang
+                {
+                    var shelf = new Shelf(i, null, EnumShelfType.HylderOgBøjleStang, 0, EnumShelfStatus.Ledig);
+                    Shelves.Add(shelf);
+                }
+                else
+                {
+                    var shelf = new Shelf(i, null, EnumShelfType.Hylder, 0, EnumShelfStatus.Ledig);
+                    Shelves.Add(shelf);
+                }
+            }
+        }
 
         public int Bergnpris(int antal)
         {

@@ -6,8 +6,7 @@ namespace Projekt_Reolmarked.Model
 {
     public enum EnumShelfStatus
     {
-        Available,
-        Occupied,
-
+        Ledig,
+        Optaget,
     }
 }

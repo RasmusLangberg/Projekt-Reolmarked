@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Projekt_Reolmarked.Model
 {
-    class User
+    public class User
     {
 
-        public int Id { get; set; } 
+        public int Id = 1;
 
         public string FirstName { get; set; }
 
@@ -27,6 +27,7 @@ namespace Projekt_Reolmarked.Model
             LastName = lastName;
             Email = email;
             PhoneNumber = phoneNumber;
+            
        }
 
     }
