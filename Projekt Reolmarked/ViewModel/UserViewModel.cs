@@ -89,8 +89,7 @@ namespace Projekt_Reolmarked.ViewModel
             AddUserCommand = new RelayCommand(paramter => AddUser());
             RemoveUserCommand = new RelayCommand(paramter => RemoveUser());
 
-            var user1 = new User(1, "Marie Neega", "Langberg Zarabi", "MNLZ@Proton.com", 70241207);
-            Users.Add(user1);
+            FakeUsers();
         }
 
         public void AddUser()
@@ -117,5 +116,20 @@ namespace Projekt_Reolmarked.ViewModel
             Users.Remove(SelectedUser);
             SelectedUser = null;
         }
+
+
+        public void FakeUsers()
+        {
+            var user1 = new User(1, "Marie Neega", "Langberg Zarabi", "MNLZ@Proton.com", 70241207);
+            var user2 = new User(2, "John Doe", "Smith", "JOHN@Proton.com", 12345678);
+            var user3 = new User(3, "Jane Doe", "Johnson", "JANE@Proton.com", 87654321);
+            var user4 = new User(4, "Bob Smith", "Williams", "BOB@Proton.com", 11223344);
+            Users.Add(user1);
+            Users.Add(user2);
+            Users.Add(user3);
+            Users.Add(user4);
+        }
+
+
     }
 }

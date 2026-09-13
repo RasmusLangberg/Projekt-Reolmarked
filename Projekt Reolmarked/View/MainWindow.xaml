@@ -78,6 +78,8 @@
         <Button Content="34" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[33]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="189,249,0,0" VerticalAlignment="Top" Width="38"/>
         <Button Content="35" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[34]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="227,249,0,0" VerticalAlignment="Top" Width="38"/>
         <Button Content="36" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[35]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="265,249,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button Content="37" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[36]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="305,249,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="38" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[37]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="343,249,0,0" VerticalAlignment="Top" Width="38"/>
 
 
         <Button Content="39" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[38]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="111,307,0,0" VerticalAlignment="Top" Width="38"/>
@@ -101,7 +103,7 @@
         <Button Content="56" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[55]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="226,396,0,0" VerticalAlignment="Top" Width="38"/>
         <Button Content="57" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[56]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="264,396,0,0" VerticalAlignment="Top" Width="40"/>
         <Button Content="58" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[57]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="304,396,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button Content="59" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[58]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="110,396,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button Content="59" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[58]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="21" Margin="341,396,0,0" VerticalAlignment="Top" Width="38"/>
 
         <Button Content="60" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[59]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="110,416,0,0" VerticalAlignment="Top" Width="38"/>
         <Button Content="61" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[60]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="22" Margin="148,416,0,0" VerticalAlignment="Top" Width="40"/>
@@ -130,8 +132,9 @@
         <StackPanel HorizontalAlignment="Left" Margin="456,231,0,0" VerticalAlignment="Top" Width="314"
             DataContext="{Binding ShelfViewModel}">
 
-            <TextBlock Text="{Binding SelectedShelfType, StringFormat='Hyldetype: {0}'}" FontSize="18" Height="24" FontWeight="Bold" />
+
             <TextBlock Text="{Binding SelectedShelfOwnerName, StringFormat=Ejer: \{0\}, TargetNullValue=Ejer: Ingen ejer}" FontSize="18" Height="24" FontWeight="Bold"/>
+            <TextBlock Text="{Binding SelectedShelfType, StringFormat='Hyldetype: {0}', TargetNullValue=Hyldetype: Ingen}"  FontSize="18" Height="24" FontWeight="Bold" />
             <TextBlock Text="{Binding SelectedShelfStatus, StringFormat=Tilgængelighed: \{0\}}" FontSize="18" Height="32" FontWeight="Bold" />
 
         </StackPanel>

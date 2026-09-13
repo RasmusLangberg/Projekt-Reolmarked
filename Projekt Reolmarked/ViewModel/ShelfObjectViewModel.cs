@@ -18,6 +18,9 @@ namespace Projekt_Reolmarked.ViewModel
         public int Id => Model.Id;
         public EnumShelfType ShelfType => Model.ShelfType;
 
+
+        
+
         public EnumShelfStatus ShelfStatus
         {
             get => Model.ShelfStatus;
@@ -44,10 +47,10 @@ namespace Projekt_Reolmarked.ViewModel
                 }
             }
         }
-
-        public string OwnerName => Owner?.FirstName ?? "Ingen ejer";
+        public string OwnerName => Owner != null ? $"{Owner.FirstName} {Owner.LastName}" : "Ingen ejer";
     }
 
-    
+
+
     
 }
