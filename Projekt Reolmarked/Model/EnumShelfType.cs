@@ -6,7 +6,7 @@ namespace Projekt_Reolmarked.Model
 {
     public enum EnumShelfType
     {
-        IkkeDefineret,
+        Ingen,
         Hylder,
         HylderOgBøjleStang
        

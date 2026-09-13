@@ -130,9 +130,9 @@
         <StackPanel HorizontalAlignment="Left" Margin="456,231,0,0" VerticalAlignment="Top" Width="314"
             DataContext="{Binding ShelfViewModel}">
 
-            <TextBlock Text="{Binding SelectedShelfType, StringFormat='Hyldetype: {0}'}" FontSize="14" Height="16"/>
-            <TextBlock Text="{Binding SelectedShelfOwnerName, StringFormat=Ejer: \{0\}, TargetNullValue=Ingen ejer}" FontSize="14" Height="24"/>
-            <TextBlock Text="{Binding SelectedShelfStatus, StringFormat=Tilgængelighed: \{0\}}" FontSize="14"/>
+            <TextBlock Text="{Binding SelectedShelfType, StringFormat='Hyldetype: {0}'}" FontSize="18" Height="24" FontWeight="Bold" />
+            <TextBlock Text="{Binding SelectedShelfOwnerName, StringFormat=Ejer: \{0\}, TargetNullValue=Ejer: Ingen ejer}" FontSize="18" Height="24" FontWeight="Bold"/>
+            <TextBlock Text="{Binding SelectedShelfStatus, StringFormat=Tilgængelighed: \{0\}}" FontSize="18" Height="32" FontWeight="Bold" />
 
         </StackPanel>
 

@@ -22,9 +22,6 @@ namespace Projekt_Reolmarked.Model
             ShelfPrice = shelfPrice;
             ShelfStatus = shelfStatus;
         }
-    
-  
-        
 
         public override string ToString()
         {
