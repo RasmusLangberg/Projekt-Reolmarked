@@ -43,6 +43,7 @@ namespace Projekt_Reolmarked.ViewModel
         public ShelfManagerViewModel(UserViewModel userViewModel)
         {
             Shelves = new ObservableCollection<ShelfObjectViewModel>();
+            
             _userViewModel = userViewModel;
 
             ShowShelfInfoCommand = new RelayCommand(ShowShelfInfo);
@@ -66,7 +67,7 @@ namespace Projekt_Reolmarked.ViewModel
             GenerateShelfs();
         }
 
-        // ÆNDRET: Modtager nu ShelfItemViewModel
+       
         public void ShowShelfInfo(object parameter)
         {
             if (parameter is ShelfObjectViewModel shelfVm)
@@ -75,7 +76,7 @@ namespace Projekt_Reolmarked.ViewModel
             }
         }
 
-        // ÆNDRET: Pakker Shelf-POCO ind i ShelfItemViewModel
+       
         public void GenerateShelfs()
         {
             for (int i = 1; i <= 80; i++)
@@ -87,14 +88,14 @@ namespace Projekt_Reolmarked.ViewModel
             }
         }
 
-        public int Bergnpris(int antal)
+        public static int Bergnpris(int antal)
         {
             if (antal == 1) return 850;
             if (antal == 2 || antal == 3) return 825 * antal;
             return 800 * antal;
         }
 
-        // ÆNDRET: Ændrer properties direkte på ShelfObjectViewModel (wrapperen)
+        
         public void AddUserToShelf(User user, ShelfObjectViewModel shelfVm)
         {
             if (shelfVm.ShelfStatus == EnumShelfStatus.Ledig)
@@ -107,7 +108,7 @@ namespace Projekt_Reolmarked.ViewModel
             }
         }
 
-        // ÆNDRET: Nulstiller properties via wrapperen
+        
         public void RemoveUserFromShelf(ShelfObjectViewModel shelfVm)
         {
             if (shelfVm.ShelfStatus == EnumShelfStatus.Optaget)
