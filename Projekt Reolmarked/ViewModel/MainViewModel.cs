@@ -16,8 +16,9 @@ namespace Projekt_Reolmarked.ViewModel
         public MainViewModel()
         {
            
-            ShelfViewModel = new ShelfViewModel(UserViewModel);  
+            
             UserViewModel = new UserViewModel();
+            ShelfViewModel = new ShelfViewModel(UserViewModel);
         }
 
     }

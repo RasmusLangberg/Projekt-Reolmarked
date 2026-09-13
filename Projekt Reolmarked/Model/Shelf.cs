@@ -5,26 +5,45 @@ using System.Text;
 
 namespace Projekt_Reolmarked.Model
 {
+
     public class Shelf : INotifyBase
     {
-
-       
         public int Id { get; set; }
 
-        public User? Owner { get; set; }
+        private User? _owner;
+
+        public User? Owner
+        {
+            get { return _owner; }
+            set
+            {
+                _owner = value;
+                OnPropertyChanged(nameof(Owner));
+            }
+        }
 
         public EnumShelfType ShelfType { get; set; }
 
         public int ShelfPrice { get; set; }
 
-        public EnumShelfStatus ShelfStatus { get; set; }
+        private EnumShelfStatus _shelfStatus;
+
+        public EnumShelfStatus ShelfStatus
+        {
+            get { return _shelfStatus; }
+            set
+            {
+                _shelfStatus = value;
+                OnPropertyChanged(nameof(ShelfStatus));
+            }
+        }
 
 
 
         public Shelf(int id, User? owner, EnumShelfType shelfType, int shelfPrice, EnumShelfStatus shelfStatus)
         {
             Id = id;
-            Owner = new User(owner?.Id ?? 0, owner?.FirstName ?? "Ingen ejer", owner?.LastName ?? "", owner?.Email ?? "", owner?.PhoneNumber ?? 0);
+            Owner = owner;
             ShelfType = shelfType;
             ShelfPrice = shelfPrice;
             ShelfStatus = shelfStatus;
@@ -39,3 +58,4 @@ namespace Projekt_Reolmarked.Model
 
     }
 }
+

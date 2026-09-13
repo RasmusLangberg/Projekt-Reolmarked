@@ -13,16 +13,15 @@
     <Grid>
 
         <Grid.Resources>
-            <Style x:Key="ParkingButtonStyle" TargetType="{x:Type Button}">
-                <Setter Property="Background" Value="Green"/>
-
-                <Style.Triggers>
-                    <DataTrigger Binding="{Binding ShelfStatus}" Value="Optaget">
-                        <Setter Property="Background" Value="Red"/>
-                    </DataTrigger>
-                </Style.Triggers>
-            </Style>
-        </Grid.Resources>
+    <Style x:Key="ParkingButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="Green"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding CommandParameter.ShelfStatus, RelativeSource={RelativeSource Self}}" Value="Optaget">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</Grid.Resources>
 
 
         <Image gif:ImageBehavior.AnimatedSource="/Gifs/happy-cat.gif" Margin="494,-29,28,553" RenderTransformOrigin="0.5,0.5" >
@@ -39,7 +38,7 @@
 
         <TextBlock HorizontalAlignment="Center" Margin="0,29,0,0" TextWrapping="Wrap" Text="Projekt Reolmarked" FontSize="24" FontWeight="Bold" VerticalAlignment="Top"/>
 
-        <Button Content="1" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[0]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,626,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Content="1"  Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[0]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,626,0,0" VerticalAlignment="Top" Width="20"/>
         <Button Content="2" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[1]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,586,0,0" VerticalAlignment="Top" Width="20"/>
         <Button Content="3" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[2]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,544,0,0" VerticalAlignment="Top" Width="20"/>
         <Button Content="4" Command="{Binding ShelfViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfViewModel.Shelves[3]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="57,504,0,0" VerticalAlignment="Top" Width="20"/>
@@ -130,11 +129,12 @@
         <Button Content="80" Command="{Binding ShelfViewModel.Shelves[79]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="200,565,0,0" VerticalAlignment="Top" Width="20"/>
 
 
-        <StackPanel HorizontalAlignment="Left" Margin="456,231,0,0" VerticalAlignment="Top" Width="314" DataContext="{Binding ShelfViewModel.SelectedShelf}">
+        <StackPanel HorizontalAlignment="Left" Margin="456,231,0,0" VerticalAlignment="Top" Width="314"
+            DataContext="{Binding ShelfViewModel}">
 
-            <TextBlock Text="{Binding ShelfType, StringFormat='Hyldetype: {0}'}" FontSize="14" Height="16"/>
-            <TextBlock Text="{Binding Owner.FirstName, StringFormat=Ejer: \{0\}, TargetNullValue=Ingen ejer}" FontSize="14" Height="24"/>
-            <TextBlock Text="{Binding ShelfStatus, StringFormat=Tilgængelighed: \{0\}}" FontSize="14"/>
+            <TextBlock Text="{Binding SelectedShelfType, StringFormat='Hyldetype: {0}'}" FontSize="14" Height="16"/>
+            <TextBlock Text="{Binding SelectedShelfOwnerName, StringFormat=Ejer: \{0\}, TargetNullValue=Ingen ejer}" FontSize="14" Height="24"/>
+            <TextBlock Text="{Binding SelectedShelfStatus, StringFormat=Tilgængelighed: \{0\}}" FontSize="14"/>
 
         </StackPanel>
 
@@ -166,9 +166,8 @@
 
 
 
-
-        <Button Command="{Binding ShelfViewModel.AddUserToShelfCommand}" Content="Tilføj Lejer til Reol" HorizontalAlignment="Left" Margin="641,664,0,0" VerticalAlignment="Top" Height="24" Width="118"/>
-
+        <Button Command="{Binding ShelfViewModel.AddUserToShelfCommand}" Content="Tilføj Lejer til Reol" HorizontalAlignment="Left" Margin="416,604,0,0" VerticalAlignment="Top" Height="24" Width="118"/>
+        <Button Command="{Binding ShelfViewModel.RemoveUserFromShelfCommand}" Content="Fjern Lejer fra Reol" HorizontalAlignment="Left" Margin="416,631,0,0" VerticalAlignment="Top" Height="24" Width="118" RenderTransformOrigin="0.523,0.683"/>
 
 
 

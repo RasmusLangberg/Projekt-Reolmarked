@@ -9,10 +9,10 @@ using System.Windows.Input;
 
 namespace Projekt_Reolmarked.ViewModel
 {
-   public class ShelfViewModel : INotifyBase
+    public class ShelfViewModel : INotifyBase
     {
 
-    
+
         public ObservableCollection<Shelf> Shelves { get; }
 
         private readonly UserViewModel _userViewModel;
@@ -21,15 +21,31 @@ namespace Projekt_Reolmarked.ViewModel
 
         public ICommand AddUserToShelfCommand { get; }
 
+        public ICommand RemoveUserFromShelfCommand { get; }
+
+        public EnumShelfType SelectedShelfType => SelectedShelf?.ShelfType ?? default;
+
+        public string SelectedShelfOwnerName => SelectedShelf?.Owner?.FirstName;
+
+        public EnumShelfStatus SelectedShelfStatus => SelectedShelf?.ShelfStatus ?? default;
+
+
+
+
+
+
         private Shelf _selectedShelf;
 
         public Shelf SelectedShelf
         {
             get { return _selectedShelf; }
-            set 
-            { 
-                _selectedShelf = value; 
+            set
+            {
+                _selectedShelf = value;
                 OnPropertyChanged(nameof(SelectedShelf));
+                OnPropertyChanged(nameof(SelectedShelfType));
+                OnPropertyChanged(nameof(SelectedShelfOwnerName));
+                OnPropertyChanged(nameof(SelectedShelfStatus));
             }
         }
 
@@ -38,8 +54,9 @@ namespace Projekt_Reolmarked.ViewModel
         public User Owner
         {
             get { return _Owner; }
-            set 
-            { _Owner = value; 
+            set
+            {
+                _Owner = value;
                 OnPropertyChanged(nameof(Owner));
             }
         }
@@ -67,8 +84,16 @@ namespace Projekt_Reolmarked.ViewModel
                 }
             });
 
+            RemoveUserFromShelfCommand = new RelayCommand(parameter =>
+            {
+                if (SelectedShelf != null)
+                {
+                    RemoveUserFromShelf(SelectedShelf);
+                }
+            });
+
             GenerateShelfs();
-    
+
 
         }
 
@@ -102,23 +127,23 @@ namespace Projekt_Reolmarked.ViewModel
         public int Bergnpris(int antal)
         {
 
-            if(antal == 1)
+            if (antal == 1)
             {
                 return 850;
             }
-            else if(antal == 2 || antal == 3)
+            else if (antal == 2 || antal == 3)
             {
-                return 825*antal;
+                return 825 * antal;
             }
             else
             {
-                return 800*antal;
+                return 800 * antal;
             }
 
         }
-    
-      
-    
+
+
+
         public void AddUserToShelf(User user, Shelf shelf)
         {
             if (shelf.ShelfStatus == EnumShelfStatus.Ledig)
@@ -127,9 +152,26 @@ namespace Projekt_Reolmarked.ViewModel
                 shelf.ShelfStatus = EnumShelfStatus.Optaget;
                 user.OwnedShelves.Add(shelf);
 
-                OnPropertyChanged(nameof(SelectedShelf));
 
+                OnPropertyChanged(nameof(SelectedShelfOwnerName));
+                OnPropertyChanged(nameof(SelectedShelfStatus));
 
+                ShowShelfInfo(shelf);
+            }
+        }
+
+        public void RemoveUserFromShelf(Shelf shelf)
+        {
+            if (shelf.ShelfStatus == EnumShelfStatus.Optaget)
+            {
+                shelf.Owner?.OwnedShelves.Remove(shelf);
+                shelf.Owner = null;
+                shelf.ShelfStatus = EnumShelfStatus.Ledig;
+
+                OnPropertyChanged(nameof(SelectedShelfOwnerName));
+                OnPropertyChanged(nameof(SelectedShelfStatus));
+
+                ShowShelfInfo(shelf);
             }
         }
 

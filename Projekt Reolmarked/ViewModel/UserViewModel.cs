@@ -10,7 +10,7 @@ namespace Projekt_Reolmarked.ViewModel
 {
     public class UserViewModel : INotifyBase
     {
-        public ObservableCollection<User> Users {get;}
+        public ObservableCollection<User> Users { get; }
 
         public ICommand AddUserCommand { get; }
 
@@ -19,16 +19,16 @@ namespace Projekt_Reolmarked.ViewModel
 
         private string _firstName;
 
-		public string FirstName
+        public string FirstName
         {
             get { return _firstName; }
-            set 
-            { 
-                _firstName = value; 
+            set
+            {
+                _firstName = value;
                 OnPropertyChanged(nameof(FirstName));
             }
         }
-	
+
         private string _lastName;
 
         public string LastName
@@ -40,7 +40,7 @@ namespace Projekt_Reolmarked.ViewModel
                 OnPropertyChanged(nameof(LastName));
             }
         }
-       
+
         private string _email;
 
         public string Email
@@ -65,7 +65,7 @@ namespace Projekt_Reolmarked.ViewModel
             }
         }
 
-       
+
 
 
 
@@ -74,9 +74,9 @@ namespace Projekt_Reolmarked.ViewModel
         public User SelectedUser
         {
             get { return _selectedUser; }
-            set 
+            set
             {
-                _selectedUser = value; 
+                _selectedUser = value;
                 OnPropertyChanged(nameof(SelectedUser));
             }
         }
@@ -89,18 +89,33 @@ namespace Projekt_Reolmarked.ViewModel
             AddUserCommand = new RelayCommand(paramter => AddUser());
             RemoveUserCommand = new RelayCommand(paramter => RemoveUser());
 
+            var user1 = new User(1, "Marie Neega", "Langberg Zarabi", "MNLZ@Proton.com", 70241207);
+            Users.Add(user1);
         }
 
         public void AddUser()
         {
             var user = new User(Users.Count + 1, FirstName, LastName, Email, PhoneNumber);
-                   
+
             Users.Add(user);
         }
-        
+
         public void RemoveUser()
         {
+            if (SelectedUser == null)
+            {
+                return;
+            }
 
+            // Frigør alle reoler brugeren ejede, så de bliver ledige igen
+            foreach (var shelf in SelectedUser.OwnedShelves.ToList())
+            {
+                shelf.Owner = null;
+                shelf.ShelfStatus = EnumShelfStatus.Ledig;
+            }
+
+            Users.Remove(SelectedUser);
+            SelectedUser = null;
         }
     }
 }

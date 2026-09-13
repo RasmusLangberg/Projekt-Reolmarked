@@ -6,6 +6,7 @@ namespace Projekt_Reolmarked.Model
 {
     public enum EnumShelfStatus
     {
+        IkkeDefineret,
         Ledig,
         Optaget,
     }
