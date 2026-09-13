@@ -20,12 +20,7 @@ namespace Projekt_Reolmarked
         public MainWindow()
         {
             InitializeComponent();
-
-            ShelfViewModel Shelf = new ShelfViewModel();
-
-            UserViewModel User = new UserViewModel();
-
-            DataContext = new MainViewModel(Shelf, User);
+            DataContext = new MainViewModel();
         }
 
        

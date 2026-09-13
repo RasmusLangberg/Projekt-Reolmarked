@@ -19,6 +19,8 @@ namespace Projekt_Reolmarked.Model
 
         public List<Shelf> OwnedShelves { get; set; } = new List<Shelf>();
 
+        public int MonthlyPayment { get; set; }
+
 
         public User(int id, string firstName, string lastName, string email, int phoneNumber)
         {
@@ -27,8 +29,14 @@ namespace Projekt_Reolmarked.Model
             LastName = lastName;
             Email = email;
             PhoneNumber = phoneNumber;
-            
-       }
+            MonthlyPayment = 0;
+        }
+
+
+        public override string ToString()
+        {
+            return $"User ID: {Id}, Name: {FirstName} {LastName}, Email: {Email}, Phone: {PhoneNumber}, Monthly Payment: {MonthlyPayment}";
+        }
 
     }
 }

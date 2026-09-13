@@ -130,16 +130,13 @@
         <Button Content="80" Command="{Binding ShelfViewModel.Shelves[79]}" Style="{StaticResource ParkingButtonStyle}" HorizontalAlignment="Left" Height="42" Margin="200,565,0,0" VerticalAlignment="Top" Width="20"/>
 
 
-        <ListBox HorizontalAlignment="Left" Height="270" Margin="447,147,0,0" VerticalAlignment="Top" Width="313" DataContext="{Binding ShelfViewModel.SelectedShelf }">
+        <StackPanel HorizontalAlignment="Left" Margin="456,231,0,0" VerticalAlignment="Top" Width="314" DataContext="{Binding ShelfViewModel.SelectedShelf}">
 
-            <ListBoxItem Height="286">
-                <StackPanel>
-                    <TextBlock Text="{Binding ShelfStatus, StringFormat='Tilgængelighed: {0}'}" FontSize="14"/>
-                    <TextBlock Text="{Binding ShelfType,StringFormat='Hyldetype: {0}'}" FontSize="14"/>
-                    <TextBlock Text="{Binding Owner.FirstName, StringFormat='Ejer: {0}', TargetNullValue='Ingen ejer'}" FontSize="14"/>
-                </StackPanel>
-            </ListBoxItem>
-        </ListBox>
+            <TextBlock Text="{Binding ShelfType, StringFormat='Hyldetype: {0}'}" FontSize="14" Height="16"/>
+            <TextBlock Text="{Binding Owner.FirstName, StringFormat=Ejer: \{0\}, TargetNullValue=Ingen ejer}" FontSize="14" Height="24"/>
+            <TextBlock Text="{Binding ShelfStatus, StringFormat=Tilgængelighed: \{0\}}" FontSize="14"/>
+
+        </StackPanel>
 
 
 
@@ -149,24 +146,29 @@
         <TextBlock HorizontalAlignment="Left" Margin="664,445,0,0" TextWrapping="Wrap" Text="Opret Bruger" FontWeight="Bold" VerticalAlignment="Top"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="585,469,0,0" TextWrapping="Wrap" Text="Fornavn:" VerticalAlignment="Top" RenderTransformOrigin="0.854,0.645" Height="26" Width="56"/>
-        <TextBox HorizontalAlignment="Left" Margin="641,469,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"  RenderTransformOrigin="0.396,-0.298"/>
+        <TextBox  HorizontalAlignment="Left" Margin="641,469,0,0" TextWrapping="Wrap" Text="{Binding UserViewModel.FirstName}" VerticalAlignment="Top" Width="120"  RenderTransformOrigin="0.396,-0.298"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="585,499,0,0" TextWrapping="Wrap" Text="Efternavn:" VerticalAlignment="Top" RenderTransformOrigin="0.854,0.645" Height="26" Width="56"/>
-        <TextBox HorizontalAlignment="Left" Margin="641,499,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"  RenderTransformOrigin="0.396,-0.298"/>
+        <TextBox HorizontalAlignment="Left" Margin="641,499,0,0" TextWrapping="Wrap" Text="{Binding UserViewModel.LastName}" VerticalAlignment="Top" Width="120"  RenderTransformOrigin="0.396,-0.298"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="585,533,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" RenderTransformOrigin="0.854,0.645" Height="26" Width="56"/>
-        <TextBox HorizontalAlignment="Left" Margin="641,533,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"  RenderTransformOrigin="0.396,-0.298"/>
+        <TextBox HorizontalAlignment="Left" Margin="641,533,0,0" TextWrapping="Wrap" Text="{Binding UserViewModel.Email}" VerticalAlignment="Top" Width="120"  RenderTransformOrigin="0.396,-0.298"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="585,563,0,0" TextWrapping="Wrap" Text="Telefon:" VerticalAlignment="Top" RenderTransformOrigin="0.854,0.645" Height="26" Width="56"/>
-        <TextBox HorizontalAlignment="Left" Margin="641,563,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"  RenderTransformOrigin="0.396,-0.298"/>
-        
-        <Button Content="Button" HorizontalAlignment="Left" Height="20" Margin="641,603,0,0" VerticalAlignment="Top" Width="119"/>
-        <Button Content="Button" HorizontalAlignment="Left" Height="22" Margin="641,631,0,0" VerticalAlignment="Top" Width="119"/>
+        <TextBox HorizontalAlignment="Left" Margin="641,563,0,0" TextWrapping="Wrap" Text="{Binding UserViewModel.PhoneNumber}" VerticalAlignment="Top" Width="120"  RenderTransformOrigin="0.396,-0.298"/>
+
+        <Button Content="Add User" Command="{Binding UserViewModel.AddUserCommand}" HorizontalAlignment="Left" Height="20" Margin="641,603,0,0" VerticalAlignment="Top" Width="119"/>
+        <Button Content="Remove User" Command="{Binding UserViewModel.RemoveUserCommand}" HorizontalAlignment="Left" Height="22" Margin="641,631,0,0" VerticalAlignment="Top" Width="119"/>
 
         <!-- vælg bruger -->
         <TextBlock HorizontalAlignment="Left" Margin="451,446,0,0" TextWrapping="Wrap" Text="Lejere" VerticalAlignment="Top"/>
-        <ComboBox ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser}" HorizontalAlignment="Left" Margin="416,469,0,0" VerticalAlignment="Top" Width="120"/>
-        
+        <ComboBox ItemsSource="{Binding UserViewModel.Users}" SelectedItem="{Binding UserViewModel.SelectedUser}" HorizontalAlignment="Left" Margin="416,469,0,0" VerticalAlignment="Top" Width="120"/>
+
+
+
+
+        <Button Command="{Binding ShelfViewModel.AddUserToShelfCommand}" Content="Tilføj Lejer til Reol" HorizontalAlignment="Left" Margin="641,664,0,0" VerticalAlignment="Top" Height="24" Width="118"/>
+
 
 
 

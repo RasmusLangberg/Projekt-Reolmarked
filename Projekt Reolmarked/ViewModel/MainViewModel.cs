@@ -13,10 +13,11 @@ namespace Projekt_Reolmarked.ViewModel
         public UserViewModel UserViewModel { get; }
 
 
-        public MainViewModel(ShelfViewModel shelfViewModel, UserViewModel userViewModel)
+        public MainViewModel()
         {
-            ShelfViewModel = shelfViewModel;
-            UserViewModel = userViewModel;
+           
+            ShelfViewModel = new ShelfViewModel(UserViewModel);  
+            UserViewModel = new UserViewModel();
         }
 
     }

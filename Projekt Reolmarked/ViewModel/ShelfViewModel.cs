@@ -13,10 +13,13 @@ namespace Projekt_Reolmarked.ViewModel
     {
 
     
-        public ObservableCollection<Shelf> Shelves { get; } 
+        public ObservableCollection<Shelf> Shelves { get; }
+
+        private readonly UserViewModel _userViewModel;
 
         public ICommand ShowShelfInfoCommand { get; }
 
+        public ICommand AddUserToShelfCommand { get; }
 
         private Shelf _selectedShelf;
 
@@ -30,15 +33,39 @@ namespace Projekt_Reolmarked.ViewModel
             }
         }
 
+        private User _Owner;
+
+        public User Owner
+        {
+            get { return _Owner; }
+            set 
+            { _Owner = value; 
+                OnPropertyChanged(nameof(Owner));
+            }
+        }
 
 
 
 
-        public ShelfViewModel()
+
+        public ShelfViewModel(UserViewModel userViewModel)
         {
             Shelves = new ObservableCollection<Shelf>();
 
+            _userViewModel = userViewModel;
+
             ShowShelfInfoCommand = new RelayCommand(ShowShelfInfo);
+
+            AddUserToShelfCommand = new RelayCommand(parameter =>
+            {
+                if (SelectedShelf != null &&
+                    _userViewModel.SelectedUser != null)
+                {
+                    AddUserToShelf(
+                        _userViewModel.SelectedUser,
+                        SelectedShelf);
+                }
+            });
 
             GenerateShelfs();
     
@@ -90,11 +117,21 @@ namespace Projekt_Reolmarked.ViewModel
 
         }
     
-        public void AddShelves()
+      
+    
+        public void AddUserToShelf(User user, Shelf shelf)
         {
+            if (shelf.ShelfStatus == EnumShelfStatus.Ledig)
+            {
+                shelf.Owner = user;
+                shelf.ShelfStatus = EnumShelfStatus.Optaget;
+                user.OwnedShelves.Add(shelf);
 
+                OnPropertyChanged(nameof(SelectedShelf));
+
+
+            }
         }
-    
-    
+
     }
 }
