@@ -8,6 +8,12 @@ namespace Projekt_Reolmarked.ViewModel
 {
     public class ShelfObjectViewModel : INotifyBase
     {
+
+        // denne klasse er en wrapper omkring Shelf-klassen. ligsom gavepapir om en gave, der gør det muligt at binde Shelf-objekter til UI-komponenter i WPF.
+        // man gør det for at implementere INotifyPropertyChanged, som Shelf-klassen ikke gør efter MVVM?!? her må lære gerne uddybe, jeg har ikke helt forstået hvorfor,
+        // men det virker som om det er en slags "mellemled" mellem model og view, der gør det muligt at opdatere UI'et, når modelens data ændres.
+
+
         public Shelf Model { get; }
 
         public ShelfObjectViewModel(Shelf shelf)

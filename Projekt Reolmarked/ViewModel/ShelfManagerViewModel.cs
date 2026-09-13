@@ -13,18 +13,20 @@ namespace Projekt_Reolmarked.ViewModel
     {
         // ÆNDRET: Samlingen indeholder nu ShelfItemViewModel
         public ObservableCollection<ShelfObjectViewModel> Shelves { get; }
-
         private readonly UserViewModel _userViewModel;
+
 
         public ICommand ShowShelfInfoCommand { get; }
         public ICommand AddUserToShelfCommand { get; }
         public ICommand RemoveUserFromShelfCommand { get; }
 
+
         public EnumShelfType SelectedShelfType => SelectedShelf?.ShelfType ?? default;
         public string SelectedShelfOwnerName => SelectedShelf?.OwnerName;
         public EnumShelfStatus SelectedShelfStatus => SelectedShelf?.ShelfStatus ?? default;
 
-        // ÆNDRET: Type ændret fra Shelf til ShelfItemViewModel
+    
+
         private ShelfObjectViewModel _selectedShelf;
 
         public ShelfObjectViewModel SelectedShelf
@@ -70,9 +72,9 @@ namespace Projekt_Reolmarked.ViewModel
        
         public void ShowShelfInfo(object parameter)
         {
-            if (parameter is ShelfObjectViewModel shelfVm)
+            if (parameter is ShelfObjectViewModel SpecificShelfObject)
             {
-                SelectedShelf = shelfVm;
+                SelectedShelf = SpecificShelfObject;
             }
         }
 
@@ -81,10 +83,16 @@ namespace Projekt_Reolmarked.ViewModel
         {
             for (int i = 1; i <= 80; i++)
             {
-                var type = (i % 3 == 0) ? EnumShelfType.HylderOgBøjleStang : EnumShelfType.Hylder;
-                var shelfModel = new Shelf(i, null, type, 0, EnumShelfStatus.Ledig);
-
-                Shelves.Add(new ShelfObjectViewModel(shelfModel));
+                if (i % 3 == 0) 
+                {
+                    var shelfModel = new Shelf(i, null, EnumShelfType.HylderOgBøjleStang, 0, EnumShelfStatus.Ledig);
+                    Shelves.Add(new ShelfObjectViewModel(shelfModel));
+                }
+                else
+                {
+                    var shelfModel = new Shelf(i, null, EnumShelfType.Hylder, 0, EnumShelfStatus.Ledig);
+                    Shelves.Add(new ShelfObjectViewModel(shelfModel));
+                }
             }
         }
 
