@@ -8,7 +8,7 @@ namespace Projekt_Reolmarked.ViewModel
 {
     public class MainViewModel 
     {
-        public ShelfViewModel ShelfViewModel { get; }
+        public ShelfManagerViewModel ShelfViewModel { get; }
 
         public UserViewModel UserViewModel { get; }
 
@@ -18,7 +18,7 @@ namespace Projekt_Reolmarked.ViewModel
            
             
             UserViewModel = new UserViewModel();
-            ShelfViewModel = new ShelfViewModel(UserViewModel);
+            ShelfViewModel = new ShelfManagerViewModel(UserViewModel);
         }
 
     }
