@@ -11,7 +11,7 @@
         Title="MainWindow" Height="800" Width="800">
 
     <Grid>
-
+            <!-- Grid resources er en slags XAML metode hvis man skal genbruge noget-->
         <Grid.Resources>
             <Style x:Key="RedOrGreenButtonStyle" TargetType="{x:Type Button}">
                        <Setter Property="Background" Value="Green"/>
@@ -140,7 +140,7 @@
 
 
 
-        <!-- add User -->
+        <!-- add Bruger -->
 
         <TextBlock HorizontalAlignment="Left" Margin="664,445,0,0" TextWrapping="Wrap" Text="Opret Bruger" FontWeight="Bold" VerticalAlignment="Top"/>
 
