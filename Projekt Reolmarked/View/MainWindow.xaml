@@ -13,15 +13,15 @@
     <Grid>
 
         <Grid.Resources>
-    <Style x:Key="ParkingButtonStyle" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="Green"/>
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding CommandParameter.ShelfStatus, RelativeSource={RelativeSource Self}}" Value="Optaget">
-                <Setter Property="Background" Value="Red"/>
-            </DataTrigger>
-        </Style.Triggers>
-    </Style>
-</Grid.Resources>
+            <Style x:Key="ParkingButtonStyle" TargetType="{x:Type Button}">
+                       <Setter Property="Background" Value="Green"/>
+                <Style.Triggers>
+                        <DataTrigger Binding="{Binding CommandParameter.ShelfStatus, RelativeSource={RelativeSource Self}}" Value="Optaget">
+                                 <Setter Property="Background" Value="Red"/>
+                        </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
 
 
         <Image gif:ImageBehavior.AnimatedSource="/Gifs/happy-cat.gif" Margin="494,-29,28,553" RenderTransformOrigin="0.5,0.5" >
