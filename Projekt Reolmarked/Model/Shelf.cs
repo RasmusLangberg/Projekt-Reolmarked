@@ -11,7 +11,7 @@ namespace Projekt_Reolmarked.Model
         public int Id { get; set; }
         public User? Owner { get; set; }
         public EnumShelfType ShelfType { get; set; }
-        public int ShelfPrice { get; set; }
+        public int ShelfPrice = 850;
         public EnumShelfStatus ShelfStatus { get; set; }
 
         public Shelf(int id, User? owner, EnumShelfType shelfType, int shelfPrice, EnumShelfStatus shelfStatus)

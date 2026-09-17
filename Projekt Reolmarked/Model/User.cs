@@ -38,5 +38,12 @@ namespace Projekt_Reolmarked.Model
             return $"User ID: {Id}, Name: {FirstName} {LastName}, Email: {Email}, Phone: {PhoneNumber}, Monthly Payment: {MonthlyPayment}";
         }
 
+   
+        public void CalculateMonthlyPayment() // lav bergning på bergning af månedlig betaling 
+        {
+            
+        }
+
+
     }
 }
