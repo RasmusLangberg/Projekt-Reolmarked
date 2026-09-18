@@ -1,17 +1,12 @@
 ﻿using Projekt_Reolmarked.Model;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Reflection.Metadata;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using System.Windows.Input;
 
 namespace Projekt_Reolmarked.ViewModel
 {
     public class ShelfManagerViewModel : INotifyBase
     {
-        // ÆNDRET: Samlingen indeholder nu ShelfItemViewModel
+        // i stedet for at ObservableCollection<Shelf>, så bruger vi nu ShelfObjectViewModel, som er en wrapper omkring Shelf, der gør det muligt at binde til UI'et. unden at skulle implementere INotifyPropertyChanged i Shelf-klassen. som virker forkert i forhold til MVVM-principperne.?!?
         public ObservableCollection<ShelfObjectViewModel> Shelves { get; }
         private readonly UserViewModel _userViewModel;
 
@@ -25,7 +20,7 @@ namespace Projekt_Reolmarked.ViewModel
         public string SelectedShelfOwnerName => SelectedShelf?.OwnerName;
         public EnumShelfStatus SelectedShelfStatus => SelectedShelf?.ShelfStatus ?? default;
 
-    
+
 
         private ShelfObjectViewModel _selectedShelf;
 
@@ -45,7 +40,7 @@ namespace Projekt_Reolmarked.ViewModel
         public ShelfManagerViewModel(UserViewModel userViewModel)
         {
             Shelves = new ObservableCollection<ShelfObjectViewModel>();
-            
+
             _userViewModel = userViewModel;
 
             ShowShelfInfoCommand = new RelayCommand(ShowShelfInfo);
@@ -69,7 +64,7 @@ namespace Projekt_Reolmarked.ViewModel
             GenerateShelfs();
         }
 
-       
+
         public void ShowShelfInfo(object parameter)
         {
             if (parameter is ShelfObjectViewModel SpecificShelfObject)
@@ -78,12 +73,12 @@ namespace Projekt_Reolmarked.ViewModel
             }
         }
 
-       
+
         public void GenerateShelfs()
         {
             for (int i = 1; i <= 80; i++)
             {
-                if (i % 3 == 0) 
+                if (i % 3 == 0)
                 {
                     var shelfModel = new Shelf(i, null, EnumShelfType.HylderOgBøjleStang, 0, EnumShelfStatus.Ledig);
                     Shelves.Add(new ShelfObjectViewModel(shelfModel));
@@ -103,7 +98,7 @@ namespace Projekt_Reolmarked.ViewModel
             return 800 * antal;
         }
 
-        
+
         public void AddUserToShelf(User user, ShelfObjectViewModel shelfVm)
         {
             if (shelfVm.ShelfStatus == EnumShelfStatus.Ledig)
@@ -116,7 +111,7 @@ namespace Projekt_Reolmarked.ViewModel
             }
         }
 
-        
+
         public void RemoveUserFromShelf(ShelfObjectViewModel shelfVm)
         {
             if (shelfVm.ShelfStatus == EnumShelfStatus.Optaget)
