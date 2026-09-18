@@ -111,6 +111,7 @@ namespace Projekt_Reolmarked.ViewModel
                 shelfVm.Owner = user;
                 shelfVm.ShelfStatus = EnumShelfStatus.Optaget;
                 user.OwnedShelves.Add(shelfVm.Model);
+                user.CalculateMonthlyPayment(); 
 
                 ShowShelfInfo(shelfVm);
             }
