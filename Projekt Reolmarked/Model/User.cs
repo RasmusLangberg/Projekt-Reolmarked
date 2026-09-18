@@ -41,7 +41,23 @@ namespace Projekt_Reolmarked.Model
    
         public void CalculateMonthlyPayment() // lav bergning på bergning af månedlig betaling 
         {
-            
+            int numberOfShelves = OwnedShelves.Count;
+
+            if (numberOfShelves == 1)
+            {
+                MonthlyPayment = 850;
+            }
+
+            else if (numberOfShelves >= 2 && numberOfShelves <= 3)
+            {
+                MonthlyPayment = numberOfShelves * 825;
+            }
+
+            else if (numberOfShelves >= 4)
+            {
+                MonthlyPayment = numberOfShelves * 800;
+            }
+            else MonthlyPayment = 0;
         }
 
 
