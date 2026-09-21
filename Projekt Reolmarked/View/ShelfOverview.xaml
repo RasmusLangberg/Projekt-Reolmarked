@@ -8,7 +8,198 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ShelfOverview">
 
-    <Grid>
-        
+    <Grid Margin="30">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.Resources>
+            <Style x:Key="RedOrGreenButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="Green"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding CommandParameter.ShelfStatus, RelativeSource={RelativeSource Self}}" Value="Optaget">
+                        <Setter Property="Background" Value="Red"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
+
+        <!-- Heading -->
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Foreground="DarkRed" Text="REOLOVERSIGT" FontSize="40" FontWeight="Heavy" FontFamily="Verdana" HorizontalAlignment="Center" Margin="20"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="0">
+
+            <Grid Margin="10">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <!-- Buttons for the shelf 1-13 -->
+                
+                <Button Content="13" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="1" Grid.Column="0"/>
+                <Button Content="12" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="2" Grid.Column="0"/>
+                <Button Content="11" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="3" Grid.Column="0"/>
+                <Button Content="10" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="4" Grid.Column="0"/>
+                <Button Content="9" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="5" Grid.Column="0"/>
+                <Button Content="8" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="6" Grid.Column="0"/>
+                <Button Content="7" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="7" Grid.Column="0"/>
+                <Button Content="6" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="8" Grid.Column="0"/>
+                <Button Content="5" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="9" Grid.Column="0"/>
+                <Button Content="4" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="10" Grid.Column="0"/>
+                <Button Content="3" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="11" Grid.Column="0"/>
+                <Button Content="2" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="12" Grid.Column="0"/>
+                <Button Content="1" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="13" Grid.Column="0"/>
+
+                <!-- Buttons for shelf 14-18 -->
+                <Button Content="14" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="1"/>
+                <Button Content="15" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="2"/>
+                <Button Content="16" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="3"/>
+                <Button Content="17" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="4"/>
+                <Button Content="18" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+
+                <!-- Buttons for shelf 19-24 -->
+                <Button Content="19" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="2" Grid.Column="2"/>
+                <Button Content="20" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="2" Grid.Column="3"/>
+                <Button Content="21" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="2" Grid.Column="4"/>
+                <Button Content="22" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="3" Grid.Column="2"/>
+                <Button Content="23" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="3" Grid.Column="3"/>
+                <Button Content="24" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="3" Grid.Column="4"/>
+
+                <!-- Buttons for shelf 25-38 -->
+                <Button Content="25" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="26" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="27" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="28" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="29" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="30" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="31" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="32" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="33" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="34" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="35" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="36" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="37" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="38" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+
+                <!-- Buttons for shelf 39-52 -->
+                <Button Content="39" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="40" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="41" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="42" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="43" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="44" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="45" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="46" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="47" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="48" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="49" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="50" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="51" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="52" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+
+                <!-- Buttons for shelf 53-66 -->
+                <Button Content="53" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="54" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="55" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="56" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="57" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="58" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="59" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="60" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="61" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="62" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="63" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="64" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="65" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="66" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+
+                <!-- Buttons for shelf 67-76 -->
+                <Button Content="67" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="68" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="69" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="70" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="71" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="72" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="73" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="74" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="75" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="76" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+
+
+                <!-- Buttons for shelf 77-80 -->
+                <Button Content="77" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="78" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="79" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+                <Button Content="80" Command="{Binding ShelfManagerViewModel.ShowShelfInfoCommand}" CommandParameter="{Binding ShelfManagerViewModel.Shelves[0]}" Style="{StaticResource RedOrGreenButtonStyle}" Grid.Row="0" Grid.Column="5"/>
+
+
+
+
+
+
+            </Grid>
+
+
+
+        </StackPanel>
+
+
+
+
+
+
     </Grid>
 </Page>

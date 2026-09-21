@@ -23,6 +23,9 @@ namespace Projekt_Reolmarked
             DataContext = new MainViewModel();
         }
 
-       
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
