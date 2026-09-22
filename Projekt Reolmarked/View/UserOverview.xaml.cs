@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace Projekt_Reolmarked.View
 {
     /// <summary>
-    /// Interaction logic for CreateUser.xaml
+    /// Interaction logic for UserOverview.xaml
     /// </summary>
-    public partial class CreateUser : Page
+    public partial class UserOverview : Page
     {
-        public CreateUser()
+        public UserOverview()
         {
             InitializeComponent();
         }
