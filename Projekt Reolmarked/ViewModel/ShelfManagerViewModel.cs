@@ -1,4 +1,5 @@
-﻿using Projekt_Reolmarked.Model;
+﻿using Projekt_Reolmarked.Data;
+using Projekt_Reolmarked.Model;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -6,6 +7,7 @@ namespace Projekt_Reolmarked.ViewModel
 {
     public class ShelfManagerViewModel : INotifyBase
     {
+        private readonly IShelfRepository _shelfRepository = new ShelfRepository();
         // i stedet for at ObservableCollection<Shelf>, så bruger vi nu ShelfObjectViewModel, som er en wrapper omkring Shelf, der gør det muligt at binde til UI'et. unden at skulle implementere INotifyPropertyChanged i Shelf-klassen. som virker forkert i forhold til MVVM-principperne.?!?
         public ObservableCollection<ShelfObjectViewModel> Shelves { get; }
         private readonly UserViewModel _userViewModel;
@@ -60,10 +62,24 @@ namespace Projekt_Reolmarked.ViewModel
                     RemoveUserFromShelf(SelectedShelf);
                 }
             });
-
-            GenerateShelfs();
+            
+            LoadShelvesFromDatabase();
         }
 
+        private void LoadShelvesFromDatabase()
+        {
+            var shelves = _shelfRepository.GetAll(_userViewModel.Users);
+
+            foreach (var shelf in shelves)
+            {
+                Shelves.Add(new ShelfObjectViewModel(shelf));
+
+                if (shelf.Owner != null)
+                {
+                    shelf.Owner.OwnedShelves.Add(shelf);
+                }
+            }
+        }
 
         public void ShowShelfInfo(object parameter)
         {
@@ -73,7 +89,7 @@ namespace Projekt_Reolmarked.ViewModel
             }
         }
 
-
+// Generateshelf erstattet med loadfromdatabase, kaldes ikkke kan slettes
         public void GenerateShelfs()
         {
             for (int i = 1; i <= 80; i++)
@@ -103,6 +119,7 @@ namespace Projekt_Reolmarked.ViewModel
         {
             if (shelfVm.ShelfStatus == EnumShelfStatus.Ledig)
             {
+                _shelfRepository.UpdateOwner(shelfVm.Id, user.Id);
                 shelfVm.Owner = user;
                 shelfVm.ShelfStatus = EnumShelfStatus.Optaget;
                 user.OwnedShelves.Add(shelfVm.Model);
@@ -116,6 +133,7 @@ namespace Projekt_Reolmarked.ViewModel
         {
             if (shelfVm.ShelfStatus == EnumShelfStatus.Optaget)
             {
+                _shelfRepository.UpdateOwner(shelfVm.Id, null);
                 shelfVm.Owner?.OwnedShelves.Remove(shelfVm.Model);
                 shelfVm.Owner = null;
                 shelfVm.ShelfStatus = EnumShelfStatus.Ledig;

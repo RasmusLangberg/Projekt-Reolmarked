@@ -41,7 +41,15 @@ public class UserRepository : IUserRepository
         using var connection = Database.GetConnection();
 
         connection.Execute(
-            "DELETE FROM [User] WHERE ID = @Id",
+            """
+            UPDATE dbo.Shelf
+            SET OwnerID = NULL,
+                ShelfStatus = 1
+            WHERE OwnerID = @Id;
+
+            DELETE FROM [User]
+            WHERE ID = @Id;
+            """,
             new { Id = id });
     }
 
