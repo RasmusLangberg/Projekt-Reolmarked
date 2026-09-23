@@ -21,6 +21,7 @@ namespace Projekt_Reolmarked
         {
             InitializeComponent();
             DataContext = new MainViewModel();
+            
         }
 
        

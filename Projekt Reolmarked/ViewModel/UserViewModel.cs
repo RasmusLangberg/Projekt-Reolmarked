@@ -1,10 +1,13 @@
-﻿using Projekt_Reolmarked.Model;
+﻿//neega 1 linje nedenunder
+using Projekt_Reolmarked.Data;
+using Projekt_Reolmarked.Model;
 using System;
 using System.Collections.Generic;
 using Projekt_Reolmarked.ViewModel;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Input;
+
 
 namespace Projekt_Reolmarked.ViewModel
 {
@@ -16,7 +19,10 @@ namespace Projekt_Reolmarked.ViewModel
 
         public ICommand RemoveUserCommand { get; }
 
-
+      /// neega tilføjet linje nedenunder
+      private readonly IUserRepository _userRepository = new UserRepository();
+        
+        
         private string _firstName;
 
         public string FirstName
@@ -88,14 +94,15 @@ namespace Projekt_Reolmarked.ViewModel
 
             AddUserCommand = new RelayCommand(paramter => AddUser());
             RemoveUserCommand = new RelayCommand(paramter => RemoveUser());
-
-            FakeUsers();
+           //neega fakeusers() erstattes med database 1linje 
+            LoadUsersFromDatabase();
         }
 
         public void AddUser()
         {
             var user = new User(Users.Count + 1, FirstName, LastName, Email, PhoneNumber);
-
+           /// neega _userrepo added 1 linje nedenunder
+           _userRepository.Add(user);
             Users.Add(user);
         }
 
@@ -105,7 +112,10 @@ namespace Projekt_Reolmarked.ViewModel
             {
                 return;
             }
-
+            // Neega added 1 linje  database 
+            _userRepository.Delete(SelectedUser.Id);
+            
+            
             // Frigør alle reoler brugeren ejede, så de bliver ledige igen
             foreach (var shelf in SelectedUser.OwnedShelves.ToList())
             {
@@ -129,7 +139,15 @@ namespace Projekt_Reolmarked.ViewModel
             Users.Add(user3);
             Users.Add(user4);
         }
-
+        
+        ///// Neega metode til persistens database
+        public void LoadUsersFromDatabase()
+        {
+            foreach (var user in _userRepository.GetAll())
+            {
+                Users.Add(user);
+            }
+        }
 
     }
 }
