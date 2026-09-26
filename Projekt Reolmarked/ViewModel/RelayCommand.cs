@@ -9,6 +9,7 @@ namespace Projekt_Reolmarked.ViewModel
     {
         private readonly Action<object> _execute;
         private readonly Func<object, bool> _canExecute;
+        private Action addItem;
 
         public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
@@ -16,6 +17,12 @@ namespace Projekt_Reolmarked.ViewModel
             _canExecute = canExecute;
 
         }
+
+        public RelayCommand(Action addItem)
+        {
+            this.addItem = addItem;
+        }
+
         public bool CanExecute(object parameter)
         {
             return _canExecute == null || _canExecute(parameter);

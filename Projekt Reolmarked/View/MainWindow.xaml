@@ -167,7 +167,7 @@
 
         <Button Command="{Binding ShelfManagerViewModel.AddUserToShelfCommand}" Content="Tilføj Lejer til Reol" HorizontalAlignment="Left" Margin="416,604,0,0" VerticalAlignment="Top" Height="24" Width="118"/>
         <Button Command="{Binding ShelfManagerViewModel.RemoveUserFromShelfCommand}" Content="Fjern Lejer fra Reol" HorizontalAlignment="Left" Margin="416,631,0,0" VerticalAlignment="Top" Height="24" Width="118" RenderTransformOrigin="0.523,0.683"/>
-
+        <Button Content="Til kassen" Command="{Binding OpenCheckoutCommand}" HorizontalAlignment="Left" Margin="416,660,0,0" VerticalAlignment="Top" Height="24" Width="118"/>
 
 
 
