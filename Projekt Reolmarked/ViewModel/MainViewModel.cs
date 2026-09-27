@@ -16,7 +16,7 @@ namespace Projekt_Reolmarked.ViewModel
         public MainViewModel()
         {
             SellerViewModel = new SellerViewModel();
-            ItemViewModel = new ItemViewModel();
+            ItemViewModel = new ItemViewModel(SellerViewModel);
             ShelfManagerViewModel = new ShelfManagerViewModel(SellerViewModel);
            
         }

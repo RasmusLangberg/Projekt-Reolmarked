@@ -9,8 +9,10 @@ public class SellerRepository : ISellerRepository
     {
         using var connection = Database.GetConnection();
 
+       
         var rows = connection.Query<SellerRow>(
             "SELECT ID, FirstName, LastName, Email, PhoneNumber, MonthlyPayment FROM [User]");
+        
 
         return rows.Select(row => new Seller(
             row.ID,
@@ -21,6 +23,7 @@ public class SellerRepository : ISellerRepository
         {
             MonthlyPayment = row.MonthlyPayment
         }).ToList();
+        
     }
 
     public void Add(Seller seller)
