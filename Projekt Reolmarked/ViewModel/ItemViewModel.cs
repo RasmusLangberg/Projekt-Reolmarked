@@ -1,4 +1,5 @@
 ﻿using Projekt_Reolmarked.Model;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -9,93 +10,63 @@ namespace Projekt_Reolmarked.ViewModel
 {
     public class ItemViewModel : INotifyBase
     {
-        private Item _item;
-        private ItemListViewModel _itemListViewModel;
+        public ObservableCollection<Item> Items { get; }
+
+        public SellerViewModel SellerViewModel { get; }
+        private int nextID = 1;
 
         public ICommand AddItemCommand { get; }
 
-        public ItemViewModel(Item item, ItemListViewModel itemListViewModel)
+        public ItemViewModel()
         {
-            _item = item;
-            _itemListViewModel = itemListViewModel;
+            
+           
             AddItemCommand = new RelayCommand(AddItem);
         }
 
+
         private void AddItem()
         {
-            AddItem(_itemListViewModel);
+
+            var ItemId = GenerateID();
+
+            Item newItem = new Item(Name, SellerViewModel.SelectedSeller, ItemId, Price);
+          
+            Items.Add(newItem);
         }
 
-        private void AddItem(ItemListViewModel _itemListViewModel1)
-        {
-
-            
-            Item newItem = new Item(Name, Seller, ItemId, Price);
-            _itemListViewModel1.Items.Add(newItem);
-        }
+        private string _name;
 
         public string Name
         {
-            get { return _item.Name; }
-            set
-            {
-                if (_item.Name != value)
-                {
-                    _item.Name = value;
-                    OnPropertyChanged(nameof(Name));
-                }
+            get { return _name; }
+            set 
+            { 
+                _name = value; 
+                OnPropertyChanged(nameof(Name));
             }
         }
 
-        public int ItemId
-        {
-            get { return _item.ItemId; }
-            set
-            {
-                if (_item.ItemId != value)
-                {
-                    _item.ItemId = value;
-                    OnPropertyChanged(nameof(ItemId));
-                }
-            }
-        }
 
+       
+        private double _price;
         public double Price
         {
-            get { return _item.Price; }
-            set
-            {
-                if (_item.Price != value)
-                {
-                    _item.Price = value;
-                    OnPropertyChanged(nameof(Price));
-                }
+            get { return _price; }
+            set 
+            { 
+                _price = value; 
+                OnPropertyChanged(nameof(Price));
             }
         }
 
-        public Seller Seller
+       
+       public int GenerateID()
         {
-            get { return _item.Seller; }
-            set
-            {
-                if (_item.Seller != value)
-                {
-                    _item.Seller = value;
-                    OnPropertyChanged(nameof(Seller));
-                }
-            }
+            return nextID++;
         }
-
-        public string SellerName
-        {
-            get { return $"{_item.Seller.FirstName} {_item.Seller.LastName}"; }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
         
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+
+
     }
 }

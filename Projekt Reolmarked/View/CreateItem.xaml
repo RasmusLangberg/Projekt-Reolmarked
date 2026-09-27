@@ -14,7 +14,7 @@
         <TextBox Text="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="361,217,0,0" Width="100" Height="30" RenderTransformOrigin="0.472,-1.912"/>
         <TextBlock Text="Tilhøre sælger:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="264,193,0,0"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,132,0,0" TextWrapping="Wrap" Text="Opret vare" VerticalAlignment="Top"/>
-        <ComboBox ItemsSource="{Binding SellerViewModel.Seller}" SelectedItem="{Binding SelectedSeller}" HorizontalAlignment="Left" Margin="351,190,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox ItemsSource="{Binding ItemVC}" SelectedItem="{Binding SelectedSeller}" HorizontalAlignment="Left" Margin="351,190,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
