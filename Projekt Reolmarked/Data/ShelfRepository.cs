@@ -5,7 +5,7 @@ namespace Projekt_Reolmarked.Data;
 
 public class ShelfRepository : IShelfRepository
 {
-    public List<Shelf> GetAll(IEnumerable<User> users)
+    public List<Shelf> GetAll(IEnumerable<Seller> users)
     {
         using var connection = Database.GetConnection();
 

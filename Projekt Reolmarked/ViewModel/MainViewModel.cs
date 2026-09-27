@@ -6,7 +6,7 @@ namespace Projekt_Reolmarked.ViewModel
     {
         public ShelfManagerViewModel ShelfManagerViewModel { get; }
 
-        public UserViewModel UserViewModel { get; }
+        public SellerViewModel UserViewModel { get; }
 
         public ItemListViewModel ItemListViewModel { get; }
 
@@ -15,7 +15,7 @@ namespace Projekt_Reolmarked.ViewModel
 
         public MainViewModel()
         {
-            UserViewModel = new UserViewModel();
+            UserViewModel = new SellerViewModel();
             ItemListViewModel = new ItemListViewModel();
             ShelfManagerViewModel = new ShelfManagerViewModel(UserViewModel);
 

@@ -10,7 +10,7 @@ namespace Projekt_Reolmarked.ViewModel
         private readonly IShelfRepository _shelfRepository = new ShelfRepository();
         // i stedet for at ObservableCollection<Shelf>, så bruger vi nu ShelfObjectViewModel, som er en wrapper omkring Shelf, der gør det muligt at binde til UI'et. unden at skulle implementere INotifyPropertyChanged i Shelf-klassen. som virker forkert i forhold til MVVM-principperne.?!?
         public ObservableCollection<ShelfObjectViewModel> Shelves { get; }
-        private readonly UserViewModel _userViewModel;
+        private readonly SellerViewModel _userViewModel;
 
 
         public ICommand ShowShelfInfoCommand { get; }
@@ -21,8 +21,6 @@ namespace Projekt_Reolmarked.ViewModel
         public EnumShelfType SelectedShelfType => SelectedShelf?.ShelfType ?? default;
         public string SelectedShelfOwnerName => SelectedShelf?.OwnerName;
         public EnumShelfStatus SelectedShelfStatus => SelectedShelf?.ShelfStatus ?? default;
-
-
 
         private ShelfObjectViewModel _selectedShelf;
 
@@ -39,7 +37,7 @@ namespace Projekt_Reolmarked.ViewModel
             }
         }
 
-        public ShelfManagerViewModel(UserViewModel userViewModel)
+        public ShelfManagerViewModel(SellerViewModel userViewModel)
         {
             Shelves = new ObservableCollection<ShelfObjectViewModel>();
 
@@ -49,9 +47,9 @@ namespace Projekt_Reolmarked.ViewModel
 
             AddUserToShelfCommand = new RelayCommand(parameter =>
             {
-                if (SelectedShelf != null && _userViewModel.SelectedUser != null)
+                if (SelectedShelf != null && _userViewModel.SelectedSeller != null)
                 {
-                    AddUserToShelf(_userViewModel.SelectedUser, SelectedShelf);
+                    AddUserToShelf(_userViewModel.SelectedSeller, SelectedShelf);
                 }
             });
 
@@ -68,7 +66,7 @@ namespace Projekt_Reolmarked.ViewModel
 
         private void LoadShelvesFromDatabase()
         {
-            var shelves = _shelfRepository.GetAll(_userViewModel.Users);
+            var shelves = _shelfRepository.GetAll(_userViewModel.Sellers);
 
             foreach (var shelf in shelves)
             {
@@ -115,19 +113,18 @@ namespace Projekt_Reolmarked.ViewModel
         }
 
 
-        public void AddUserToShelf(User user, ShelfObjectViewModel shelfVm)
+        public void AddUserToShelf(Seller seller, ShelfObjectViewModel shelfVm)
         {
             if (shelfVm.ShelfStatus == EnumShelfStatus.Ledig)
-            {
-                _shelfRepository.UpdateOwner(shelfVm.Id, user.Id);
-                shelfVm.Owner = user;
+            {       
+                _shelfRepository.UpdateOwner(shelfVm.Id, seller.Id);
+                shelfVm.Owner = seller; 
                 shelfVm.ShelfStatus = EnumShelfStatus.Optaget;
-                user.OwnedShelves.Add(shelfVm.Model);
+                seller.OwnedShelves.Add(shelfVm.Model);
 
                 ShowShelfInfo(shelfVm);
-            }
+            }   
         }
-
 
         public void RemoveUserFromShelf(ShelfObjectViewModel shelfVm)
         {

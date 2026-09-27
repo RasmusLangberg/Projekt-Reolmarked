@@ -23,17 +23,17 @@ public class SellerRepository : ISellerRepository
         }).ToList();
     }
 
-    public void Add(Seller user)
+    public void Add(Seller seller)
     {
         using var connection = Database.GetConnection();
 
         var sql = """
-                  INSERT INTO [User] (FirstName, LastName, Email, PhoneNumber, MonthlyPayment)
+                  INSERT INTO [Seller] (FirstName, LastName, Email, PhoneNumber, MonthlyPayment)
                   OUTPUT INSERTED.ID
                   VALUES (@FirstName, @LastName, @Email, @PhoneNumber, @MonthlyPayment)
                   """;
 
-        user.Id = connection.Query<int>(sql, user).First();
+        seller.Id = connection.Query<int>(sql, seller).First();
     }
 
     public void Delete(int id)

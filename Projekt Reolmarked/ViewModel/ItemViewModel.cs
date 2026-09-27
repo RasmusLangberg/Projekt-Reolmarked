@@ -73,7 +73,7 @@ namespace Projekt_Reolmarked.ViewModel
             }
         }
 
-        public User Seller
+        public Seller Seller
         {
             get { return _item.Seller; }
             set

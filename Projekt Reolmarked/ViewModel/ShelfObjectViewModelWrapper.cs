@@ -40,7 +40,7 @@ namespace Projekt_Reolmarked.ViewModel
             }
         }
 
-        public User? Owner
+        public Seller? Owner
         {
             get => Model.Owner;
             set

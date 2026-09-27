@@ -4,12 +4,12 @@
     public class Shelf
     {
         public int Id { get; set; }
-        public User? Owner { get; set; }
+        public Seller? Owner { get; set; }
         public EnumShelfType ShelfType { get; set; }
         public int ShelfPrice = 850;
         public EnumShelfStatus ShelfStatus { get; set; }
 
-        public Shelf(int id, User? owner, EnumShelfType shelfType, int shelfPrice, EnumShelfStatus shelfStatus)
+        public Shelf(int id, Seller? owner, EnumShelfType shelfType, int shelfPrice, EnumShelfStatus shelfStatus)
         {
             Id = id;
             Owner = owner;
