@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="CheckOut" Height="450" Width="800">
     <Grid>
-        <Button Content="Tilføj vare" Command="{Binding AddItemCommand}"  Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="552,306,0,0"/>
-        <TextBlock Text="Pris:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="526,278,0,0"/>
-        <TextBox Text="{Binding Price}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="552,271,0,0" Width="100" Height="30" RenderTransformOrigin="0.472,-1.912"/>
-        <TextBlock Text="ID:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="526,248,0,0"/>
-        <TextBox Text="{Binding ItemId}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="552,241,0,0" Width="100" Height="30" RenderTransformOrigin="0.472,-1.912"/>
-        <TextBlock Text="Navn:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="518,218,0,0"/>
-        <TextBox Text="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="552,211,0,0" Width="100" Height="30" RenderTransformOrigin="0.472,-1.912"/>
-        <TextBlock Text="Sælger:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="509,188,0,0"/>
-        <TextBox Text="{Binding Seller}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="552,181,0,0" Width="100" Height="30" RenderTransformOrigin="0.472,-1.912"/>
+        <Button Content="Tilføj vare til indkøbskurv " Command="{Binding AddItemCommand}"  Width="137" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="357,357,0,0" Click="Button_Click"/>
+        <TextBlock Text="Fulde pris " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="555,319,0,0"/>
+        <TextBox Text="{Binding ItemId}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="615,312,0,0" Width="100" Height="30" RenderTransformOrigin="0.472,-1.912"/>
+        <TextBlock HorizontalAlignment="Left" Margin="392,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.748,1.44" Text="Indkøbskurv" Height="23" Width="67" />
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,59,462,47"/>
+        <TextBlock HorizontalAlignment="Left" Margin="138,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.748,1.44" Text="Alle varer" />
+        <TextBlock HorizontalAlignment="Left" Margin="376,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.748,1.44" Text="Opret Salg" FontWeight="Bold" FontSize="20" />
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="357,110,306,92"/>
+        <Button Content="Gennemfør salg" Command="{Binding AddItemCommand}"  Width="138" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="596,357,0,0" Click="Button_Click"/>
     </Grid>
 </Window>
