@@ -7,14 +7,24 @@
         mc:Ignorable="d"
         Title="CreateItem" Height="450" Width="800">
     <Grid>
-        <Button Content="Tilføj vare" Command="{Binding AddItemCommand}"  Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="361,287,0,0"/>
-        <TextBlock Text="Pris:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="335,259,0,0"/>
-        <TextBox Text="{Binding Price}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="361,252,0,0" Width="100" Height="30" RenderTransformOrigin="0.472,-1.912"/>
-        <TextBlock Text="Navn:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="319,219,0,0"/>
-        <TextBox Text="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="361,217,0,0" Width="100" Height="30" RenderTransformOrigin="0.472,-1.912"/>
-        <TextBlock Text="Tilhøre sælger:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="264,193,0,0"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,132,0,0" TextWrapping="Wrap" Text="Opret vare" VerticalAlignment="Top"/>
-        <ComboBox ItemsSource="{Binding ItemVC}" SelectedItem="{Binding SelectedSeller}" HorizontalAlignment="Left" Margin="351,190,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Tilføj vare" Command="{Binding AddItemCommand}"  Width="118" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,257,0,0"/>
+        <TextBlock Text="Pris:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="311,230,0,0" Height="15" Width="25"/>
+        <TextBox Text="{Binding Price}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,223,0,0" Width="118" Height="30" RenderTransformOrigin="0.472,-1.912"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="272,190,0,0" Height="16" Width="56"><Run Language="da-dk" Text="Vare n"/><Run Text="avn:"/></TextBlock>
+        <TextBox Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,188,0,0" Width="118" Height="30" RenderTransformOrigin="0.472,-1.912"/>
+        <TextBlock Text="Tilhøre sælger:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="227,165,0,0" Height="15" Width="92"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,26,0,0" TextWrapping="Wrap" Text="Opret vare" VerticalAlignment="Top"/>
+        <ComboBox ItemsSource="{Binding ItemVC}" SelectedItem="{Binding SelectedSeller}" HorizontalAlignment="Center" Margin="0,161,0,0" VerticalAlignment="Top" Width="142" Height="22"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="523,87,32,22" RenderTransformOrigin="0.5,0.5">
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.223"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
+        </ListBox>
 
     </Grid>
 </Window>
