@@ -22,7 +22,7 @@ namespace Projekt_Reolmarked
         public CheckOut()
         {
             InitializeComponent();
-            User seller = new User(2, "John", "Doe", "john.doe@example.com", 12345678);
+            Seller seller = new Seller(2, "John", "Doe", "john.doe@example.com", 12345678);
             Item item = new Item("Glas vase", seller, 1, 19.99);
             
         }

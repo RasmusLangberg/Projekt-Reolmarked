@@ -94,7 +94,7 @@ namespace Projekt_Reolmarked.ViewModel
 
             AddSellerCommand = new RelayCommand(parameter => AddSeller());
             RemoveSellerCommand = new RelayCommand(parameter => RemoveSeller());
-            LoadSellersFromDatabase();
+            LoadUsersFromDatabase();
         }
 
         public void AddSeller()
