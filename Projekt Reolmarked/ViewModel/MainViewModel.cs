@@ -18,16 +18,11 @@ namespace Projekt_Reolmarked.ViewModel
             SellerViewModel = new SellerViewModel();
             ItemViewModel = new ItemViewModel();
             ShelfManagerViewModel = new ShelfManagerViewModel(SellerViewModel);
-
-            OpenCheckoutCommand = new RelayCommand(_ => OpenCheckout());
+           
         }
-
-        public void OpenCheckout()
-        {
-            CheckOut checkout = new CheckOut();
-            checkout.Show();
-        }
-
+        
+       
+        
 
     }
 }

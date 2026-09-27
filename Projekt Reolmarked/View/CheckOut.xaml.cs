@@ -25,8 +25,7 @@ namespace Projekt_Reolmarked
             DataContext = new ViewModel.MainViewModel();
 
 
-            Seller seller = new Seller(2, "John", "Doe", "john.doe@example.com", 12345678);
-            Item item = new Item("Glas vase", seller, 1, 19.99);
+          
             
         }
 
