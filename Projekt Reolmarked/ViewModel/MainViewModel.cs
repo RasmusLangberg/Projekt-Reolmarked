@@ -6,7 +6,7 @@ namespace Projekt_Reolmarked.ViewModel
     {
         public ShelfManagerViewModel ShelfManagerViewModel { get; }
 
-        public SellerViewModel UserViewModel { get; }
+        public SellerViewModel SellerViewModel { get; }
 
         public ItemListViewModel ItemListViewModel { get; }
 
@@ -15,9 +15,9 @@ namespace Projekt_Reolmarked.ViewModel
 
         public MainViewModel()
         {
-            UserViewModel = new SellerViewModel();
+            SellerViewModel = new SellerViewModel();
             ItemListViewModel = new ItemListViewModel();
-            ShelfManagerViewModel = new ShelfManagerViewModel(UserViewModel);
+            ShelfManagerViewModel = new ShelfManagerViewModel(SellerViewModel);
 
             OpenCheckoutCommand = new RelayCommand(_ => OpenCheckout());
         }

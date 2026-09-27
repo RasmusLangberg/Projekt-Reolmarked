@@ -21,6 +21,7 @@ namespace Projekt_Reolmarked.View
         public CreateUser()
         {
             InitializeComponent();
+            DataContext = new ViewModel.MainViewModel();
         }
     }
 }
