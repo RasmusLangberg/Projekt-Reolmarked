@@ -11,16 +11,16 @@ using System.Windows.Input;
 
 namespace Projekt_Reolmarked.ViewModel
 {
-    public class UserViewModel : INotifyBase
+    public class SellerViewModel : INotifyBase
     {
-        public ObservableCollection<User> Users { get; }
+        public ObservableCollection<Seller> Sellers { get; }
 
-        public ICommand AddUserCommand { get; }
+        public ICommand AddSellerCommand { get; }
 
-        public ICommand RemoveUserCommand { get; }
+        public ICommand RemoveSellerCommand { get; }
 
    
-        private readonly IUserRepository _userRepository = new UserRepository();
+        private readonly ISellerRepository _sellerRepository = new SellerRepository();
         
         
         private string _firstName;

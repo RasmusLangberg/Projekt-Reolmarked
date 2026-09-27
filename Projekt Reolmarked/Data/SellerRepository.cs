@@ -3,16 +3,16 @@ using Projekt_Reolmarked.Model;
 
 namespace Projekt_Reolmarked.Data;
 
-public class UserRepository : IUserRepository
+public class SellerRepository : ISellerRepository
 {
-    public List<User> GetAll()
+    public List<Seller> GetAll()
     {
         using var connection = Database.GetConnection();
 
-        var rows = connection.Query<UserRow>(
-            "SELECT ID, FirstName, LastName, Email, PhoneNumber, MonthlyPayment FROM [User]");
+        var rows = connection.Query<SellerRow>(
+            "SELECT ID, FirstName, LastName, Email, PhoneNumber, MonthlyPayment FROM [Seller]");
 
-        return rows.Select(row => new User(
+        return rows.Select(row => new Seller(
             row.ID,
             row.FirstName,
             row.LastName,
@@ -23,7 +23,7 @@ public class UserRepository : IUserRepository
         }).ToList();
     }
 
-    public void Add(User user)
+    public void Add(Seller user)
     {
         using var connection = Database.GetConnection();
 
@@ -47,13 +47,13 @@ public class UserRepository : IUserRepository
                 ShelfStatus = 1
             WHERE OwnerID = @Id;
 
-            DELETE FROM [User]
+            DELETE FROM [Seller]
             WHERE ID = @Id;
             """,
             new { Id = id });
     }
 
-    private class UserRow
+    private class SellerRow 
     {
         public int ID { get; set; }
         public string FirstName { get; set; } = "";

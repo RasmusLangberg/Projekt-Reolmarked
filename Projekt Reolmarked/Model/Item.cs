@@ -9,11 +9,11 @@ namespace Projekt_Reolmarked.Model
         public string Name { get; set; }
 
         public int ItemId { get; set; }
-        public User Seller { get; set; }
+        public Seller Seller { get; set; }
 
         public double Price { get; set; }
         
-        public Item(string name, User seller, int itemId, double price)
+        public Item(string name, Seller seller, int itemId, double price)
         {
             Name = name;
             ItemId = itemId;

@@ -1,6 +1,6 @@
 ﻿namespace Projekt_Reolmarked.Model
 {
-    public class User
+    public class Seller
     {
 
         public int Id = 1;
@@ -18,7 +18,7 @@
         public int MonthlyPayment { get; set; }
 
 
-        public User(int id, string firstName, string lastName, string email, int phoneNumber)
+        public Seller(int id, string firstName, string lastName, string email, int phoneNumber)
         {
             Id = id;
             FirstName = firstName;
@@ -31,7 +31,7 @@
 
         public override string ToString()
         {
-            return $"User ID: {Id}, Name: {FirstName} {LastName}, Email: {Email}, Phone: {PhoneNumber}, Monthly Payment: {MonthlyPayment}";
+            return $"Seller ID: {Id}, Name: {FirstName} {LastName}, Email: {Email}, Phone: {PhoneNumber}, Monthly Payment: {MonthlyPayment}";
         }
 
 
