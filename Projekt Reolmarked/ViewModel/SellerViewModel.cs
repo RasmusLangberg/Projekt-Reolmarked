@@ -93,15 +93,20 @@ namespace Projekt_Reolmarked.ViewModel
             Sellers = new ObservableCollection<Seller>();
 
             AddSellerCommand = new RelayCommand(parameter => AddSeller());
+
             RemoveSellerCommand = new RelayCommand(parameter => RemoveSeller());
+
             LoadUsersFromDatabase();
         }
 
         public void AddSeller()
         {
             var seller = new Seller(Sellers.Count + 1, FirstName, LastName, Email, PhoneNumber);
+         
             _sellerRepository.Add(seller);
+            
             Sellers.Add(seller);
+
         }
 
         public void RemoveSeller()

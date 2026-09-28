@@ -16,5 +16,15 @@ namespace Projekt_Reolmarked
         {
             Items = items;
         }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     }
 }
+
