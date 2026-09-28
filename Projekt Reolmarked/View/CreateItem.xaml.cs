@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Projekt_Reolmarked.Model;
+using Projekt_Reolmarked.ViewModel;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,10 +20,10 @@ namespace Projekt_Reolmarked.View
     /// </summary>
     public partial class CreateItem : Window
     {
-        public CreateItem()
+        public CreateItem(SellerViewModel sellerVM, ObservableCollection<Item> items)
         {
             InitializeComponent();
-            
+            DataContext = new ItemViewModel(sellerVM, items);
         }
     }
 }

@@ -3,31 +3,25 @@ using Projekt_Reolmarked.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
 using System.Text;
 
 namespace Projekt_Reolmarked
 {
-    public class CheckOutViewModel
+    public class CheckOutViewModel 
     {
-        
+        public ObservableCollection<Item> Items { get; }
+        public ObservableCollection<Item> ShoppingBasket { get; } = new ObservableCollection<Item>();
+        public Item SelectedItem { get; set; }
 
-        public ObservableCollection<Item>  ShoppingBasket  { get; set; }
+        public RelayCommand AddItemToBasketCommand { get; }
 
-        public ObservableCollection<Item> SoldItems { get; set; } 
-        public ItemViewModel ItemViewModel { get; set; }
-
-        public RelayCommand CheckoutCommand { get; set; }
-
-        public RelayCommand AddItemToBasketCommand { get; set; }
-
-        public CheckOutViewModel(ObservableCollection<Item> shoppingBasket, RelayCommand addItemToBasket, ItemViewModel itemViewModel)
+        public CheckOutViewModel(ObservableCollection<Item> items)
         {
-            ShoppingBasket = shoppingBasket;
-            SoldItems = new ObservableCollection<Item>();
-            CheckoutCommand = new RelayCommand(parameter => Checkout());
-            AddItemToBasketCommand = new RelayCommand(parameter => AddItemToBasket());
-            ItemViewModel = itemViewModel;
+            Items = items;
 
+            AddItemToBasketCommand = new RelayCommand(_ => AddItemToBasket());
         }
 
         private void Checkout()
@@ -38,9 +32,11 @@ namespace Projekt_Reolmarked
         public void AddItemToBasket()
         {
             //implementer at checkout logikken her.du skal bruge selecteditem fra itemviewmodel og tilføje den til shoppingbasket. listboxen i checkout skal være binded til Selecteditemn fra itemviewmode. ( binding ItemViewModel.SelectedItem).
+            if (SelectedItem != null)
+                ShoppingBasket.Add(SelectedItem);
         }
 
-
+        
 
 
 

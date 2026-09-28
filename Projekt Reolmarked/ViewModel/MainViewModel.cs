@@ -36,14 +36,13 @@ namespace Projekt_Reolmarked.ViewModel
 
         private void OpenCheckOut(object parameter)
         {
-            MessageBox.Show($"Items count before checkout: {Items.Count}");
-            var checkout = new CheckOut(Items);
-            checkout.Show();
+            var checkOutWindow = new CheckOut(SellerViewModel, Items);
+            checkOutWindow.Show();
         }
 
         private void OpenCreateItem(object parameter)
         {
-            var createItem = new View.CreateItem();
+            var createItem = new View.CreateItem(SellerViewModel, Items);
             createItem.DataContext = ItemViewModel;
             createItem.Show();
         }

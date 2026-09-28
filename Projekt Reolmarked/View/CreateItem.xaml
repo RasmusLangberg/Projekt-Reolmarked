@@ -9,11 +9,11 @@
         d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
         Title="CreateItem" Height="450" Width="800">
     <Grid>
-        <Button Content="Tilføj vare" Command="{Binding ItemViewModel.AddItemCommand}"  Width="118" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,257,0,0"/>
+        <Button d:DataContext="{d:DesignInstance Type=vm:ItemViewModel}" Content="Tilføj vare" Command="{Binding AddItemCommand}"  Width="118" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,257,0,0"/>
         <TextBlock Text="Pris:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="311,230,0,0" Height="15" Width="25"/>
-        <TextBox Text="{Binding ItemViewModel.Price}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,223,0,0" Width="118" Height="30" RenderTransformOrigin="0.472,-1.912"/>
+        <TextBox Text="{Binding Price}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,223,0,0" Width="118" Height="30" RenderTransformOrigin="0.472,-1.912"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="272,190,0,0" Height="16" Width="56"><Run Language="da-dk" Text="Vare n"/><Run Text="avn:"/></TextBlock>
-        <TextBox Text="{Binding ItemViewModel.Name}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,188,0,0" Width="118" Height="30" RenderTransformOrigin="0.472,-1.912"/>
+        <TextBox Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,188,0,0" Width="118" Height="30" RenderTransformOrigin="0.472,-1.912"/>
         <TextBlock Text="Tilhøre sælger:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="227,165,0,0" Height="15" Width="92"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,26,0,0" TextWrapping="Wrap" Text="Opret vare" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" />
         <ComboBox ItemsSource="{Binding SellerViewModel.Sellers}" SelectedItem="{Binding SellerViewModel.SelectedSeller}" HorizontalAlignment="Center" Margin="0,161,0,0" VerticalAlignment="Top" Width="142" Height="22"/>
