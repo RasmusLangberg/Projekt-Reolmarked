@@ -13,16 +13,24 @@ namespace Projekt_Reolmarked.ViewModel
         public ICommand OpenCheckoutCommand { get; }
 
 
+
         public MainViewModel()
         {
             SellerViewModel = new SellerViewModel();
             ItemViewModel = new ItemViewModel(SellerViewModel);
             ShelfManagerViewModel = new ShelfManagerViewModel(SellerViewModel);
-           
+
+            OpenCheckoutCommand = new RelayCommand(OpenCheckOut);
         }
-        
-       
-        
+
+        private void OpenCheckOut(object parameter)
+        {
+            var checkout = new CheckOut();
+            checkout.Show();
+        }
+
+
+
 
     }
 }

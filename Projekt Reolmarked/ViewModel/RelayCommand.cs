@@ -35,6 +35,8 @@ namespace Projekt_Reolmarked.ViewModel
         }
 
         public event EventHandler CanExecuteChanged;
+        
+
     }
 
 

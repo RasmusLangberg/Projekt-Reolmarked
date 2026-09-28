@@ -30,7 +30,7 @@
         <Button Content="Opret sælger" HorizontalAlignment="Center" Height="71" Margin="0,235,0,0" VerticalAlignment="Top" Width="236"/>
         <Button Content="Opret Vare" HorizontalAlignment="Center" Height="71" Margin="0,337,0,0" VerticalAlignment="Top" Width="236"/>
         <Button Content="Reol oversigt" HorizontalAlignment="Center" Height="71" Margin="0,436,0,0" VerticalAlignment="Top" Width="236"/>
-        <Button Content="Sælg vare" HorizontalAlignment="Center" Height="71" Margin="0,533,0,0" VerticalAlignment="Top" Width="236"/>
+        <Button Content="Sælg vare" Command="{Binding OpenCheckoutCommand}" HorizontalAlignment="Center" Height="71" Margin="0,533,0,0" VerticalAlignment="Top" Width="236"/>
 
 
 
