@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekt_Reolmarked.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,10 +19,12 @@ namespace Projekt_Reolmarked.View
     /// </summary>
     public partial class CreateUser : Page
     {
-        public CreateUser()
+        public MainViewModel MainViewModel { get; }
+        public CreateUser(MainViewModel mainViewModel)
         {
             InitializeComponent();
-            DataContext = new ViewModel.MainViewModel();
+            MainViewModel = mainViewModel;
+            DataContext = MainViewModel;
         }
     }
 }

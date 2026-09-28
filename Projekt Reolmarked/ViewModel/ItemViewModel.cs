@@ -17,12 +17,12 @@ namespace Projekt_Reolmarked.ViewModel
 
         public ICommand AddItemCommand { get; }
 
-        public ItemViewModel(SellerViewModel sellerViewModel,ObservableCollection<Item> items)
+        public ItemViewModel(SellerViewModel sellerViewModel)
         {
             SellerViewModel = sellerViewModel;
 
-            Items = items;
-           
+            Items = new ObservableCollection<Item>();
+
             AddItemCommand = new RelayCommand(parameter => AddItem());
         }
 
@@ -64,8 +64,24 @@ namespace Projekt_Reolmarked.ViewModel
             }
         }
 
-       
-       public int GenerateID()
+        private Item _selectedItem;
+
+        public Item SelectedItem
+        {
+            get { return _selectedItem; }
+            set 
+            {
+                _selectedItem = value; 
+                OnPropertyChanged(nameof(SelectedItem));
+
+            }
+
+        }
+
+
+
+
+        public int GenerateID()
         {
             return nextID++;
         }
