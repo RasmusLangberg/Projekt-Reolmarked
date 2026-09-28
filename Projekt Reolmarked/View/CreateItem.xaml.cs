@@ -20,7 +20,7 @@ namespace Projekt_Reolmarked.View
         public CreateItem()
         {
             InitializeComponent();
-            DataContext = new ViewModel.MainViewModel();
+            
         }
     }
 }

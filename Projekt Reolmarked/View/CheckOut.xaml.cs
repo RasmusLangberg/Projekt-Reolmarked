@@ -2,6 +2,7 @@
 using Projekt_Reolmarked.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,14 +20,13 @@ namespace Projekt_Reolmarked
     /// </summary>
     public partial class CheckOut : Window
     {
-        public CheckOut()
+        public CheckOut(ObservableCollection<Item> items)
         {
             InitializeComponent();
-            DataContext = new ViewModel.MainViewModel();
+
+            DataContext = new CheckOutViewModel(items);
 
 
-          
-            
         }
 
        

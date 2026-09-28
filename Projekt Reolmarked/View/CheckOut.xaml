@@ -11,7 +11,7 @@
         <TextBlock Text="Fulde pris " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="555,319,0,0"/>
         <TextBox Text="{Binding ItemId}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="615,312,0,0" Width="100" Height="30" RenderTransformOrigin="0.472,-1.912"/>
         <TextBlock HorizontalAlignment="Left" Margin="392,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.748,1.44" Text="Indkøbskurv" Height="23" Width="67" />
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,59,462,47"/>
+        <ListBox ItemsSource="{Binding Items}" DisplayMemberPath="Name" Margin="10,59,462,47"/>
         <TextBlock HorizontalAlignment="Left" Margin="138,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.748,1.44" Text="Alle varer" />
         <TextBlock HorizontalAlignment="Left" Margin="376,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.748,1.44" Text="Opret Salg" FontWeight="Bold" FontSize="20" />
         <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="357,110,306,92"/>
