@@ -11,7 +11,7 @@ namespace Projekt_Reolmarked
 {
     public class CheckOutViewModel 
     {
-        public ObservableCollection<Item> Items { get; }
+        public ObservableCollection<Item> SoldItems { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> ShoppingBasket { get; } = new ObservableCollection<Item>();
         public Item SelectedItem { get; set; }
 
