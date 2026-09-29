@@ -1,4 +1,5 @@
-﻿using Projekt_Reolmarked.ViewModel;
+﻿using Projekt_Reolmarked.View;
+using Projekt_Reolmarked.ViewModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,11 +17,51 @@ namespace Projekt_Reolmarked
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
+
     {
+        private MainViewModel viewModel;
+
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();                   
+            viewModel = new MainViewModel();
+
+            DataContext = viewModel;
+
+            viewModel.OpenSellerOverview += OpenSellerOverview;
+            viewModel.OpenHomePage += OpenHomePage;
+            viewModel.OpenShelfOverview += OpenShelfOverview;
+
+        }
+
+
+        private void OpenSellerOverview()
+        {
+            HomePageGrid.Visibility = Visibility.Collapsed;
+
+            MainFrame.Visibility = Visibility.Visible;
+
+            MainFrame.Navigate(new SellerOverview(viewModel));
+
+        }
+
+        private void OpenHomePage()
+        {
+
+            MainFrame.Visibility = Visibility.Collapsed;
+
+            HomePageGrid.Visibility = Visibility.Visible;
+
+        }
+
+        private void OpenShelfOverview()
+        {
+            HomePageGrid.Visibility = Visibility.Collapsed;
+
+            MainFrame.Visibility = Visibility.Visible;
+
+            MainFrame.Navigate(new ShelfOverview(viewModel));
+
         }
 
      
