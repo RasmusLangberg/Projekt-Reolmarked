@@ -11,7 +11,7 @@ public class SellerRepository : ISellerRepository
 
        
         var rows = connection.Query<SellerRow>(
-            "SELECT ID, FirstName, LastName, Email, PhoneNumber, MonthlyPayment FROM [User]");
+            "SELECT ID, FirstName, LastName, Email, PhoneNumber, MonthlyPayment FROM [Seller]");
         
 
         return rows.Select(row => new Seller(
