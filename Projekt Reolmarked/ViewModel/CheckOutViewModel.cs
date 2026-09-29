@@ -17,9 +17,9 @@ namespace Projekt_Reolmarked
 
         public RelayCommand AddItemToBasketCommand { get; }
 
-        public CheckOutViewModel(ObservableCollection<Item> items)
+        public CheckOutViewModel()
         {
-            Items = items;
+            
 
             AddItemToBasketCommand = new RelayCommand(_ => AddItemToBasket());
         }

@@ -36,7 +36,7 @@ namespace Projekt_Reolmarked.ViewModel
 
         private void OpenCheckOut(object parameter)
         {
-            var checkOutWindow = new CheckOut(SellerViewModel, Items);
+            var checkOutWindow = new CheckOut(SellerViewModel);
             checkOutWindow.Show();
         }
 

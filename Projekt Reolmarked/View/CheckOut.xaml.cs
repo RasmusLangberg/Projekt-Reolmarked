@@ -22,13 +22,13 @@ namespace Projekt_Reolmarked
     {
         private readonly ItemViewModel itemViewModel;
 
-        public CheckOut(SellerViewModel sellerVM, ObservableCollection<Item> items)
+        public CheckOut(SellerViewModel sellerVM)
         {
             InitializeComponent();
            
 
             
-           DataContext = new CheckOutViewModel(items);
+           DataContext = new CheckOutViewModel();
             
         }
 
