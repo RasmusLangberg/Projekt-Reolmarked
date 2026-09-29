@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
@@ -51,8 +52,18 @@ namespace Projekt_Reolmarked.ViewModel
             }
         }
 
+        private Item _selectedItem;
 
-       
+        public  Item SelectedItem
+        {
+            get { return _selectedItem; }
+            set 
+            { _selectedItem = value;
+                OnPropertyChanged(nameof(SelectedItem));
+            }
+        }
+
+
         private double _price;
         public double Price
         {

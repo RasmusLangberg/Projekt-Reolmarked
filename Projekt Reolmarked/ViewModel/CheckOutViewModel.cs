@@ -13,14 +13,17 @@ namespace Projekt_Reolmarked
     {
         public ObservableCollection<Item> SoldItems { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> ShoppingBasket { get; } = new ObservableCollection<Item>();
-        public Item SelectedItem { get; set; }
+        
+        public ItemViewModel ItemViewModel { get; }
+
+
 
         public RelayCommand AddItemToBasketCommand { get; }
 
-        public CheckOutViewModel()
+        public CheckOutViewModel(ItemViewModel itemvietmodel)
         {
-            
-
+           
+            ItemViewModel = itemvietmodel;
             AddItemToBasketCommand = new RelayCommand(_ => AddItemToBasket());
         }
 
@@ -32,8 +35,8 @@ namespace Projekt_Reolmarked
         public void AddItemToBasket()
         {
             //implementer at checkout logikken her.du skal bruge selecteditem fra itemviewmodel og tilføje den til shoppingbasket. listboxen i checkout skal være binded til Selecteditemn fra itemviewmode. ( binding ItemViewModel.SelectedItem).
-            if (SelectedItem != null)
-                ShoppingBasket.Add(SelectedItem);
+            if (ItemViewModel.SelectedItem!= null)
+                ShoppingBasket.Add(ItemViewModel.SelectedItem);
         }
 
         
