@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekt_Reolmarked.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +19,10 @@ namespace Projekt_Reolmarked.View
     /// </summary>
     public partial class ShelfOverview : Page
     {
-        public ShelfOverview()
+        public ShelfOverview(MainViewModel mainviewmodel)
         {
             InitializeComponent();
+            DataContext = mainviewmodel;
         }
     }
 }

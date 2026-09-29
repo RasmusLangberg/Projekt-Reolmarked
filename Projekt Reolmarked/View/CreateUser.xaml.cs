@@ -19,12 +19,12 @@ namespace Projekt_Reolmarked.View
     /// </summary>
     public partial class CreateUser : Page
     {
-        public MainViewModel MainViewModel { get; }
+       
         public CreateUser(MainViewModel mainViewModel)
         {
             InitializeComponent();
-            MainViewModel = mainViewModel;
-            DataContext = MainViewModel;
+           
+            DataContext = mainViewModel;
         }
     }
 }

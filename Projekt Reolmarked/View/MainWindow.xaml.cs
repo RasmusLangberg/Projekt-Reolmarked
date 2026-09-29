@@ -17,12 +17,12 @@ namespace Projekt_Reolmarked
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainViewModel MainViewModel { get; set; }
-        public MainWindow(MainViewModel mainViewModel)
+     
+        public MainWindow()
         {
             InitializeComponent();
-            MainViewModel = mainViewModel;
-            DataContext = MainViewModel;
+           
+            DataContext = new MainViewModel();
         }
 
      

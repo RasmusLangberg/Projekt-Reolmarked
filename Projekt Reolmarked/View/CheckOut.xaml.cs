@@ -20,13 +20,10 @@ namespace Projekt_Reolmarked
     /// </summary>
     public partial class CheckOut : Window
     {
-        
-        public MainViewModel MainViewModel { get; }
         public CheckOut(MainViewModel mainViewModel)
         {
             InitializeComponent();
-            MainViewModel = mainViewModel;
-            DataContext = MainViewModel; 
+            DataContext = mainViewModel;
             
         }
 

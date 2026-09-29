@@ -20,12 +20,12 @@ namespace Projekt_Reolmarked.View
     /// </summary>
     public partial class CreateItem : Window
     {
-       public MainViewModel MainViewModel { get; }
+     
         public CreateItem(MainViewModel mainViewModel)
         {
             InitializeComponent();
-            MainViewModel = mainViewModel;
-            DataContext = MainViewModel;
+           
+            DataContext = mainViewModel;
         }
     }
 }
