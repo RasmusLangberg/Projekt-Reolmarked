@@ -6,11 +6,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using Projekt_Reolmarked.data;
 
 namespace Projekt_Reolmarked.ViewModel
 {
     public class ItemViewModel : INotifyBase
     {
+        private readonly IItemRepository _itemRepository = new ItemRepository();
         public ObservableCollection<Item> Items { get; }
 
         public SellerViewModel SellerViewModel { get; }
@@ -21,10 +23,13 @@ namespace Projekt_Reolmarked.ViewModel
         public ItemViewModel(SellerViewModel sellerViewModel,ObservableCollection<Item> items)
         {
             SellerViewModel = sellerViewModel;
-
             Items = items;
-           
             AddItemCommand = new RelayCommand(parameter => AddItem());
+            
+            foreach (var item in _itemRepository.GetAll())
+            {
+                Items.Add(item);
+            }
         }
 
 
@@ -34,6 +39,8 @@ namespace Projekt_Reolmarked.ViewModel
             var ItemId = GenerateID();
 
             Item newItem = new(Name, SellerViewModel.SelectedSeller, ItemId, Price);
+            
+            _itemRepository.add(newItem);
           
             Items.Add(newItem);
 
