@@ -27,11 +27,12 @@ namespace Projekt_Reolmarked.ViewModel
 
 
             SellerViewModel = new SellerViewModel();
+
+            ItemViewModel = new ItemViewModel(SellerViewModel);
+
             CheckOutViewModel = new CheckOutViewModel(ItemViewModel);
-            ItemViewModel = new ItemViewModel(SellerViewModel, Items);
+
             ShelfManagerViewModel = new ShelfManagerViewModel(SellerViewModel);
-
-
 
             OpenCheckoutCommand = new RelayCommand(OpenCheckOut);
             OpenCreateItemCommand = new RelayCommand(OpenCreateItem);
@@ -45,12 +46,12 @@ namespace Projekt_Reolmarked.ViewModel
 
         private void OpenCreateItem(object parameter)
         {
-            var createItem = new View.CreateItem(SellerViewModel, Items);
+            var createItem = new View.CreateItem(SellerViewModel);
             createItem.DataContext = ItemViewModel;
             createItem.Show();
         }
 
-        public ObservableCollection<Item> Items { get; set; }
+      
 
 
     }

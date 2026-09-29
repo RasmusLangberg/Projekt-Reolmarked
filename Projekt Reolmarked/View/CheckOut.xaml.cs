@@ -28,7 +28,7 @@ namespace Projekt_Reolmarked
            
 
             
-           DataContext = new CheckOutViewModel();
+           DataContext = new CheckOutViewModel(itemViewModel);
             
         }
 

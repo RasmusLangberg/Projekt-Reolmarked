@@ -20,11 +20,14 @@ namespace Projekt_Reolmarked
 
         public RelayCommand AddItemToBasketCommand { get; }
 
+        public RelayCommand SellItemCommand { get; }
+
         public CheckOutViewModel(ItemViewModel itemvietmodel)
         {
            
             ItemViewModel = itemvietmodel;
             AddItemToBasketCommand = new RelayCommand(_ => AddItemToBasket());
+            SellItemCommand = new RelayCommand(parameter => Checkout());
         }
 
         private void Checkout()
