@@ -20,15 +20,12 @@ namespace Projekt_Reolmarked
     /// </summary>
     public partial class CheckOut : Window
     {
-        private readonly ItemViewModel itemViewModel;
+        
 
-        public CheckOut(SellerViewModel sellerVM)
+        public CheckOut(MainViewModel mainViewModel)
         {
             InitializeComponent();
-           
-
-            
-           DataContext = new CheckOutViewModel(itemViewModel);
+            DataContext = mainViewModel;
             
         }
 

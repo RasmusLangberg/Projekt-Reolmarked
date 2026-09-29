@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Windows;
 
 namespace Projekt_Reolmarked
 {
@@ -15,7 +16,7 @@ namespace Projekt_Reolmarked
 
         public ObservableCollection<Item> ShoppingBasket { get; } 
         
-        public ItemViewModel ItemViewModel { get; }
+        MainViewModel MainViewModel { get; }
 
         public RelayCommand AddItemToBasketCommand { get; }
 
@@ -23,14 +24,14 @@ namespace Projekt_Reolmarked
 
 
 
-        public CheckOutViewModel(ItemViewModel itemvietmodel)
+        public CheckOutViewModel(MainViewModel mainViewModel)
         {
            
             SoldItems = new ObservableCollection<Item>();
 
             ShoppingBasket = new ObservableCollection<Item>();
 
-            ItemViewModel = itemvietmodel;
+            MainViewModel = mainViewModel;
 
             AddItemToBasketCommand = new RelayCommand(_ => AddItemToBasket());
 
@@ -45,9 +46,12 @@ namespace Projekt_Reolmarked
 
         public void AddItemToBasket()
         {
-            //implementer at checkout logikken her.du skal bruge selecteditem fra itemviewmodel og tilføje den til shoppingbasket. listboxen i checkout skal være binded til Selecteditemn fra itemviewmode. ( binding ItemViewModel.SelectedItem).
-            if (ItemViewModel.SelectedItem!= null)
-                ShoppingBasket.Add(ItemViewModel.SelectedItem);
+            var item = MainViewModel.ItemViewModel.SelectedItem;
+            
+            if (item!= null)
+                ShoppingBasket.Add(item);
+            MessageBox.Show("vare tilføjet");
+
         }
 
         

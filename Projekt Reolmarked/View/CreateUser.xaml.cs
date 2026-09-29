@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekt_Reolmarked.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,7 +22,7 @@ namespace Projekt_Reolmarked.View
         public CreateUser()
         {
             InitializeComponent();
-            DataContext = new ViewModel.MainViewModel();
+            DataContext = new SellerViewModel();
         }
     }
 }

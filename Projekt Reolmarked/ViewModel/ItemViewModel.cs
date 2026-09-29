@@ -15,14 +15,14 @@ namespace Projekt_Reolmarked.ViewModel
         private readonly IItemRepository _itemRepository = new ItemRepository();
         public ObservableCollection<Item> Items { get; }
 
-        public SellerViewModel SellerViewModel { get; }
+        public MainViewModel MainViewModel { get; }
         private int nextID = 1;
 
         public ICommand AddItemCommand { get; }
 
-        public ItemViewModel(SellerViewModel sellerViewModel)
+        public ItemViewModel(MainViewModel mainViewModel)
         {
-            SellerViewModel = sellerViewModel;
+            MainViewModel = mainViewModel;
 
             Items = new ObservableCollection<Item>();
 
@@ -38,7 +38,7 @@ namespace Projekt_Reolmarked.ViewModel
 
             var ItemId = GenerateID();
 
-            Item newItem = new(Name, SellerViewModel.SelectedSeller, ItemId, Price);
+            Item newItem = new(Name, MainViewModel.SellerViewModel.SelectedSeller, ItemId, Price);
             
             _itemRepository.add(newItem);
           

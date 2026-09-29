@@ -16,6 +16,7 @@ namespace Projekt_Reolmarked.ViewModel
 
         public ItemViewModel ItemViewModel { get; }
 
+
         public CheckOutViewModel CheckOutViewModel { get; }
 
         public ICommand OpenCheckoutCommand { get; }
@@ -28,9 +29,9 @@ namespace Projekt_Reolmarked.ViewModel
 
             SellerViewModel = new SellerViewModel();
 
-            ItemViewModel = new ItemViewModel(SellerViewModel);
+            ItemViewModel = new ItemViewModel(this);
 
-            CheckOutViewModel = new CheckOutViewModel(ItemViewModel);
+            CheckOutViewModel = new CheckOutViewModel(this);
 
             ShelfManagerViewModel = new ShelfManagerViewModel(SellerViewModel);
 
@@ -40,14 +41,13 @@ namespace Projekt_Reolmarked.ViewModel
 
         private void OpenCheckOut(object parameter)
         {
-            var checkOutWindow = new CheckOut(SellerViewModel);
+            var checkOutWindow = new CheckOut(this);
             checkOutWindow.Show();
         }
 
         private void OpenCreateItem(object parameter)
         {
-            var createItem = new View.CreateItem(SellerViewModel);
-            createItem.DataContext = ItemViewModel;
+            var createItem = new View.CreateItem(this);
             createItem.Show();
         }
 
