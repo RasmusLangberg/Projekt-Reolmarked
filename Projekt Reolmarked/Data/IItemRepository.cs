@@ -9,5 +9,6 @@ namespace Projekt_Reolmarked.data
     {
         void add(Item item);
         List<Item> GetAll();
+        void MarkAsSold(int itemId);
     }
 }
