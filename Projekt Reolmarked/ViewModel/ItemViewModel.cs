@@ -20,16 +20,16 @@ namespace Projekt_Reolmarked.ViewModel
 
         public ICommand AddItemCommand { get; }
 
-        public ItemViewModel(SellerViewModel sellerViewModel,ObservableCollection<Item>? items)
+        public ItemViewModel(SellerViewModel sellerViewModel)
         {
             SellerViewModel = sellerViewModel;
-            Items = items ?? new ObservableCollection<Item>();
+
+            Items = new ObservableCollection<Item>();
+
             AddItemCommand = new RelayCommand(parameter => AddItem());
-            
-            foreach (var item in _itemRepository.GetAll())
-            {
-                Items.Add(item);
-            }
+
+            LoadItems();
+
         }
 
 
@@ -89,6 +89,14 @@ namespace Projekt_Reolmarked.ViewModel
         }
         
 
+        public void LoadItems()
+        {
+            foreach (var item in _itemRepository.GetAll())
+            {
+                Items.Add(item);
+            }
+
+        }
 
     }
 }

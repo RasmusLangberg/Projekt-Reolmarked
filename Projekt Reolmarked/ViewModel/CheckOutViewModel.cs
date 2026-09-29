@@ -11,23 +11,31 @@ namespace Projekt_Reolmarked
 {
     public class CheckOutViewModel 
     {
-        public ObservableCollection<Item> SoldItems { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> ShoppingBasket { get; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> SoldItems { get; } 
+
+        public ObservableCollection<Item> ShoppingBasket { get; } 
         
         public ItemViewModel ItemViewModel { get; }
-
-
 
         public RelayCommand AddItemToBasketCommand { get; }
 
         public RelayCommand SellItemCommand { get; }
 
+
+
         public CheckOutViewModel(ItemViewModel itemvietmodel)
         {
            
+            SoldItems = new ObservableCollection<Item>();
+
+            ShoppingBasket = new ObservableCollection<Item>();
+
             ItemViewModel = itemvietmodel;
+
             AddItemToBasketCommand = new RelayCommand(_ => AddItemToBasket());
+
             SellItemCommand = new RelayCommand(parameter => Checkout());
+
         }
 
         private void Checkout()
