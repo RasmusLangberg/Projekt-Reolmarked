@@ -25,10 +25,9 @@ namespace Projekt_Reolmarked.ViewModel
         public MainViewModel()
         {
 
-
             SellerViewModel = new SellerViewModel();
+            ItemViewModel = new ItemViewModel(SellerViewModel);
             CheckOutViewModel = new CheckOutViewModel(ItemViewModel);
-            ItemViewModel = new ItemViewModel(SellerViewModel, Items);
             ShelfManagerViewModel = new ShelfManagerViewModel(SellerViewModel);
 
 
@@ -39,13 +38,13 @@ namespace Projekt_Reolmarked.ViewModel
 
         private void OpenCheckOut(object parameter)
         {
-            var checkOutWindow = new CheckOut(SellerViewModel);
+            var checkOutWindow = new CheckOut(ItemViewModel);
             checkOutWindow.Show();
         }
 
         private void OpenCreateItem(object parameter)
         {
-            var createItem = new View.CreateItem(SellerViewModel, Items);
+            var createItem = new View.CreateItem(SellerViewModel);
             createItem.DataContext = ItemViewModel;
             createItem.Show();
         }

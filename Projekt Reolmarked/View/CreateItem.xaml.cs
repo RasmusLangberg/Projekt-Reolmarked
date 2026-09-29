@@ -20,10 +20,10 @@ namespace Projekt_Reolmarked.View
     /// </summary>
     public partial class CreateItem : Window
     {
-        public CreateItem(SellerViewModel sellerVM, ObservableCollection<Item> items)
+        public CreateItem(SellerViewModel sellerVM)
         {
             InitializeComponent();
-            DataContext = new ItemViewModel(sellerVM, items);
+            DataContext = new ItemViewModel(sellerVM);
         }
     }
 }

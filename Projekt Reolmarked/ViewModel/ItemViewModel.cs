@@ -1,94 +1,105 @@
 ﻿using Projekt_Reolmarked.Model;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Input;
 using Projekt_Reolmarked.data;
+using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Input;
 
 namespace Projekt_Reolmarked.ViewModel
 {
     public class ItemViewModel : INotifyBase
     {
-        private readonly IItemRepository _itemRepository = new ItemRepository();
         public ObservableCollection<Item> Items { get; }
-
-        public SellerViewModel SellerViewModel { get; }
-        private int nextID = 1;
 
         public ICommand AddItemCommand { get; }
 
-        public ItemViewModel(SellerViewModel sellerViewModel,ObservableCollection<Item>? items)
-        {
-            SellerViewModel = sellerViewModel;
-            Items = items ?? new ObservableCollection<Item>();
-            AddItemCommand = new RelayCommand(parameter => AddItem());
-            
-            foreach (var item in _itemRepository.GetAll())
-            {
-                Items.Add(item);
-            }
-        }
+        private readonly IItemRepository _itemRepository =
+            new ItemRepository();
 
-
-        private void AddItem()
-        {
-
-            var ItemId = GenerateID();
-
-            Item newItem = new(Name, SellerViewModel.SelectedSeller, ItemId, Price);
-            
-            _itemRepository.add(newItem);
-          
-            Items.Add(newItem);
-
-            MessageBox.Show($"Item '{newItem.Name}' added successfully with ID: {newItem.ItemId}");
-        }
+        public SellerViewModel SellerViewModel { get; }
 
         private string _name;
 
         public string Name
         {
             get { return _name; }
-            set 
-            { 
-                _name = value; 
+            set
+            {
+                _name = value;
                 OnPropertyChanged(nameof(Name));
+            }
+        }
+
+        private double _price;
+
+        public double Price
+        {
+            get { return _price; }
+            set
+            {
+                _price = value;
+                OnPropertyChanged(nameof(Price));
             }
         }
 
         private Item _selectedItem;
 
-        public  Item SelectedItem
+        public Item SelectedItem
         {
             get { return _selectedItem; }
-            set 
-            { _selectedItem = value;
+            set
+            {
+                _selectedItem = value;
                 OnPropertyChanged(nameof(SelectedItem));
             }
         }
 
-
-        private double _price;
-        public double Price
+        public ItemViewModel(SellerViewModel sellerViewModel)
         {
-            get { return _price; }
-            set 
-            { 
-                _price = value; 
-                OnPropertyChanged(nameof(Price));
+            SellerViewModel = sellerViewModel;
+
+            Items = new ObservableCollection<Item>();
+
+            AddItemCommand =
+                new RelayCommand(parameter => AddItem());
+
+            LoadItemsFromDatabase();
+        }
+
+        public void AddItem()
+        {
+            if (SellerViewModel.SelectedSeller == null)
+            {
+                MessageBox.Show("Vælg først en sælger.");
+                return;
+            }
+
+            var item = new Item(
+                Name,
+                SellerViewModel.SelectedSeller,
+                Items.Count + 1,
+                Price);
+
+            _itemRepository.add(item);
+
+            Items.Add(item);
+
+            MessageBox.Show(
+                $"Varen '{item.Name}' blev tilføjet med ID: {item.ItemId}");
+        }
+
+        public void LoadItemsFromDatabase()
+        {
+            foreach (var item in _itemRepository.GetAll())
+            {
+                Items.Add(item);
             }
         }
-
-       
-       public int GenerateID()
-        {
-            return nextID++;
-        }
+            
+            public void MarkAsSold(Item item)
+            {
+                _itemRepository.MarkAsSold(item.ItemId);
+                Items.Remove(item);
+            }
         
-
-
     }
 }

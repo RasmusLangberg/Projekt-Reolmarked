@@ -18,20 +18,21 @@ namespace Projekt_Reolmarked
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class CheckOut : Window
-    {
-        private readonly ItemViewModel itemViewModel;
+  
 
-        public CheckOut(SellerViewModel sellerVM)
+        public partial class CheckOut : Window
         {
-            InitializeComponent();
-           
+            public CheckOut(ItemViewModel itemViewModel)
+            {
+                InitializeComponent();
 
+                DataContext = new CheckOutViewModel(itemViewModel);
+            }
             
-           DataContext = new CheckOutViewModel();
             
         }
 
+    
        
     }
-}
+

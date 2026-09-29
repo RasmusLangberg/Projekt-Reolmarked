@@ -12,10 +12,12 @@
         <TextBlock Text="Fulde pris " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="555,319,0,0"/>
         <TextBox Text="{Binding TotalPrice}" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="615,312,0,0" Width="100" Height="30" RenderTransformOrigin="0.472,-1.912"/>
         <TextBlock HorizontalAlignment="Left" Margin="392,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.748,1.44" Text="Indkøbskurv" Height="23" Width="67" />
-        <ListBox ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" DisplayMemberPath="Name" Margin="10,59,462,47"/>
+        <ListBox ItemsSource="{Binding ItemViewModel.Items}" SelectedItem="{Binding ItemViewModel.SelectedItem}" DisplayMemberPath="Name" Margin="10,59,462,47"/>
         <TextBlock HorizontalAlignment="Left" Margin="138,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.748,1.44" Text="Alle varer" />
         <TextBlock HorizontalAlignment="Left" Margin="376,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.748,1.44" Text="Opret Salg" FontWeight="Bold" FontSize="20" />
         <ListBox ItemsSource="{Binding ShoppingBasket}" Margin="357,110,306,92"/>
         <Button Content="Gennemfør salg" Command="{Binding AddItemCommand}"  Width="138" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="596,357,0,0" />
     </Grid>
+    
+  
 </Window>
