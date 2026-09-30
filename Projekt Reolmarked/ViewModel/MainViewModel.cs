@@ -72,14 +72,12 @@ namespace Projekt_Reolmarked.ViewModel
 
         private void OpenSellerOverviewPage(object parameter)
         {
-            MessageBox.Show("Seller Overview command works!");
 
             OpenSellerOverview?.Invoke();
         }
 
         private void OpenShelfOverviewPage(object parameter)
         {
-            MessageBox.Show("Shelf Overview command works!");
 
             OpenShelfOverview?.Invoke();
         }
