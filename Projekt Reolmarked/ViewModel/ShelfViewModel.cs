@@ -116,28 +116,32 @@ namespace Projekt_Reolmarked.ViewModel
         public void AddUserToShelf(Seller seller, ShelfObjectViewModel shelfVm)
         {
             if (shelfVm.ShelfStatus == EnumShelfStatus.Ledig)
-            {       
+            {
                 _shelfRepository.UpdateOwner(shelfVm.Id, seller.Id);
-                shelfVm.Owner = seller; 
+
+                shelfVm.Owner = seller;
                 shelfVm.ShelfStatus = EnumShelfStatus.Optaget;
+
                 seller.OwnedShelves.Add(shelfVm.Model);
 
-                ShowShelfInfo(shelfVm);
-            }   
-        }
-
-        public void RemoveUserFromShelf(ShelfObjectViewModel shelfVm)
-        {
-            if (shelfVm.ShelfStatus == EnumShelfStatus.Optaget)
-            {
-                _shelfRepository.UpdateOwner(shelfVm.Id, null);
-                shelfVm.Owner?.OwnedShelves.Remove(shelfVm.Model);
-                shelfVm.Owner = null;
-                shelfVm.ShelfStatus = EnumShelfStatus.Ledig;
+                seller.CalculateMonthlyPayment();
 
                 ShowShelfInfo(shelfVm);
             }
         }
+
+        public void RemoveUserFromShelf(ShelfObjectViewModel shelfVm)
+        {
+            if (shelfVm.Owner != null)
+            {
+                shelfVm.Owner.OwnedShelves.Remove(shelfVm.Model);
+                shelfVm.Owner.CalculateMonthlyPayment();
+            }
+
+            shelfVm.Owner = null;
+            shelfVm.ShelfStatus = EnumShelfStatus.Ledig;
+        }
+
     }
 }
 
