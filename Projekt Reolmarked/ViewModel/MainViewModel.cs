@@ -19,6 +19,14 @@ namespace Projekt_Reolmarked.ViewModel
 
         public CheckOutViewModel CheckOutViewModel { get; }
 
+        public ObservableCollection<Item> Items { get; set; }
+
+
+        public event Action OpenSellerOverview;
+        public event Action OpenHomePage;
+        public event Action OpenShelfOverview;
+
+
         public ICommand OpenCheckoutCommand { get; }
         public ICommand OpenCreateItemCommand { get; }
         public ICommand SellerOverviewCommand { get; }
@@ -26,25 +34,32 @@ namespace Projekt_Reolmarked.ViewModel
         public ICommand BackButtonCommand { get; }
 
 
+
+
         public MainViewModel()
         {
-
+            Items = new ObservableCollection<Item>();
 
             SellerViewModel = new SellerViewModel();
-            CheckOutViewModel = new CheckOutViewModel(ItemViewModel);
+
             ItemViewModel = new ItemViewModel(SellerViewModel, Items);
+
             ShelfManagerViewModel = new ShelfManagerViewModel(SellerViewModel);
 
+            CheckOutViewModel = new CheckOutViewModel(ItemViewModel);
 
             OpenCheckoutCommand = new RelayCommand(OpenCheckOut);
             OpenCreateItemCommand = new RelayCommand(OpenCreateItem);
-            ShelfOverviewCommand = new RelayCommand(OpenShelfOverview);
-            SellerOverviewCommand = new RelayCommand(OpenSellerOverview);
+
+            SellerOverviewCommand = new RelayCommand(OpenSellerOverviewPage);
+            ShelfOverviewCommand = new RelayCommand(OpenShelfOverviewPage);
+
+            BackButtonCommand = new RelayCommand(GoHome);
         }
 
         private void OpenCheckOut(object parameter)
         {
-            var checkOutWindow = new CheckOut(SellerViewModel);
+            var checkOutWindow = new CheckOut(ItemViewModel);
             checkOutWindow.Show();
         }
 
@@ -55,17 +70,24 @@ namespace Projekt_Reolmarked.ViewModel
             createItem.Show();
         }
 
-        private void ShelfOverview()
+        private void OpenSellerOverviewPage(object parameter)
         {
-            
+            MessageBox.Show("Seller Overview command works!");
+
+            OpenSellerOverview?.Invoke();
         }
 
-        private void SellerOverview()
+        private void OpenShelfOverviewPage(object parameter)
         {
+            MessageBox.Show("Shelf Overview command works!");
 
+            OpenShelfOverview?.Invoke();
         }
 
-        public ObservableCollection<Item> Items { get; set; }
+        private void GoHome(object parameter)
+        {
+            OpenHomePage?.Invoke();
+        }
 
 
     }
