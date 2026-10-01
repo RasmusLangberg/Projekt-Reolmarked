@@ -22,11 +22,11 @@ namespace Projekt_Reolmarked.ViewModel
 
         public ICommand AddItemCommand { get; }
 
-        public ItemViewModel(SellerViewModel sellerViewModel)
+        public ItemViewModel(SellerViewModel sellerViewModel, ObservableCollection<Item> items)
         {
             SellerViewModel = sellerViewModel;
 
-            Items = new ObservableCollection<Item>();
+            Items = items;
 
             AddItemCommand = new RelayCommand(parameter => AddItem());
 
