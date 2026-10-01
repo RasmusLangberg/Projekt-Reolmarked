@@ -8,18 +8,103 @@
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
         Title="CreateItem" Height="450" Width="800">
+    
+    
+  
     <Grid>
-        <Button Content="Tilføj vare" Command="{Binding ItemViewModel.AddItemCommand}"  Width="118" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,269,0,0"/>
-        <TextBlock Text="Pris:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="311,230,0,0" Height="15" Width="25"/>
-        <TextBox Text="{Binding ItemViewModel.Price}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,223,0,0" Width="118" Height="30" RenderTransformOrigin="0.472,-1.912"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="272,190,0,0" Height="16" Width="56"><Run Language="da-dk" Text="Vare n"/><Run Text="avn:"/></TextBlock>
-        <TextBox Text="{Binding ItemViewModel.Name}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,188,0,0" Width="118" Height="30" RenderTransformOrigin="0.472,-1.912"/>
-        <TextBlock Text="Tilhøre sælger:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="227,165,0,0" Height="15" Width="92"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,26,0,0" TextWrapping="Wrap" Text="Opret vare" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" />
-        <ComboBox ItemsSource="{Binding SellerViewModel.Sellers}" SelectedItem="{Binding SellerViewModel.SelectedSeller}" HorizontalAlignment="Center" Margin="0,161,0,0" VerticalAlignment="Top" Width="142" Height="22"/>
-        <ListBox ItemsSource="{Binding ItemViewModel.Items}" SelectedItem="{Binding ItemViewModel.SelectedItem}" DisplayMemberPath="Name" Margin="496,64,36,23"/>
-        <TextBlock HorizontalAlignment="Left" Margin="577,40,0,0" TextWrapping="Wrap" Text="Alle varer i systemet" VerticalAlignment="Top"/>
-        <Button Content="Slet vare" Command="{Binding ItemViewModel.RemoveItemCommand}"  Width="118" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,312,0,0"/>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <!-- Heading -->
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Foreground="DarkRed" Text="Vareoversigt" FontSize="40" FontWeight="Heavy" FontFamily="Verdana" HorizontalAlignment="Center" Margin="20"/>
+
+
+        <!-- Item lists -->
+        <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ItemViewModel.Items}" Margin="15">
+
+            <ListBox.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="5" Padding="10">
+
+                        <StackPanel>
+
+                            <TextBlock Text="{Binding Name}" FontSize="20" FontWeight="Bold"/>
+
+                            <TextBlock Text="{Binding Price, StringFormat=Pris: {0}kr}" FontSize="15" Margin="0,5,0,5"/>
+
+                            <Image Source="{Binding BarcodeImage}" Width="200" Height="70"/>
+
+                            <TextBlock Text="{Binding Barcode}" HorizontalAlignment="Center" FontSize="10"/>
+
+                        </StackPanel>
+                       
+                        
+                    </Border>
+                    
+                    
+                </DataTemplate>
+
+            </ListBox.ItemTemplate>
+       
+            
+        </ListBox>
+        
+        <!--Create Items -->
+
+        <Grid Grid.Row="1" Grid.Column="1" Margin="30,0,30,30">
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="30"/>
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Item name -->
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Varenavn: " FontSize="20"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ItemViewModel.Name}" Margin="5"/>
+
+            <!--Item price -->
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Pris:" FontSize="20"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ItemViewModel.Price}" Margin="5"/>
+
+            <!--Item seller -->
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Sælger: " FontSize="20"/>
+            <ComboBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding SellerViewModel.Sellers}" SelectedItem="{Binding SellerViewModel.SelectedSeller}" Margin="5"/>
+
+
+            <!-- button "gem varer" -->
+            <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Gem varer" Width="120" Height="20" Command="{Binding ItemViewModel.AddItemCommand}"/>
+
+
+
+
+        </Grid>
+
 
     </Grid>
 </Window>
