@@ -7,6 +7,11 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using Projekt_Reolmarked.data;
+using System.Windows.Media.Imaging;
+using System;
+using System.Drawing;
+using System.Windows.Interop;
+using System.Windows.Media;
 
 namespace Projekt_Reolmarked.ViewModel
 {
@@ -17,6 +22,7 @@ namespace Projekt_Reolmarked.ViewModel
         public ObservableCollection<Item> Items { get; }
 
         public SellerViewModel SellerViewModel { get; }
+
 
         private int nextID = 1;
 
@@ -43,7 +49,27 @@ namespace Projekt_Reolmarked.ViewModel
 
             Items.Add(newItem);
 
+            //barcodes
+
+            var barcode = BarcodeGenerator.GenerateBarcode(newItem.Barcode);
+
+            BarcodeImage = Imaging.CreateBitmapSourceFromHBitmap(barcode.GetHbitmap(), IntPtr.Zero, System.Windows.Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+
+
+
             MessageBox.Show($"Item '{newItem.Name}' added successfully with ID: {newItem.ItemId}");
+        }
+
+        private BitmapSource _barcodeImage;
+
+        public BitmapSource BarcodeImage
+        {
+            get { return _barcodeImage; }
+            set
+            {
+                _barcodeImage = value;
+                OnPropertyChanged(nameof(BarcodeImage));
+            }
         }
 
         private string _name;

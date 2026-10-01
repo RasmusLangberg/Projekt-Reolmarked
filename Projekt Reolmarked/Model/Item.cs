@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Drawing;
+using System.Windows.Media.Imaging;
+using System.Windows.Interop;
 
 namespace Projekt_Reolmarked.Model
 {
@@ -12,6 +15,7 @@ namespace Projekt_Reolmarked.Model
         public Seller Seller { get; set; }
 
         public double Price { get; set; }
+        public string Barcode { get; set; }
         
         public Item(string name, Seller seller, int itemId, double price)
         {
@@ -19,6 +23,20 @@ namespace Projekt_Reolmarked.Model
             ItemId = itemId;
             Seller = seller;            
             Price = price;
+
+            Barcode = ItemId.ToString("D8");
+
+        }
+
+        public BitmapSource BarcodeImage
+        {
+            get
+            {
+                var barcode = BarcodeGenerator.GenerateBarcode(Barcode);
+
+                return Imaging.CreateBitmapSourceFromHBitmap(barcode.GetHbitmap(), IntPtr.Zero, System.Windows.Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+
+            }
         }
 
         public override string ToString()
