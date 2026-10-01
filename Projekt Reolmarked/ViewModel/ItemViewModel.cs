@@ -15,21 +15,21 @@ namespace Projekt_Reolmarked.ViewModel
         private readonly IItemRepository _itemRepository = new ItemRepository();
         public ObservableCollection<Item> Items { get; }
 
-        public SellerViewModel SellerViewModel { get; }
+        public MainViewModel MainViewModel { get; }
         private int nextID = 1;
 
         public ICommand AddItemCommand { get; }
 
-        public ItemViewModel(SellerViewModel sellerViewModel,ObservableCollection<Item>? items)
+        public ItemViewModel(MainViewModel mainViewModel)
         {
-            SellerViewModel = sellerViewModel;
-            Items = items ?? new ObservableCollection<Item>();
+            MainViewModel = mainViewModel;
+
+            Items = new ObservableCollection<Item>();
+
             AddItemCommand = new RelayCommand(parameter => AddItem());
-            
-            foreach (var item in _itemRepository.GetAll())
-            {
-                Items.Add(item);
-            }
+
+            LoadItems();
+
         }
 
 
@@ -38,7 +38,7 @@ namespace Projekt_Reolmarked.ViewModel
 
             var ItemId = GenerateID();
 
-            Item newItem = new(Name, SellerViewModel.SelectedSeller, ItemId, Price);
+            Item newItem = new(Name, MainViewModel.SellerViewModel.SelectedSeller, ItemId, Price);
             
             _itemRepository.add(newItem);
           
@@ -89,6 +89,14 @@ namespace Projekt_Reolmarked.ViewModel
         }
         
 
+        public void LoadItems()
+        {
+            foreach (var item in _itemRepository.GetAll())
+            {
+                Items.Add(item);
+            }
+
+        }
 
     }
 }

@@ -17,6 +17,7 @@ namespace Projekt_Reolmarked.ViewModel
 
         public ItemViewModel ItemViewModel { get; }
 
+
         public CheckOutViewModel CheckOutViewModel { get; }
 
         public ObservableCollection<Item> Items { get; set; }
@@ -65,8 +66,7 @@ namespace Projekt_Reolmarked.ViewModel
 
         private void OpenCreateItem(object parameter)
         {
-            var createItem = new View.CreateItem(SellerViewModel, Items);
-            createItem.DataContext = ItemViewModel;
+            var createItem = new View.CreateItem(this);
             createItem.Show();
         }
 

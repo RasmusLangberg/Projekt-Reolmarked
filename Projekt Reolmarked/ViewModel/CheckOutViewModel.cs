@@ -6,25 +6,37 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Windows;
 
 namespace Projekt_Reolmarked
 {
     public class CheckOutViewModel 
     {
-        public ObservableCollection<Item> SoldItems { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> ShoppingBasket { get; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> SoldItems { get; } 
+
+        public ObservableCollection<Item> ShoppingBasket { get; } 
         
-        public ItemViewModel ItemViewModel { get; }
-
-
+        MainViewModel MainViewModel { get; }
 
         public RelayCommand AddItemToBasketCommand { get; }
 
-        public CheckOutViewModel(ItemViewModel itemvietmodel)
+        public RelayCommand SellItemCommand { get; }
+
+
+
+        public CheckOutViewModel(MainViewModel mainViewModel)
         {
            
-            ItemViewModel = itemvietmodel;
+            SoldItems = new ObservableCollection<Item>();
+
+            ShoppingBasket = new ObservableCollection<Item>();
+
+            MainViewModel = mainViewModel;
+
             AddItemToBasketCommand = new RelayCommand(_ => AddItemToBasket());
+
+            SellItemCommand = new RelayCommand(parameter => Checkout());
+
         }
 
         private void Checkout()
@@ -34,9 +46,12 @@ namespace Projekt_Reolmarked
 
         public void AddItemToBasket()
         {
-            //implementer at checkout logikken her.du skal bruge selecteditem fra itemviewmodel og tilføje den til shoppingbasket. listboxen i checkout skal være binded til Selecteditemn fra itemviewmode. ( binding ItemViewModel.SelectedItem).
-            if (ItemViewModel.SelectedItem!= null)
-                ShoppingBasket.Add(ItemViewModel.SelectedItem);
+            var item = MainViewModel.ItemViewModel.SelectedItem;
+            
+            if (item!= null)
+                ShoppingBasket.Add(item);
+            MessageBox.Show("vare tilføjet");
+
         }
 
         
