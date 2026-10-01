@@ -17,11 +17,11 @@ namespace Projekt_Reolmarked
 {
     public partial class CheckOut : Window
     {
-        public CheckOut(ItemViewModel itemViewModel)
+        public CheckOut(MainViewModel mainViewModel)
         {
             InitializeComponent();
 
-            DataContext = new CheckOutViewModel(itemViewModel);
+            DataContext = mainViewModel;
         }
     }
 }

@@ -19,7 +19,30 @@ namespace Projekt_Reolmarked.Model
 
         public List<Shelf> OwnedShelves { get; set; } = new List<Shelf>();
 
-        public int MonthlyPayment { get; set; }
+        public int MonthlyPayment
+        {
+            get
+            {
+                int numberOfShelves = OwnedShelves.Count;
+
+                if (numberOfShelves == 0)
+                {
+                    return 0;
+                }
+                else if (numberOfShelves == 1)
+                {
+                    return 850;
+                }
+                else if (numberOfShelves <= 3)
+                {
+                    return 825 * numberOfShelves;
+                }
+                else
+                {
+                    return 800 * numberOfShelves;
+                }
+            }
+        }
 
 
         public Seller(int id, string firstName, string lastName, string email, int phoneNumber)
@@ -29,7 +52,7 @@ namespace Projekt_Reolmarked.Model
             LastName = lastName;
             Email = email;
             PhoneNumber = phoneNumber;
-            MonthlyPayment = 0;
+            
         }
 
 
@@ -39,41 +62,9 @@ namespace Projekt_Reolmarked.Model
         }
 
 
-        public void CalculateMonthlyPayment() // lav bergning på bergning af månedlig betaling 
-        {
-            int numberOfShelves = OwnedShelves.Count;
+    
 
-            if (numberOfShelves == 0)
-            {
-                MonthlyPayment = 0;
-            }
-
-            else if (numberOfShelves == 1)
-            {
-                MonthlyPayment = 850;
-            }
-
-            else if (numberOfShelves <= 3)
-            {
-                MonthlyPayment = 825 * numberOfShelves;
-            }
-
-            else
-            {
-                MonthlyPayment = 800 * numberOfShelves;
-
-            }
-
-         
-
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        
 
     }
 }

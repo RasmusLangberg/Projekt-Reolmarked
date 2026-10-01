@@ -22,6 +22,8 @@ namespace Projekt_Reolmarked
 
         public RelayCommand SellItemCommand { get; }
 
+        public RelayCommand ClearBasketCommand { get; } 
+
         public CheckOutViewModel(ItemViewModel itemViewModel)
         {
             SoldItems = new ObservableCollection<Item>();
@@ -33,11 +35,29 @@ namespace Projekt_Reolmarked
             AddItemToBasketCommand = new RelayCommand(_ => AddItemToBasket());
 
             SellItemCommand = new RelayCommand(parameter => Checkout());
+
+            ClearBasketCommand = new RelayCommand(_ => ClearBasket());
+
         }
 
         private void Checkout()
         {
             // Her skal vi senere implementere checkout-logikken.
+        }
+
+        public void ClearBasket()
+        {
+            ShoppingBasket.Clear();
+
+            if (ShoppingBasket.Count > 0)
+            {
+                MessageBox.Show("Kurven er blevet ryddet.");
+            }
+            else 
+            { 
+                MessageBox.Show("Kurven er allerede tom.");
+            }
+        
         }
 
         public void AddItemToBasket()
@@ -49,6 +69,12 @@ namespace Projekt_Reolmarked
                 ShoppingBasket.Add(item);
                 MessageBox.Show("Vare tilføjet");
             }
+            else
+            {
+                MessageBox.Show("Ingen vare valgt");
+            }
+        
+        
         }
     }
 }

@@ -19,10 +19,10 @@ namespace Projekt_Reolmarked.View
     /// </summary>
     public partial class CreateUser : Page
     {
-        public CreateUser()
+        public CreateUser(MainViewModel main)
         {
             InitializeComponent();
-            DataContext = new SellerViewModel();
+            DataContext = main;
         }
     }
 }

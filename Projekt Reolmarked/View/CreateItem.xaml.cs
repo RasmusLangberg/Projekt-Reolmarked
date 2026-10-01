@@ -17,9 +17,10 @@ namespace Projekt_Reolmarked.View
 {
     public partial class CreateItem : Window
     {
-        public CreateItem(SellerViewModel sellerViewModel, ObservableCollection<Item> items)
+        public CreateItem(MainViewModel main)
         {
             InitializeComponent();
+            DataContext = main;
         }
     }
 }

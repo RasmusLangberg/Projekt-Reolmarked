@@ -1,4 +1,5 @@
 ﻿using Projekt_Reolmarked.Model;
+using Projekt_Reolmarked.View;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Printing;
@@ -60,14 +61,13 @@ namespace Projekt_Reolmarked.ViewModel
 
         private void OpenCheckOut(object parameter)
         {
-            var checkOutWindow = new CheckOut(ItemViewModel);
+            var checkOutWindow = new CheckOut(this);
             checkOutWindow.Show();
         }
 
         private void OpenCreateItem(object parameter)
         {
-            var createItem = new View.CreateItem(SellerViewModel, Items);
-            createItem.DataContext = ItemViewModel;
+            var createItem = new CreateItem(this);
             createItem.Show();
         }
 

@@ -22,6 +22,8 @@ namespace Projekt_Reolmarked.ViewModel
 
         public ICommand AddItemCommand { get; }
 
+        public ICommand RemoveItemCommand { get; }
+
         public ItemViewModel(SellerViewModel sellerViewModel, ObservableCollection<Item> items)
         {
             SellerViewModel = sellerViewModel;
@@ -29,6 +31,8 @@ namespace Projekt_Reolmarked.ViewModel
             Items = items;
 
             AddItemCommand = new RelayCommand(parameter => AddItem());
+
+            RemoveItemCommand = new RelayCommand(parameter => RemoveItem());
 
             LoadItems();
         }
@@ -45,6 +49,23 @@ namespace Projekt_Reolmarked.ViewModel
 
             MessageBox.Show($"Item '{newItem.Name}' added successfully with ID: {newItem.ItemId}");
         }
+
+        public void RemoveItem()
+        {
+            var item = SelectedItem;  
+
+            if ( item != null)
+            {
+                Items.Remove(item);
+            }
+            else
+            {
+                MessageBox.Show("du skal vælge en vare og slette");
+            }
+
+
+        }
+
 
         private string _name;
 
