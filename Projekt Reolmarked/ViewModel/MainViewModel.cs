@@ -66,7 +66,8 @@ namespace Projekt_Reolmarked.ViewModel
 
         private void OpenCreateItem(object parameter)
         {
-            var createItem = new View.CreateItem(this);
+            var createItem = new View.CreateItem(SellerViewModel, Items);
+            createItem.DataContext = ItemViewModel;
             createItem.Show();
         }
 

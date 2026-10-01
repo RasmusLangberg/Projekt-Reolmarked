@@ -15,15 +15,11 @@ using System.Windows.Shapes;
 
 namespace Projekt_Reolmarked.View
 {
-    /// <summary>
-    /// Interaction logic for CreateItem.xaml
-    /// </summary>
     public partial class CreateItem : Window
     {
-        public CreateItem(MainViewModel mainviewmodel)
+        public CreateItem(SellerViewModel sellerViewModel, ObservableCollection<Item> items)
         {
             InitializeComponent();
-            DataContext = mainviewmodel;
         }
     }
 }

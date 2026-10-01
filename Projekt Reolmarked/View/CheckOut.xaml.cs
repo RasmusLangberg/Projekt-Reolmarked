@@ -15,20 +15,13 @@ using System.Windows.Shapes;
 
 namespace Projekt_Reolmarked
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
     public partial class CheckOut : Window
     {
-
         public CheckOut(ItemViewModel itemViewModel)
         {
             InitializeComponent();
-           
-           DataContext = new CheckOutViewModel(itemViewModel);
-            
-        }
 
-       
+            DataContext = new CheckOutViewModel(itemViewModel);
+        }
     }
 }

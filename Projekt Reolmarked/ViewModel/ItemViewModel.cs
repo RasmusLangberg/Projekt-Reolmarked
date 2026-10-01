@@ -13,35 +13,34 @@ namespace Projekt_Reolmarked.ViewModel
     public class ItemViewModel : INotifyBase
     {
         private readonly IItemRepository _itemRepository = new ItemRepository();
+
         public ObservableCollection<Item> Items { get; }
 
-        public MainViewModel MainViewModel { get; }
+        public SellerViewModel SellerViewModel { get; }
+
         private int nextID = 1;
 
         public ICommand AddItemCommand { get; }
 
-        public ItemViewModel(MainViewModel mainViewModel)
+        public ItemViewModel(SellerViewModel sellerViewModel, ObservableCollection<Item> items)
         {
-            MainViewModel = mainViewModel;
+            SellerViewModel = sellerViewModel;
 
-            Items = new ObservableCollection<Item>();
+            Items = items;
 
             AddItemCommand = new RelayCommand(parameter => AddItem());
 
             LoadItems();
-
         }
-
 
         private void AddItem()
         {
-
             var ItemId = GenerateID();
 
-            Item newItem = new(Name, MainViewModel.SellerViewModel.SelectedSeller, ItemId, Price);
-            
+            Item newItem = new( Name, SellerViewModel.SelectedSeller, ItemId, Price);
+
             _itemRepository.add(newItem);
-          
+
             Items.Add(newItem);
 
             MessageBox.Show($"Item '{newItem.Name}' added successfully with ID: {newItem.ItemId}");
@@ -52,42 +51,41 @@ namespace Projekt_Reolmarked.ViewModel
         public string Name
         {
             get { return _name; }
-            set 
-            { 
-                _name = value; 
+            set
+            {
+                _name = value;
                 OnPropertyChanged(nameof(Name));
             }
         }
 
         private Item _selectedItem;
 
-        public  Item SelectedItem
+        public Item SelectedItem
         {
             get { return _selectedItem; }
-            set 
-            { _selectedItem = value;
+            set
+            {
+                _selectedItem = value;
                 OnPropertyChanged(nameof(SelectedItem));
             }
         }
 
-
         private double _price;
+
         public double Price
         {
             get { return _price; }
-            set 
-            { 
-                _price = value; 
+            set
+            {
+                _price = value;
                 OnPropertyChanged(nameof(Price));
             }
         }
 
-       
-       public int GenerateID()
+        public int GenerateID()
         {
             return nextID++;
         }
-        
 
         public void LoadItems()
         {
@@ -95,8 +93,6 @@ namespace Projekt_Reolmarked.ViewModel
             {
                 Items.Add(item);
             }
-
         }
-
     }
 }

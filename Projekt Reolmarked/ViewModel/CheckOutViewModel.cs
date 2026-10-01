@@ -10,56 +10,45 @@ using System.Windows;
 
 namespace Projekt_Reolmarked
 {
-    public class CheckOutViewModel 
+    public class CheckOutViewModel
     {
-        public ObservableCollection<Item> SoldItems { get; } 
+        public ObservableCollection<Item> SoldItems { get; }
 
-        public ObservableCollection<Item> ShoppingBasket { get; } 
-        
-        MainViewModel MainViewModel { get; }
+        public ObservableCollection<Item> ShoppingBasket { get; }
+
+        public ItemViewModel ItemViewModel { get; }
 
         public RelayCommand AddItemToBasketCommand { get; }
 
         public RelayCommand SellItemCommand { get; }
 
-
-
-        public CheckOutViewModel(MainViewModel mainViewModel)
+        public CheckOutViewModel(ItemViewModel itemViewModel)
         {
-           
             SoldItems = new ObservableCollection<Item>();
 
             ShoppingBasket = new ObservableCollection<Item>();
 
-            MainViewModel = mainViewModel;
+            ItemViewModel = itemViewModel;
 
             AddItemToBasketCommand = new RelayCommand(_ => AddItemToBasket());
 
             SellItemCommand = new RelayCommand(parameter => Checkout());
-
         }
 
         private void Checkout()
         {
-            // her der skal vi implementere checkout logikken. når vi trykker på knappen køb, så skal vi;  fjerne varende fra Items listen i itemviewmodel ( logik herinde). rykke alle item fra shoppign basket over i en liste der hedder solgte varer. 
+            // Her skal vi senere implementere checkout-logikken.
         }
 
         public void AddItemToBasket()
         {
-            var item = MainViewModel.ItemViewModel.SelectedItem;
-            
-            if (item!= null)
+            var item = ItemViewModel.SelectedItem;
+
+            if (item != null)
+            {
                 ShoppingBasket.Add(item);
-            MessageBox.Show("vare tilføjet");
-
+                MessageBox.Show("Vare tilføjet");
+            }
         }
-
-        
-
-
-
-
-
     }
 }
-
