@@ -45,7 +45,24 @@ namespace Projekt_Reolmarked
 
         private void Checkout()
         {
-            // Her skal vi senere implementere checkout-logikken.
+            if (ShoppingBasket.Count == 0)
+            {
+                MessageBox.Show("Der er ingen varer i kurven");
+            }
+
+            foreach (var item in ShoppingBasket)
+            {
+                SoldItems.Add(item);
+
+            }
+
+            ShoppingBasket.Clear();
+
+            OnPropertyChanged(nameof(TotalPrice));
+
+            MessageBox.Show("Købet er blevet godkendt");
+
+
         }
 
         public void ClearBasket()
