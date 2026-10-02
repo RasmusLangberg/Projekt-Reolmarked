@@ -13,12 +13,15 @@ namespace Projekt_Reolmarked.Model
 
         public int TotalPrice { get; set; }
 
+        public DateOnly SalesDate { get; set; } 
+
 
         public Checkout(List<Item> kurv, List<Item> solgtevare,int totalprice)
         {
             Indkøbskurv = kurv;
             SolgteVare = solgtevare;
             TotalPrice = totalprice;
+            SalesDate = new DateOnly();
 
         }
     }
