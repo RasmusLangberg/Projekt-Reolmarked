@@ -40,6 +40,9 @@ namespace Projekt_Reolmarked
 
         }
 
+        
+
+
         private void Checkout()
         {
             // Her skal vi senere implementere checkout-logikken.
@@ -47,10 +50,10 @@ namespace Projekt_Reolmarked
 
         public void ClearBasket()
         {
-            ShoppingBasket.Clear();
 
             if (ShoppingBasket.Count > 0)
             {
+                ShoppingBasket.Clear();
                 MessageBox.Show("Kurven er blevet ryddet.");
             }
             else 

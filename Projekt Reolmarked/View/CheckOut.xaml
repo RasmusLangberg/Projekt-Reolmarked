@@ -11,7 +11,7 @@
     <Grid>
         <Button Content="Ryd kurv " Command="{Binding CheckOutViewModel.ClearBasketCommand}"  Width="212" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="357,357,0,0" RenderTransformOrigin="0.847,0.532" />
         <TextBlock Text="Fulde pris " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="602,319,0,0"/>
-        <TextBox Text="{Binding CheckOutViewModel.TotalPrice, StringFormat=C}" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="662,312,0,0" Width="100" Height="30" RenderTransformOrigin="0.472,-1.912"/>
+        <TextBox Text="{Binding CheckOutViewModel.TotalPrice, StringFormat=C, Mode=OneWay}" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="662,312,0,0" Width="100" Height="30"/>
         <TextBlock HorizontalAlignment="Left" Margin="430,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.748,1.44" Text="Indkøbskurv" Height="23" Width="66" />
         <ListBox ItemsSource="{Binding ItemViewModel.Items}" SelectedItem="{Binding ItemViewModel.SelectedItem}" DisplayMemberPath="Name" Margin="10,59,462,47"/>
         <TextBlock HorizontalAlignment="Left" Margin="138,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.748,1.44" Text="Alle varer" />

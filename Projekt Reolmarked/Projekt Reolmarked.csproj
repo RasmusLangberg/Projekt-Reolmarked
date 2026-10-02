@@ -10,20 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Gifs\cat-ai-pufferfish-cat.gif" />
-    <None Remove="Gifs\happy-cat.gif" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Gifs\cat-ai-pufferfish-cat.gif">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Gifs\happy-cat.gif">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.86" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="7.1.0" />
     <PackageReference Include="Microsoft.Data.SqlClient.Extensions.Azure" Version="7.1.0" />
