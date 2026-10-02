@@ -43,6 +43,8 @@
 
                             <TextBlock Text="{Binding Name}" FontSize="20" FontWeight="Bold"/>
 
+                            <TextBlock Text="{Binding SellerFullName, StringFormat=Sælger: {0}}"/>
+
                             <TextBlock Text="{Binding Price, StringFormat=Pris: {0}kr}" FontSize="15" />
 
                             <Image Source="{Binding BarcodeImage}" Width="200" Height="70"/>

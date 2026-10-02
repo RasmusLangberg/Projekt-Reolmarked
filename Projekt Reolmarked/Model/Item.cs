@@ -14,6 +14,15 @@ namespace Projekt_Reolmarked.Model
         public int ItemId { get; set; }
         public Seller Seller { get; set; }
 
+        //combines the sellers first and last name to be used, instead of using firstname, then last name
+        public string SellerFullName
+        {
+            get
+            {
+                return $"{Seller.FirstName} {Seller.LastName}";
+            }
+        }
+
         public decimal Price { get; set; }
         public string Barcode { get; set; }
         
