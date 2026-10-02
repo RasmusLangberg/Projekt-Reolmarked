@@ -9,15 +9,64 @@
         d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
         Title="CheckOut" Height="450" Width="800">
     <Grid>
-        <Button Content="Ryd kurv " Command="{Binding CheckOutViewModel.ClearBasketCommand}"  Width="212" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="357,357,0,0" RenderTransformOrigin="0.847,0.532" />
-        <TextBlock Text="Fulde pris " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="602,319,0,0"/>
-        <TextBox Text="{Binding CheckOutViewModel.TotalPrice, StringFormat={}{0:N2} kr., Mode=OneWay}" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="662,312,0,0" Width="100" Height="30"/>
-        <TextBlock HorizontalAlignment="Left" Margin="430,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.748,1.44" Text="Indkøbskurv" Height="23" Width="66" />
-        <ListBox ItemsSource="{Binding ItemViewModel.Items}" SelectedItem="{Binding ItemViewModel.SelectedItem}" DisplayMemberPath="Name" Margin="10,59,462,47"/>
-        <TextBlock HorizontalAlignment="Left" Margin="138,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.748,1.44" Text="Alle varer" />
-        <TextBlock HorizontalAlignment="Left" Margin="376,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.748,1.44" Text="Opret Salg" FontWeight="Bold" FontSize="20" />
-        <ListBox ItemsSource="{Binding CheckOutViewModel.ShoppingBasket}" Margin="357,110,231,92"/>
-        <Button Content="Gennemfør salg" Command="{Binding CheckOutViewModel.SellItemCommand}"  Width="138" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="624,367,0,0" />
-        <Button Content="Tilføj vare til indkøbskurv " Command="{Binding CheckOutViewModel.AddItemToBasketCommand}"  Width="212" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="357,392,0,0" />
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <!-- Heading -->
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Foreground="DarkRed" Text="Indkøbsliste" FontSize="40" FontWeight="Heavy" FontFamily="Verdana" HorizontalAlignment="Center" Margin="20"/>
+
+
+        <!-- Item lists -->
+        <ListBox Grid.Row="2" Grid.Column="0" ItemsSource="{Binding ItemViewModel.Items}" SelectedItem="{Binding ItemViewModel.SelectedItem}" Margin="15">
+
+            <ListBox.ItemTemplate>
+
+                <DataTemplate>
+
+
+                    <StackPanel>
+
+                        <TextBlock Text="{Binding Name}" FontSize="20" FontWeight="Bold"/>
+
+                        <TextBlock Text="{Binding Price, StringFormat=Pris: {0}kr}" FontSize="15" />
+
+                        <Image Source="{Binding BarcodeImage}" Width="200" Height="70"/>
+
+                        <TextBlock Text="{Binding Barcode}" HorizontalAlignment="Center" FontSize="10"/>
+
+                    </StackPanel>
+
+
+
+                </DataTemplate>
+
+            </ListBox.ItemTemplate>
+
+
+        </ListBox>
+
+        <StackPanel Grid.Row="2" Grid.Column="1">
+
+            <TextBlock Text="Indkøbskurv" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+            <ListBox ItemsSource="{Binding }"/>
+
+        </StackPanel>
+
+
     </Grid>
+    
+    
 </Window>

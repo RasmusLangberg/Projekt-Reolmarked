@@ -34,7 +34,6 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
 
-                    <Border BorderBrush="Black" BorderThickness="1" Margin="5" Padding="10">
 
                         <StackPanel>
 
@@ -48,7 +47,6 @@
 
                         </StackPanel>
 
-                    </Border>
 
                 </DataTemplate>
             </ListBox.ItemTemplate>

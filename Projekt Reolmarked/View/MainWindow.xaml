@@ -25,7 +25,7 @@
 
         </Grid>
 
-        <!-- Page frame -->
+        <!--  Frame name to close it down, so pages work -->
         <Frame x:Name="MainFrame" Visibility="Collapsed" NavigationUIVisibility="Hidden"/>
 
     </Grid>
