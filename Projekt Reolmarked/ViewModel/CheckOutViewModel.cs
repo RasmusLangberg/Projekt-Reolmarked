@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace Projekt_Reolmarked
 {
-    public class CheckOutViewModel
+    public class CheckOutViewModel : INotifyBase
     {
         public ObservableCollection<Item> SoldItems { get; }
 
@@ -40,7 +40,7 @@ namespace Projekt_Reolmarked
 
         }
 
-        
+        public decimal TotalPrice => ShoppingBasket.Sum(item => item.Price);
 
 
         private void Checkout()
@@ -54,6 +54,7 @@ namespace Projekt_Reolmarked
             if (ShoppingBasket.Count > 0)
             {
                 ShoppingBasket.Clear();
+                  OnPropertyChanged(nameof(TotalPrice));
                 MessageBox.Show("Kurven er blevet ryddet.");
             }
             else 
@@ -70,6 +71,7 @@ namespace Projekt_Reolmarked
             if (item != null)
             {
                 ShoppingBasket.Add(item);
+                OnPropertyChanged(nameof(TotalPrice));
                 MessageBox.Show("Vare tilføjet");
             }
             else
