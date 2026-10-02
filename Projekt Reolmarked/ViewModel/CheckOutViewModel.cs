@@ -54,12 +54,13 @@ namespace Projekt_Reolmarked
             if (ShoppingBasket.Count > 0)
             {
                 ShoppingBasket.Clear();
-                  OnPropertyChanged(nameof(TotalPrice));
+                OnPropertyChanged(nameof(TotalPrice));
                 MessageBox.Show("Kurven er blevet ryddet.");
             }
-            else 
+            else if(ShoppingBasket.Count == 0)  
             { 
                 MessageBox.Show("Kurven er allerede tom.");
+                
             }
         
         }
@@ -72,9 +73,9 @@ namespace Projekt_Reolmarked
             {
                 ShoppingBasket.Add(item);
                 OnPropertyChanged(nameof(TotalPrice));
-                MessageBox.Show("Vare tilføjet");
+                
             }
-            else
+            else if(item == null)
             {
                 MessageBox.Show("Ingen vare valgt");
             }

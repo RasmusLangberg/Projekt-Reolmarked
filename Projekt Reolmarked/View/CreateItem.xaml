@@ -32,7 +32,7 @@
 
 
         <!-- Item lists -->
-        <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ItemViewModel.Items}" Margin="15">
+        <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ItemViewModel.Items}" SelectedItem="{Binding ItemViewModel.SelectedItem}" Margin="15">
 
             <ListBox.ItemTemplate>
 
@@ -99,6 +99,7 @@
 
             <!-- button "gem varer" -->
             <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Gem varer" Width="120" Height="20" Command="{Binding ItemViewModel.AddItemCommand}"/>
+            <Button Grid.Row="6" Content="Slet vare" Width="120" Height="20" Command="{Binding ItemViewModel.RemoveItemCommand}" Grid.Column="1" Margin="19,40,110,-30" />
 
 
 

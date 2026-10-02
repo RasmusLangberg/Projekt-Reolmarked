@@ -30,15 +30,19 @@ namespace Projekt_Reolmarked.ViewModel
 
         public ICommand RemoveItemCommand { get; }
 
-        public ItemViewModel(SellerViewModel sellerViewModel, ObservableCollection<Item> items)
+        public ICommand DeleteItemCommand { get; }
+
+        public ItemViewModel(SellerViewModel sellerViewModel)
         {
             SellerViewModel = sellerViewModel;
 
-            Items = items;
+            Items = new ObservableCollection<Item>();
 
             AddItemCommand = new RelayCommand(parameter => AddItem());
 
             RemoveItemCommand = new RelayCommand(parameter => RemoveItem());
+
+
 
             LoadItems();
         }

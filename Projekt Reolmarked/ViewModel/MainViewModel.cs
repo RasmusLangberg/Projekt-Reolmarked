@@ -18,15 +18,14 @@ namespace Projekt_Reolmarked.ViewModel
 
         public ItemViewModel ItemViewModel { get; }
 
-
         public CheckOutViewModel CheckOutViewModel { get; }
 
-        public ObservableCollection<Item> Items { get; set; }
 
 
         public event Action OpenSellerOverview;
         public event Action OpenHomePage;
         public event Action OpenShelfOverview;
+
 
 
         public ICommand OpenCheckoutCommand { get; }
@@ -40,11 +39,11 @@ namespace Projekt_Reolmarked.ViewModel
 
         public MainViewModel()
         {
-            Items = new ObservableCollection<Item>();
+         
 
             SellerViewModel = new SellerViewModel();
 
-            ItemViewModel = new ItemViewModel(SellerViewModel, Items);
+            ItemViewModel = new ItemViewModel(SellerViewModel);
 
             ShelfManagerViewModel = new ShelfManagerViewModel(SellerViewModel);
 
@@ -57,6 +56,8 @@ namespace Projekt_Reolmarked.ViewModel
             ShelfOverviewCommand = new RelayCommand(OpenShelfOverviewPage);
 
             BackButtonCommand = new RelayCommand(GoHome);
+
+
         }
 
         private void OpenCheckOut(object parameter)

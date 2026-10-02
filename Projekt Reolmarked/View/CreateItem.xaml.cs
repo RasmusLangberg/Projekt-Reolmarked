@@ -22,5 +22,7 @@ namespace Projekt_Reolmarked.View
             InitializeComponent();
             DataContext = main;
         }
+
+       
     }
 }
