@@ -21,7 +21,7 @@ public class SellerRepository : ISellerRepository
             row.Email,
             row.PhoneNumber)
         {
-            MonthlyPayment = row.MonthlyPayment
+           
         }).ToList();
         
     }

@@ -124,8 +124,6 @@ namespace Projekt_Reolmarked.ViewModel
 
                 seller.OwnedShelves.Add(shelfVm.Model);
 
-                seller.CalculateMonthlyPayment();
-
                 ShowShelfInfo(shelfVm);
             }
         }
@@ -135,7 +133,7 @@ namespace Projekt_Reolmarked.ViewModel
             if (shelfVm.Owner != null)
             {
                 shelfVm.Owner.OwnedShelves.Remove(shelfVm.Model);
-                shelfVm.Owner.CalculateMonthlyPayment();
+                
             }
 
             shelfVm.Owner = null;
