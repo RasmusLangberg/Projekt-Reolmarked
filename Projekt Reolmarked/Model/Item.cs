@@ -14,10 +14,10 @@ namespace Projekt_Reolmarked.Model
         public int ItemId { get; set; }
         public Seller Seller { get; set; }
 
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         public string Barcode { get; set; }
         
-        public Item(string name, Seller seller, int itemId, double price)
+        public Item(string name, Seller seller, int itemId, decimal price)
         {
             Name = name;
             ItemId = itemId;

@@ -51,7 +51,7 @@ public class ItemRepository : IItemRepository
                 row.Name,
                 seller,
                 row.ItemId,
-                (double)row.Price);
+                (decimal)row.Price);
 
             items.Add(item);
         }

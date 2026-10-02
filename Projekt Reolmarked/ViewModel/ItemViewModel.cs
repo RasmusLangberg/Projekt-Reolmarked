@@ -47,7 +47,7 @@ namespace Projekt_Reolmarked.ViewModel
         {
             var ItemId = GenerateID();
 
-            Item newItem = new( Name, SellerViewModel.SelectedSeller, ItemId, Price);
+            Item newItem = new( Name, SellerViewModel.SelectedSeller, ItemId, (decimal)Price);
 
             _itemRepository.add(newItem);
 

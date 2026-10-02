@@ -11,16 +11,23 @@ namespace Projekt_Reolmarked.Model
 
         public List<Item> SoldItems { get; set; }
 
-        public int TotalPrice { get; set; }
+        public decimal TotalPrice
+        {
+            get
+            {
+                var ammount = ShoppingCart.Count;
+                return ShoppingCart.Sum(i => i.Price); 
+            }
+           
+        }
 
         public DateOnly SalesDate { get; set; } 
 
 
-        public Checkout(List<Item> kurv, List<Item> solgtevare,int totalprice)
+        public Checkout(List<Item> kurv, List<Item> solgtevare)
         {
             ShoppingCart = kurv;
             SoldItems = solgtevare;
-            TotalPrice = totalprice;
             SalesDate = new DateOnly();
 
         }
