@@ -130,10 +130,10 @@ namespace Projekt_Reolmarked.ViewModel
 
         public void RemoveUserFromShelf(ShelfObjectViewModel shelfVm)
         {
+            _shelfRepository.UpdateOwner(shelfVm.Id, null);
             if (shelfVm.Owner != null)
             {
                 shelfVm.Owner.OwnedShelves.Remove(shelfVm.Model);
-                
             }
 
             shelfVm.Owner = null;
