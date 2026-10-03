@@ -25,6 +25,7 @@ public class ItemRepository : IItemRepository
         };
 
         item.ItemId = connection.QuerySingle<int>(sql, values);
+        item.Barcode = item.ItemId.ToString("D8");
     }
 
     public List<Item> GetAll()

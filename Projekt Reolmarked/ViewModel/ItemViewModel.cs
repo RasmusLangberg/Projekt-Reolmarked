@@ -45,6 +45,13 @@ namespace Projekt_Reolmarked.ViewModel
 
 
             LoadItems();
+            
+        }
+        
+        public void MarkAsSold(Item item)
+        {
+            _itemRepository.MarkAsSold(item.ItemId);
+            Items.Remove(item);
         }
 
         private void AddItem()

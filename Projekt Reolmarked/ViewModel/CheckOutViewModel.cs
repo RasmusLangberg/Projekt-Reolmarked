@@ -48,21 +48,19 @@ namespace Projekt_Reolmarked
             if (ShoppingBasket.Count == 0)
             {
                 MessageBox.Show("Der er ingen varer i kurven");
+                return;
             }
 
             foreach (var item in ShoppingBasket)
             {
+                ItemViewModel.MarkAsSold(item);
                 SoldItems.Add(item);
-
             }
 
             ShoppingBasket.Clear();
-
             OnPropertyChanged(nameof(TotalPrice));
 
             MessageBox.Show("Købet er blevet godkendt");
-
-
         }
 
         public void ClearBasket()
