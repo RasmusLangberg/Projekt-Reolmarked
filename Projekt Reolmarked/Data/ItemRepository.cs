@@ -72,7 +72,14 @@ public class ItemRepository : IItemRepository
             """,
             new { ItemId = itemId });
     }
+    public void Delete(int itemId)
+    {
+        using var connection = Database.GetConnection();
 
+        connection.Execute(
+            "DELETE FROM dbo.Item WHERE ItemId = @ItemId",
+            new { ItemId = itemId });
+    }
     private class ItemRow
     {
         public int ItemId { get; set; }

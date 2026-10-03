@@ -77,19 +77,18 @@ namespace Projekt_Reolmarked.ViewModel
 
         public void RemoveItem()
         {
-            var item = SelectedItem;  
+            var item = SelectedItem;
 
-            if ( item != null)
+            if (item == null)
             {
-                Items.Remove(item);
-            }
-            else
-            {
-                MessageBox.Show("du skal vælge en vare og slette");
+                MessageBox.Show("Vælg først en vare.");
+                return;
             }
 
-
+            _itemRepository.Delete(item.ItemId);
+            Items.Remove(item);
         }
+        
 
 
         private BitmapSource _barcodeImage;
