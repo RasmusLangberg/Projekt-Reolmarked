@@ -12,7 +12,7 @@ public static class Database
             "User ID=reolmarkeddb;" +
             "Password=Gruppe6.;" +
             "Encrypt=True;" +
-            "TrustServerCertificate=False;"
+            "TrustServerCertificate=True;"
         );
     }
 }
