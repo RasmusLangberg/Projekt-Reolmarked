@@ -1,6 +1,7 @@
 ﻿using Projekt_Reolmarked.Data;
 using Projekt_Reolmarked.Model;
 using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Projekt_Reolmarked.ViewModel
@@ -45,21 +46,9 @@ namespace Projekt_Reolmarked.ViewModel
 
             ShowShelfInfoCommand = new RelayCommand(ShowShelfInfo);
 
-            AddUserToShelfCommand = new RelayCommand(parameter =>
-            {
-                if (SelectedShelf != null && _userViewModel.SelectedSeller != null)
-                {
-                    AddUserToShelf(_userViewModel.SelectedSeller, SelectedShelf);
-                }
-            });
+            AddUserToShelfCommand = new RelayCommand(parameter => AddUserToShelf(_userViewModel.SelectedSeller, SelectedShelf));
 
-            RemoveUserFromShelfCommand = new RelayCommand(parameter =>
-            {
-                if (SelectedShelf != null)
-                {
-                    RemoveUserFromShelf(SelectedShelf);
-                }
-            });
+            RemoveUserFromShelfCommand = new RelayCommand(parameter => RemoveUserFromShelf(SelectedShelf));
             
             LoadShelvesFromDatabase();
         }
@@ -91,31 +80,50 @@ namespace Projekt_Reolmarked.ViewModel
 
         public void AddUserToShelf(Seller seller, ShelfObjectViewModel shelfVm)
         {
-            if (shelfVm.ShelfStatus == EnumShelfStatus.Ledig)
+            if (SelectedShelf != null && _userViewModel.SelectedSeller != null && shelfVm.ShelfStatus == EnumShelfStatus.Ledig)
             {
-                _shelfRepository.UpdateOwner(shelfVm.Id, seller.Id);
+              
+                    _shelfRepository.UpdateOwner(shelfVm.Id, seller.Id);
 
-                shelfVm.Owner = seller;
-                shelfVm.ShelfStatus = EnumShelfStatus.Optaget;
+                    shelfVm.Owner = seller;
 
-                seller.OwnedShelves.Add(shelfVm.Model);
+                    shelfVm.ShelfStatus = EnumShelfStatus.Optaget;
 
-                ShowShelfInfo(shelfVm);
-            }
+                    seller.OwnedShelves.Add(shelfVm.Model);
+
+                    ShowShelfInfo(shelfVm);
+
+            } 
         }
 
         public void RemoveUserFromShelf(ShelfObjectViewModel shelfVm)
         {
-            _shelfRepository.UpdateOwner(shelfVm.Id, null);
-            if (shelfVm.Owner != null)
+            if (SelectedShelf != null && shelfVm.Owner != null)
             {
+               
+                _shelfRepository.UpdateOwner(shelfVm.Id, null);
+
                 shelfVm.Owner.OwnedShelves.Remove(shelfVm.Model);
+
+                shelfVm.Owner = null;
+
+                shelfVm.ShelfStatus = EnumShelfStatus.Ledig;
+
+            }
+            else 
+            { 
+            
+                MessageBox.Show("Ingen ejer tilknyttet hylden.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+
             }
 
-            shelfVm.Owner = null;
-            shelfVm.ShelfStatus = EnumShelfStatus.Ledig;
+
+            
+
+            
         }
 
     }
 }
 
+    
