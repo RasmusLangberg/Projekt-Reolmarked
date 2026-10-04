@@ -9,7 +9,7 @@ namespace Projekt_Reolmarked.ViewModel
     public class ShelfManagerViewModel : INotifyBase
     {
         private readonly IShelfRepository _shelfRepository = new ShelfRepository();
-        // i stedet for at ObservableCollection<Shelf>, så bruger vi nu ShelfObjectViewModel, som er en wrapper omkring Shelf, der gør det muligt at binde til UI'et. unden at skulle implementere INotifyPropertyChanged i Shelf-klassen. som virker forkert i forhold til MVVM-principperne.?!?
+        // i stedet for at ObservableCollection<Shelf>, så bruger vi nu ShelfObjectViewModel, som er en wrapper omkring Shelf, der gør det muligt at binde til UI'et. unden at skulle implementere INotifyPropertyChanged i Shelf-klassen. som virker forkert i forhold til MVVM-principperne.?!? kan en lære uddybe hvordan man på en smart måde ændre en objekt i wpfs imens programmet kører
         public ObservableCollection<ShelfObjectViewModel> Shelves { get; }
         private readonly SellerViewModel _userViewModel;
 
@@ -111,18 +111,10 @@ namespace Projekt_Reolmarked.ViewModel
 
             }
             else 
-            { 
-            
+            {
                 MessageBox.Show("Ingen ejer tilknyttet hylden.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
-
             }
-
-
-            
-
-            
         }
-
     }
 }
 
