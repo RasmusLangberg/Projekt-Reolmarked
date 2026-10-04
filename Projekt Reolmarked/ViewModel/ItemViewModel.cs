@@ -26,6 +26,7 @@ namespace Projekt_Reolmarked.ViewModel
 
         private int nextID = 1;
 
+
         public ICommand AddItemCommand { get; }
 
         public ICommand RemoveItemCommand { get; }
@@ -34,6 +35,7 @@ namespace Projekt_Reolmarked.ViewModel
 
         public ItemViewModel(SellerViewModel sellerViewModel)
         {
+           
             SellerViewModel = sellerViewModel;
 
             Items = new ObservableCollection<Item>();
@@ -41,8 +43,6 @@ namespace Projekt_Reolmarked.ViewModel
             AddItemCommand = new RelayCommand(parameter => AddItem());
 
             RemoveItemCommand = new RelayCommand(parameter => RemoveItem());
-
-
 
             LoadItems();
             

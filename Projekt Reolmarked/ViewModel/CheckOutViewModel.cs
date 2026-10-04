@@ -45,22 +45,25 @@ namespace Projekt_Reolmarked
 
         private void Checkout()
         {
-            if (ShoppingBasket.Count == 0)
+           
+            if (ShoppingBasket.Count != 0)
             {
-                MessageBox.Show("Der er ingen varer i kurven");
-                return;
-            }
+                
+                foreach (var item in ShoppingBasket)
+                {
+                    ItemViewModel.MarkAsSold(item);
+                    SoldItems.Add(item);
+                }
 
-            foreach (var item in ShoppingBasket)
+                ShoppingBasket.Clear();
+                OnPropertyChanged(nameof(TotalPrice));
+           
+            }
+            else
             {
-                ItemViewModel.MarkAsSold(item);
-                SoldItems.Add(item);
+                MessageBox.Show("Kurven er tom. Tilføj venligst varer til kurven, før du gennemfører købet.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            ShoppingBasket.Clear();
-            OnPropertyChanged(nameof(TotalPrice));
-
-            MessageBox.Show("Købet er blevet godkendt");
+       
         }
 
         public void ClearBasket()
@@ -70,11 +73,11 @@ namespace Projekt_Reolmarked
             {
                 ShoppingBasket.Clear();
                 OnPropertyChanged(nameof(TotalPrice));
-                MessageBox.Show("Kurven er blevet ryddet.");
+                MessageBox.Show("Kurven er blevet ryddet", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else if(ShoppingBasket.Count == 0)  
+            else  
             { 
-                MessageBox.Show("Kurven er allerede tom.");
+                MessageBox.Show("Kurven er allerede tom.", "Information", MessageBoxButton.OK );
                 
             }
         
@@ -90,9 +93,9 @@ namespace Projekt_Reolmarked
                 OnPropertyChanged(nameof(TotalPrice));
                 
             }
-            else if(item == null)
+            else
             {
-                MessageBox.Show("Ingen vare valgt");
+                MessageBox.Show("Ingen vare valgt", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         
         
