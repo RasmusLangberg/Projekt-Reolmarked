@@ -103,7 +103,7 @@ namespace Projekt_Reolmarked.ViewModel
         public void AddSeller()
         {
 
-            if (FirstName != null && LastName != null && Email != null && PhoneNumber != null)
+            if (FirstName != null && LastName != null && Email.Contains('@') && PhoneNumber.ToString().Length > 7)
             {
                 var seller = new Seller(Sellers.Count + 1, FirstName, LastName, Email, PhoneNumber);
 
@@ -113,7 +113,7 @@ namespace Projekt_Reolmarked.ViewModel
             }
             else
             {
-                MessageBox.Show("Udfyld venligst alle felter.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Udfyld venligst alle felter korrekt.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }
