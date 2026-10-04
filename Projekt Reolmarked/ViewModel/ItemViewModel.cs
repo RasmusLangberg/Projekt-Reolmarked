@@ -78,22 +78,19 @@ namespace Projekt_Reolmarked.ViewModel
             {
                 MessageBox.Show("Udfyld venligst alle felter korrekt.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            
         }
 
         public void RemoveItem()
         {
-            var item = SelectedItem;
-
-            if (item == null)
+            if (SelectedItem != null) 
             {
-                MessageBox.Show("Vælg først en vare.");
-                return;
+                _itemRepository.Delete(SelectedItem.ItemId);
+                Items.Remove(SelectedItem);
             }
-
-            _itemRepository.Delete(item.ItemId);
-            Items.Remove(item);
+            else
+            {
+                MessageBox.Show("Vælg først en vare.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+            }       
         }
         
 

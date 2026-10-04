@@ -120,8 +120,6 @@ namespace Projekt_Reolmarked.ViewModel
                 {
                     shelf.Owner = null;
                     shelf.ShelfStatus = EnumShelfStatus.Ledig;
-
-
                 }
 
                 Sellers.Remove(SelectedSeller);
