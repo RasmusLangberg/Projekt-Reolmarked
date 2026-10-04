@@ -94,6 +94,14 @@ namespace Projekt_Reolmarked.ViewModel
                     ShowShelfInfo(shelfVm);
 
             } 
+            else if (shelfVm.ShelfStatus == EnumShelfStatus.Optaget)
+            {
+                MessageBox.Show("Hylden er allerede optaget.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                MessageBox.Show("Ingen ejer valgt.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public void RemoveUserFromShelf(ShelfObjectViewModel shelfVm)
