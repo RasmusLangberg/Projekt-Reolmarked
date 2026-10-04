@@ -7,6 +7,7 @@ using Projekt_Reolmarked.ViewModel;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Input;
+using System.Windows;
 
 
 namespace Projekt_Reolmarked.ViewModel
@@ -111,37 +112,28 @@ namespace Projekt_Reolmarked.ViewModel
 
         public void RemoveSeller()
         {
-            if (SelectedSeller == null)
+            if (SelectedSeller != null)
             {
-                return;
-            }
-            _sellerRepository.Delete(SelectedSeller.Id);
-            
-            
-            foreach (var shelf in SelectedSeller.OwnedShelves.ToList())
-            {
-                shelf.Owner = null;
-                shelf.ShelfStatus = EnumShelfStatus.Ledig;
-            }
+                _sellerRepository.Delete(SelectedSeller.Id);
 
-            Sellers.Remove(SelectedSeller);
-            SelectedSeller = null;
+                foreach (var shelf in SelectedSeller.OwnedShelves.ToList())
+                {
+                    shelf.Owner = null;
+                    shelf.ShelfStatus = EnumShelfStatus.Ledig;
+
+
+                }
+
+                Sellers.Remove(SelectedSeller);
+                SelectedSeller = null;
+
+            }
+            else 
+            { 
+                MessageBox.Show("Ingen sælger valgt.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+            }  
         }
 
-
-        public void FakeUsers()
-        {
-            var user1 = new Seller(1, "Marie Neega", "Langberg Zarabi", "MNLZ@Proton.com", 70241207);
-            var user2 = new Seller(2, "John Doe", "Smith", "JOHN@Proton.com", 12345678);
-            var user3 = new Seller(3, "Jane Doe", "Johnson", "JANE@Proton.com", 87654321);
-            var user4 = new Seller(4, "Bob Smith", "Williams", "BOB@Proton.com", 11223344);
-            Sellers.Add(user1);
-            Sellers.Add(user2);
-            Sellers.Add(user3);
-            Sellers.Add(user4);
-        }
-        
-       
         public void LoadUsersFromDatabase()
         {
             foreach (var user in _sellerRepository.GetAll())
