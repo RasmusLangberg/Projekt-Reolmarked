@@ -87,30 +87,6 @@ namespace Projekt_Reolmarked.ViewModel
             }
         }
 
-// Generateshelf erstattet med loadfromdatabase, kaldes ikkke kan slettes
-        public void GenerateShelfs()
-        {
-            for (int i = 1; i <= 80; i++)
-            {
-                if (i % 3 == 0)
-                {
-                    var shelfModel = new Shelf(i, null, EnumShelfType.HylderOgBøjleStang, 0, EnumShelfStatus.Ledig);
-                    Shelves.Add(new ShelfObjectViewModel(shelfModel));
-                }
-                else
-                {
-                    var shelfModel = new Shelf(i, null, EnumShelfType.Hylder, 0, EnumShelfStatus.Ledig);
-                    Shelves.Add(new ShelfObjectViewModel(shelfModel));
-                }
-            }
-        }
-
-        public static int Bergnpris(int antal)
-        {
-            if (antal == 1) return 850;
-            if (antal == 2 || antal == 3) return 825 * antal;
-            return 800 * antal;
-        }
 
 
         public void AddUserToShelf(Seller seller, ShelfObjectViewModel shelfVm)
