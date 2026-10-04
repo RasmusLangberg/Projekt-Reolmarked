@@ -56,23 +56,30 @@ namespace Projekt_Reolmarked.ViewModel
 
         private void AddItem()
         {
-            var ItemId = GenerateID();
+            if(Name != null && Price > 0 && SellerViewModel.SelectedSeller != null)
+            {
 
-            Item newItem = new( Name, SellerViewModel.SelectedSeller, ItemId, (decimal)Price);
+                var ItemId = GenerateID();
 
-            _itemRepository.add(newItem);
+                Item newItem = new(Name, SellerViewModel.SelectedSeller, ItemId, (decimal)Price);
 
-            Items.Add(newItem);
+                _itemRepository.add(newItem);
 
-            //barcodes
+                Items.Add(newItem);
 
-            var barcode = BarcodeGenerator.GenerateBarcode(newItem.Barcode);
+                //barcodes
 
-            BarcodeImage = Imaging.CreateBitmapSourceFromHBitmap(barcode.GetHbitmap(), IntPtr.Zero, System.Windows.Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                var barcode = BarcodeGenerator.GenerateBarcode(newItem.Barcode);
 
+                BarcodeImage = Imaging.CreateBitmapSourceFromHBitmap(barcode.GetHbitmap(), IntPtr.Zero, System.Windows.Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
 
+            }
+            else
+            {
+                MessageBox.Show("Udfyld venligst alle felter korrekt.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
-            MessageBox.Show($"Item '{newItem.Name}' added successfully with ID: {newItem.ItemId}");
+            
         }
 
         public void RemoveItem()
