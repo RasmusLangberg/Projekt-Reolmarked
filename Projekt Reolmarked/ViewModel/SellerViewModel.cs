@@ -102,11 +102,19 @@ namespace Projekt_Reolmarked.ViewModel
 
         public void AddSeller()
         {
-            var seller = new Seller(Sellers.Count + 1, FirstName, LastName, Email, PhoneNumber);
-         
-            _sellerRepository.Add(seller);
-            
-            Sellers.Add(seller);
+
+            if (FirstName != null && LastName != null && Email != null && PhoneNumber != null)
+            {
+                var seller = new Seller(Sellers.Count + 1, FirstName, LastName, Email, PhoneNumber);
+
+                _sellerRepository.Add(seller);
+
+                Sellers.Add(seller);
+            }
+            else
+            {
+                MessageBox.Show("Udfyld venligst alle felter.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
         }
 
