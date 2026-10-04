@@ -15,7 +15,6 @@ namespace Projekt_Reolmarked.Model
         {
             get
             {
-                var ammount = ShoppingCart.Count;
                 return ShoppingCart.Sum(i => i.Price); 
             }
            
