@@ -49,6 +49,8 @@ namespace Projekt_Reolmarked
             if (ShoppingBasket.Count != 0)
             {
                 
+                ShoppingBasket.ToList().ForEach(item => item.Seller.MonthlyEarnings.Add(item.Price));
+
                 foreach (var item in ShoppingBasket)
                 {
                     ItemViewModel.MarkAsSold(item);

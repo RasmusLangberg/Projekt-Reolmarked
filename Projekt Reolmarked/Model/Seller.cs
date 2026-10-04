@@ -19,6 +19,9 @@ namespace Projekt_Reolmarked.Model
 
         public List<Shelf> OwnedShelves { get; set; } = new List<Shelf>();
 
+        public List<decimal> MonthlyEarnings { get; set; } = new List<decimal>();
+
+
         public int MonthlyPayment
         {
             get
