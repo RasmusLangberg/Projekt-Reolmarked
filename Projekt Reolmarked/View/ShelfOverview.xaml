@@ -227,6 +227,8 @@
                    StringFormat=Hyldetype: {0}}" FontSize="18" FontWeight="Bold" Margin="5"/>
 
                     <TextBlock Text="{Binding ShelfManagerViewModel.SelectedShelfStatus, StringFormat=Tilgængelighed: {0}}" FontSize="18" FontWeight="Bold"  Margin="5"/>
+                    <TextBlock Text="{Binding ShelfManagerViewModel.SelectedShelfCancellationDate, StringFormat=Opsagt: {0:dd-MM-yyyy}}" FontSize="18" FontWeight="Bold" Margin="5"/>
+                    <TextBlock Text="{Binding ShelfManagerViewModel.SelectedShelfCancellationEffectiveDate, StringFormat=Ledig fra: {0:dd-MM-yyyy}}" FontSize="18" FontWeight="Bold" Margin="5"/>
 
                 </StackPanel>
 

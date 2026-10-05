@@ -25,6 +25,12 @@ namespace Projekt_Reolmarked.ViewModel
         public string SelectedShelfOwnerName => SelectedShelf?.OwnerName;
         public EnumShelfStatus SelectedShelfStatus => SelectedShelf?.ShelfStatus ?? default;
 
+        public DateTime? SelectedShelfCancellationDate =>
+        SelectedShelf?.Model.CancellationDate;
+
+        public DateTime? SelectedShelfCancellationEffectiveDate =>
+            SelectedShelf?.Model.CancellationEffectiveDate;
+
         private ShelfObjectViewModel _selectedShelf;
 
         public ShelfObjectViewModel SelectedShelf
@@ -37,6 +43,8 @@ namespace Projekt_Reolmarked.ViewModel
                 OnPropertyChanged(nameof(SelectedShelfType));
                 OnPropertyChanged(nameof(SelectedShelfOwnerName));
                 OnPropertyChanged(nameof(SelectedShelfStatus));
+                OnPropertyChanged(nameof(SelectedShelfCancellationDate));
+                OnPropertyChanged(nameof(SelectedShelfCancellationEffectiveDate));
             }
         }
 
@@ -146,6 +154,11 @@ namespace Projekt_Reolmarked.ViewModel
                     shelfVm.Id,
                     shelfVm.Model.CancellationDate,
                     shelfVm.Model.CancellationEffectiveDate);
+                MessageBox.Show(
+                    $"Reolen er opsagt. Den bliver ledig fra {shelfVm.Model.CancellationEffectiveDate:dd-MM-yyyy}.",
+                    "Reol opsagt",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
 
 
             }
