@@ -1,4 +1,5 @@
-﻿using Projekt_Reolmarked.Data;
+﻿using Microsoft.Identity.Client;
+using Projekt_Reolmarked.Data;
 using Projekt_Reolmarked.Model;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -17,6 +18,7 @@ namespace Projekt_Reolmarked.ViewModel
         public ICommand ShowShelfInfoCommand { get; }
         public ICommand AddUserToShelfCommand { get; }
         public ICommand RemoveUserFromShelfCommand { get; }
+        public ICommand CancelShelfCommand { get; }
 
 
         public EnumShelfType SelectedShelfType => SelectedShelf?.ShelfType ?? default;
@@ -49,7 +51,9 @@ namespace Projekt_Reolmarked.ViewModel
             AddUserToShelfCommand = new RelayCommand(parameter => AddUserToShelf(_userViewModel.SelectedSeller, SelectedShelf));
 
             RemoveUserFromShelfCommand = new RelayCommand(parameter => RemoveUserFromShelf(SelectedShelf));
-            
+
+            CancelShelfCommand = new RelayCommand(parameter => CancelShelf(SelectedShelf));
+
             LoadShelvesFromDatabase();
         }
 
@@ -108,7 +112,7 @@ namespace Projekt_Reolmarked.ViewModel
         {
             if (SelectedShelf != null && shelfVm.Owner != null)
             {
-               
+
                 _shelfRepository.UpdateOwner(shelfVm.Id, null);
 
                 shelfVm.Owner.OwnedShelves.Remove(shelfVm.Model);
@@ -118,11 +122,43 @@ namespace Projekt_Reolmarked.ViewModel
                 shelfVm.ShelfStatus = EnumShelfStatus.Ledig;
 
             }
-            else 
+            else
             {
                 MessageBox.Show("Ingen ejer tilknyttet hylden.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+
+           public void CancelShelf(ShelfObjectViewModel shelfVm)
+        {
+            if (SelectedShelf != null && shelfVm.Owner != null)
+            {
+                DateTime cancellationDate = DateTime.Now;
+                shelfVm.Model.CancellationDate = DateTime.Now;
+                if (cancellationDate.Day < 20)
+                {
+                    shelfVm.Model.CancellationEffectiveDate = new DateTime(
+                        cancellationDate.Year, 
+                        cancellationDate.Month,
+                        1).AddMonths(1);
+                }
+                _shelfRepository.UpdateCancellation(
+                    shelfVm.Id,
+                    shelfVm.Model.CancellationDate,
+                    shelfVm.Model.CancellationEffectiveDate);
+
+
+            }
+            else
+            {
+                MessageBox.Show("Ingen ejer tilknyttet reolen.", 
+                    "Fejl",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+        }
+        
+        
     }
 }
 

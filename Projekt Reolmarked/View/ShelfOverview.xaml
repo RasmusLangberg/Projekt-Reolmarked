@@ -248,6 +248,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
@@ -260,6 +261,12 @@
 
                 <Button Grid.Row="2" Grid.ColumnSpan="2" Command="{Binding ShelfManagerViewModel.AddUserToShelfCommand}" Content="Tilføj Lejer til Reol" HorizontalAlignment="Center" Margin="5" />
                 <Button Grid.Row="3" Grid.ColumnSpan="2" Command="{Binding ShelfManagerViewModel.RemoveUserFromShelfCommand}" Content="Fjern Lejer fra Reol" HorizontalAlignment="Center" Margin="5" />
+                <Button Grid.Row="4"
+                        Grid.ColumnSpan="2"
+                        Command="{Binding ShelfManagerViewModel.CancelShelfCommand}"
+                        Content="Opsig Reol"
+                        HorizontalAlignment="Center"
+                        Margin="5"/>
 
 
             </Grid>

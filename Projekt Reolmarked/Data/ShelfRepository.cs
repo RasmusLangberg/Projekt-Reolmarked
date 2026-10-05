@@ -11,7 +11,7 @@ public class ShelfRepository : IShelfRepository
 
         var rows = connection.Query<ShelfRow>(
             """
-            SELECT ID, OwnerID, ShelfType, ShelfStatus, ShelfPrice
+            SELECT ID, OwnerID, ShelfType, ShelfStatus, ShelfPrice,CancellationDate, CancellationEffectiveDate
             FROM dbo.Shelf
             ORDER BY ID
             """);
@@ -29,6 +29,10 @@ public class ShelfRepository : IShelfRepository
                 (EnumShelfType)row.ShelfType,
                 row.ShelfPrice,
                 (EnumShelfStatus)row.ShelfStatus);
+            shelf.CancellationDate = row.CancellationDate;
+            shelf.CancellationEffectiveDate = row.CancellationEffectiveDate;
+
+
 
             shelves.Add(shelf);
         }
@@ -53,6 +57,24 @@ public class ShelfRepository : IShelfRepository
             new { ShelfID = shelfId, OwnerID = ownerId });
     }
 
+    public void UpdateCancellation(int shelfId, DateTime? cancellationDate, DateTime? cancellationEffectiveDate)
+    {
+        using var connection = Database.GetConnection();
+
+        connection.Execute(
+            """
+UPDATE dbo.Shelf
+SET CancellationDate = @CancellationDate, CancellationEffectiveDate = @CancellationEffectiveDate
+WHERE ID = @ShelfID
+""",
+           new
+           {
+               ShelfID = shelfId,
+               CancellationDate = cancellationDate,
+               CancellationEffectiveDate = cancellationEffectiveDate
+           });
+    }
+
     private class ShelfRow
     {
         public int ID { get; set; }
@@ -60,5 +82,8 @@ public class ShelfRepository : IShelfRepository
         public int ShelfType { get; set; }
         public int ShelfStatus { get; set; }
         public int ShelfPrice { get; set; }
+
+        public DateTime? CancellationDate { get; set; }
+        public DateTime? CancellationEffectiveDate {  get; set; }
     }
 }

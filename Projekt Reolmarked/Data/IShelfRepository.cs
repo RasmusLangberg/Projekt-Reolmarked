@@ -6,4 +6,5 @@ public interface IShelfRepository
 {
     List<Shelf> GetAll(IEnumerable<Seller> users);
     void UpdateOwner(int shelfId, int? ownerId);
+    void UpdateCancellation(int shelfId, DateTime? cancellationDate, DateTime? cancellationEffectiveDate);
 }

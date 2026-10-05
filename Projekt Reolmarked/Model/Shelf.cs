@@ -8,6 +8,8 @@
         public EnumShelfType ShelfType { get; set; }
         public int ShelfPrice = 850;
         public EnumShelfStatus ShelfStatus { get; set; }
+        public DateTime? CancellationDate { get; set; }
+        public DateTime? CancellationEffectiveDate { get; set; }
 
         public Shelf(int id, Seller? owner, EnumShelfType shelfType, int shelfPrice, EnumShelfStatus shelfStatus)
         {
