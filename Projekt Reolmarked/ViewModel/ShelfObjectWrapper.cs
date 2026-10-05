@@ -24,6 +24,8 @@ namespace Projekt_Reolmarked.ViewModel
         public int Id => Model.Id;
         public EnumShelfType ShelfType => Model.ShelfType;
 
+        public bool IsCancelled => Model.CancellationDate != null;
+
 
         
 

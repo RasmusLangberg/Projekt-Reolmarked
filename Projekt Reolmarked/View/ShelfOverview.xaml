@@ -25,11 +25,19 @@
         <Grid.Resources>
             <Style x:Key="RedOrGreenButtonStyle" TargetType="{x:Type Button}">
                 <Setter Property="Background" Value="Green"/>
+
                 <Style.Triggers>
+
                     <DataTrigger Binding="{Binding CommandParameter.ShelfStatus, RelativeSource={RelativeSource Self}}" Value="Optaget">
                         <Setter Property="Background" Value="Red"/>
                     </DataTrigger>
+
+                    <DataTrigger Binding="{Binding CommandParameter.IsCancelled, RelativeSource={RelativeSource Self}}" Value="True">
+                        <Setter Property="Background" Value="Orange"/>
+                    </DataTrigger>
+
                 </Style.Triggers>
+            
             </Style>
         </Grid.Resources>
 
