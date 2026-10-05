@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekt_Reolmarked.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -13,14 +14,13 @@ using System.Windows.Shapes;
 
 namespace Projekt_Reolmarked.View
 {
-    /// <summary>
-    /// Interaction logic for MonthlySettlement.xaml
-    /// </summary>
+   
     public partial class MonthlySettlement : Page
     {
-        public MonthlySettlement()
+        public MonthlySettlement(MainViewModel viewModel)
         {
             InitializeComponent();
+            DataContext = viewModel;
         }
     }
 }

@@ -57,7 +57,7 @@ namespace Projekt_Reolmarked
             HomePageGrid.Visibility = Visibility.Collapsed;
             MainFrame.Visibility = Visibility.Visible;
 
-            MainFrame.Navigate(new MonthlySettlement());
+            MainFrame.Navigate(new MonthlySettlement(viewModel));
         }
     }
 }

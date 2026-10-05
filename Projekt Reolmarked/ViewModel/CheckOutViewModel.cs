@@ -50,6 +50,8 @@ namespace Projekt_Reolmarked
             {
                 
                 ShoppingBasket.ToList().ForEach(item => item.Seller.MonthlyEarnings.Add(item.Price));
+                
+                
 
                 foreach (var item in ShoppingBasket)
                 {

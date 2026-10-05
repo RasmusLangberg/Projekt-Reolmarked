@@ -35,6 +35,7 @@ namespace Projekt_Reolmarked.ViewModel
         public ICommand ShelfOverviewCommand {  get; }
         public ICommand BackButtonCommand { get; }
         public ICommand MonthlySettlementCommand { get; }
+        public MonthlySettlementViewModel MonthlySettlementViewModel {  get; }
 
 
 
@@ -50,6 +51,8 @@ namespace Projekt_Reolmarked.ViewModel
             ShelfManagerViewModel = new ShelfManagerViewModel(SellerViewModel);
 
             CheckOutViewModel = new CheckOutViewModel(ItemViewModel);
+
+            MonthlySettlementViewModel = new MonthlySettlementViewModel();
 
             OpenCheckoutCommand = new RelayCommand(OpenCheckOut);
             OpenCreateItemCommand = new RelayCommand(OpenCreateItem);
