@@ -27,6 +27,7 @@ namespace Projekt_Reolmarked
             viewModel.OpenSellerOverview += OpenSellerOverview;
             viewModel.OpenHomePage += OpenHomePage;
             viewModel.OpenShelfOverview += OpenShelfOverview;
+            viewModel.OpenMonthlySettlement += OpenMonthlySettlement;
         }
 
         private void OpenSellerOverview()
@@ -49,6 +50,14 @@ namespace Projekt_Reolmarked
             MainFrame.Visibility = Visibility.Visible;
 
             MainFrame.Navigate(new ShelfOverview(viewModel));
+        }
+
+        private void OpenMonthlySettlement()
+        {
+            HomePageGrid.Visibility = Visibility.Collapsed;
+            MainFrame.Visibility = Visibility.Visible;
+
+            MainFrame.Navigate(new MonthlySettlement());
         }
     }
 }

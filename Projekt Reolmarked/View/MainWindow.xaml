@@ -22,6 +22,7 @@
 
             <Button Content="Reol oversigt" Command="{Binding ShelfOverviewCommand}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,436,0,0" Height="71" Width="236"/>
             <Button Content="Sælg vare" Command="{Binding OpenCheckoutCommand}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,533,0,0" Height="71" Width="236"/>
+            <Button Content="Månedsopgørelse" Command="{Binding MonthlySettlementCommand}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,630,0,0" Height="71" Width="236"/>
 
         </Grid>
 

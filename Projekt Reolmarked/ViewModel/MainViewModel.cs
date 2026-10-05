@@ -25,6 +25,7 @@ namespace Projekt_Reolmarked.ViewModel
         public event Action OpenSellerOverview;
         public event Action OpenHomePage;
         public event Action OpenShelfOverview;
+        public event Action OpenMonthlySettlement;
 
 
 
@@ -33,6 +34,7 @@ namespace Projekt_Reolmarked.ViewModel
         public ICommand SellerOverviewCommand { get; }
         public ICommand ShelfOverviewCommand {  get; }
         public ICommand BackButtonCommand { get; }
+        public ICommand MonthlySettlementCommand { get; }
 
 
 
@@ -56,6 +58,7 @@ namespace Projekt_Reolmarked.ViewModel
             ShelfOverviewCommand = new RelayCommand(OpenShelfOverviewPage);
 
             BackButtonCommand = new RelayCommand(GoHome);
+            MonthlySettlementCommand = new RelayCommand(OpenMonthlySettlementPage);
 
 
         }
@@ -87,6 +90,11 @@ namespace Projekt_Reolmarked.ViewModel
         private void GoHome(object parameter)
         {
             OpenHomePage?.Invoke();
+        }
+        
+        private void OpenMonthlySettlementPage(object parameter)
+        {
+            OpenMonthlySettlement?.Invoke();
         }
 
 
