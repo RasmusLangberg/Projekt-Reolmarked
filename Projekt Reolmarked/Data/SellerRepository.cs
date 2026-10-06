@@ -11,7 +11,7 @@ public class SellerRepository : ISellerRepository
 
        
         var rows = connection.Query<SellerRow>(
-            "SELECT ID, FirstName, LastName, Email, PhoneNumber, MonthlyPayment FROM [Seller]");
+            "SELECT ID, FirstName, LastName, Email, PhoneNumber, MonthlyPayment FROM [Seller] WHERE IsActive = 1");
         
 
         return rows.Select(row => new Seller(
@@ -50,7 +50,8 @@ public class SellerRepository : ISellerRepository
                 ShelfStatus = 1
             WHERE OwnerID = @Id;
 
-            DELETE FROM [Seller]
+            UPDATE [Seller]
+            SET IsActive = 0
             WHERE ID = @Id;
             """,
             new { Id = id });
