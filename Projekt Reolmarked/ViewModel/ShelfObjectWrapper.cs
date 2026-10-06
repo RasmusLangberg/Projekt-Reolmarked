@@ -20,11 +20,21 @@ namespace Projekt_Reolmarked.ViewModel
         {
             Model = shelf;
         }
+        public void UpdateCancellationStatus()
+        {
+            OnPropertyChanged(nameof(IsCancelled));
+        }
 
         public int Id => Model.Id;
         public EnumShelfType ShelfType => Model.ShelfType;
 
-        public bool IsCancelled => Model.CancellationDate != null;
+        public bool IsCancelled
+        {
+            get
+            {
+                return Model.CancellationDate != null;  
+            }
+        }
 
 
         

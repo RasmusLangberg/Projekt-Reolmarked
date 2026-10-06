@@ -143,6 +143,8 @@ namespace Projekt_Reolmarked.ViewModel
             {
                 DateTime cancellationDate = DateTime.Now;
                 shelfVm.Model.CancellationDate = DateTime.Now;
+                shelfVm.UpdateCancellationStatus();
+               
                 if (cancellationDate.Day < 20)
                 {
                     shelfVm.Model.CancellationEffectiveDate = new DateTime(
