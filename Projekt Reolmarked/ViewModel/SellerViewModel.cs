@@ -103,7 +103,7 @@ namespace Projekt_Reolmarked.ViewModel
         public void AddSeller()
         {
 
-            if (FirstName != null && LastName != null && Email.Contains('@') && PhoneNumber.ToString().Length > 7)
+            if (FirstName != null && LastName != null && Email.Contains('@') && PhoneNumber.ToString().Length == 7)
             {
                 var seller = new Seller(Sellers.Count + 1, FirstName, LastName, Email, PhoneNumber);
 
