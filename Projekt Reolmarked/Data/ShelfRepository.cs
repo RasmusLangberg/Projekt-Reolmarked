@@ -48,7 +48,21 @@ public class ShelfRepository : IShelfRepository
                     WHEN @OwnerID IS NULL THEN 1
                     ELSE 2
                 END
-            WHERE ID = @ShelfID
+            WHERE ID = @ShelfID;
+
+            UPDATE seller
+            SET MonthlyPayment = CASE
+                WHEN antal.Reoler = 0 THEN 0
+                WHEN antal.Reoler = 1 THEN 850
+                WHEN antal.Reoler <= 3 THEN antal.Reoler * 825
+                ELSE antal.Reoler * 800
+            END
+            FROM dbo.Seller AS seller
+            CROSS APPLY (
+                SELECT COUNT(*) AS Reoler
+                FROM dbo.Shelf
+                WHERE OwnerID = seller.ID
+            ) AS antal;
             """,
             new { ShelfID = shelfId, OwnerID = ownerId });
     }
