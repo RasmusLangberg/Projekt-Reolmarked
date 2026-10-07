@@ -15,7 +15,7 @@ namespace Projekt_Reolmarked.ViewModel
                 _selectedSeller = value;
                 OnPropertyChanged(nameof(SelectedSeller));
                 OnPropertyChanged(nameof(TotalSales));
-                OnPropertyChanged(nameof(Comission));
+                OnPropertyChanged(nameof(Commission));
                 OnPropertyChanged(nameof(MonthlyRent));
                 OnPropertyChanged(nameof(Payout));
                 OnPropertyChanged(nameof(AmountOwed));
@@ -36,7 +36,7 @@ namespace Projekt_Reolmarked.ViewModel
             }
         }
 
-        public decimal Comission
+        public decimal Commission
         {
             get
             {
@@ -81,7 +81,7 @@ namespace Projekt_Reolmarked.ViewModel
         {
             get
             {
-                return TotalSales - Comission - MonthlyRent;
+                return TotalSales - Commission - MonthlyRent;
             }
         }
 

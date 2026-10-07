@@ -101,11 +101,7 @@
             <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Gem sælger" Width="120" Command="{Binding SellerViewModel.AddSellerCommand}"/>
             <Button Grid.Row="8" Grid.ColumnSpan="2" Content="Slet sælger" Width="120" Command="{Binding SellerViewModel.RemoveSellerCommand}"/>
 
-            <Button Grid.Row="8"
-            Grid.ColumnSpan="2"
-            Content="Slet sælger"
-            Width="120"
-            Command="{Binding SellerViewModel.RemoveSellerCommand}"/>
+      
 
         </Grid>
 
