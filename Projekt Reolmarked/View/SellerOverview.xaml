@@ -44,7 +44,7 @@
                             <TextBlock Text="{Binding PhoneNumber, StringFormat=Tlf.Nr.: {0}}"  FontSize="15"/>
                             <TextBlock Text="{Binding OwnedShelves.Count, StringFormat= Antal lejet Reoler: {0}}" FontSize="15" />
                             <TextBlock Text="{Binding MonthlyPayment, StringFormat=Månedpris: {0} kr}" FontSize="15"/>
-                            <TextBlock Text="{Binding MonthlyEarnings, StringFormat=Indtægt denne måned: {0} kr}" FontSize="15" />
+                            <TextBlock Text="{Binding TotalMonthlyEarnings, StringFormat=Indtægt denne måned: {0} kr}" FontSize="15"/>
 
                     </StackPanel>
 
@@ -99,6 +99,7 @@
 
             <!-- button "gem sælger" -->
             <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Gem sælger" Width="120" Command="{Binding SellerViewModel.AddSellerCommand}"/>
+            <Button Grid.Row="8" Grid.ColumnSpan="2" Content="Slet sælger" Width="120" Command="{Binding SellerViewModel.RemoveSellerCommand}"/>
 
             <Button Grid.Row="8"
             Grid.ColumnSpan="2"

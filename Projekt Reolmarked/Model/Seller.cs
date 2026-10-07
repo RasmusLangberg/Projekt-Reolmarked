@@ -21,7 +21,8 @@ namespace Projekt_Reolmarked.Model
 
         public List<decimal> MonthlyEarnings { get; set; } = new List<decimal>();
 
-
+        public decimal TotalMonthlyEarnings => MonthlyEarnings.Sum();
+        
         public int MonthlyPayment
         {
             get
