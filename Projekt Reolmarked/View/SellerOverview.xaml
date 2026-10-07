@@ -44,7 +44,7 @@
                             <TextBlock Text="{Binding PhoneNumber, StringFormat=Tlf.Nr.: {0}}"  FontSize="15"/>
                             <TextBlock Text="{Binding OwnedShelves.Count, StringFormat= Antal lejet Reoler: {0}}" FontSize="15" />
                             <TextBlock Text="{Binding MonthlyPayment, StringFormat=Månedpris: {0} kr}" FontSize="15"/>
-                            <TextBlock Text="{Binding MonthlyEarnings, StringFormat=Indtægt denne måned: {0} kr}" FontSize="15" />
+                            <TextBlock Text="{Binding TotalMonthlyEarnings, StringFormat=Indtægt denne måned: {0} kr}" FontSize="15"/>
 
                     </StackPanel>
 
