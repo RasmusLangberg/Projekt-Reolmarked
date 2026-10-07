@@ -35,11 +35,13 @@ public class ItemRepository : IItemRepository
         var sellers = new SellerRepository().GetAll();
 
         var rows = connection.Query<ItemRow>(
-            """
-            SELECT ItemId, SellerId, Name, Price
-            FROM dbo.Item
-            WHERE IsSold = 0
-            """);
+        """
+        SELECT ItemId, SellerId, Name, Price
+        FROM dbo.Item
+        INNER JOIN dbo.Seller ON dbo.Item.SellerId = dbo.Seller.ID
+        WHERE IsSold = 0
+        AND dbo.Seller.IsActive = 1
+        """);
 
         var items = new List<Item>();
 

@@ -52,7 +52,28 @@ namespace Projekt_Reolmarked.ViewModel
                     return 0;
                 }
 
-                return SelectedSeller.MonthlyPayment;
+                DateTime firstDayOfNextMonth =
+                    new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1);
+                int numberOfShelves = SelectedSeller.OwnedShelves.Count(shelf =>
+                shelf.CancellationEffectiveDate == null ||
+                shelf.CancellationEffectiveDate < firstDayOfNextMonth);
+
+                if (numberOfShelves == 0)
+                {
+                    return 0;
+                }
+                else if (numberOfShelves == 1)
+                {
+                    return 850;
+                }
+                else if (numberOfShelves >= 3)
+                {
+                    return 825 * numberOfShelves;
+                }
+                else
+                {
+                    return 800 * numberOfShelves;
+                }
             }
         }
 
