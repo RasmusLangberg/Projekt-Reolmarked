@@ -66,7 +66,7 @@ namespace Projekt_Reolmarked.ViewModel
                 {
                     return 850;
                 }
-                else if (numberOfShelves >= 3)
+                else if (numberOfShelves <= 3)
                 {
                     return 825 * numberOfShelves;
                 }
